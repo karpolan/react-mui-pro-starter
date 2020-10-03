@@ -1,7 +1,22 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "description": "React + Material UI all in once starter",
+  "author": "Anton Karpenko <i@karpoan.com> (https://karpolan.com)",
+  "keywords": [
+    "react",
+    "mui",
+    "material",
+    "material ui",
+    "starter",
+    "react stater",
+    "create react app",
+    "create react app mui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karpolan/react-mui-pro-starter"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
