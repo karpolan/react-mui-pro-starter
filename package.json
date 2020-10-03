@@ -1,6 +1,6 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "React + Material UI all in once starter",
   "author": "Anton Karpenko <i@karpoan.com> (https://karpolan.com)",
   "keywords": [
@@ -24,6 +24,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
