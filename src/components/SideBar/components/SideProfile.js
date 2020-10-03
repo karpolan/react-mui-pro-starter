@@ -41,7 +41,7 @@ const SideProfile = ({currentUser, showAvatar = false, className, ...props}) => 
         />
       ) : null}
       <Typography className={classes.name} variant="h6">
-        {Boolean(currentUser?.name) ? currentUser?.name : 'Guess who?'}
+        {Boolean(currentUser?.name) ? currentUser?.name : 'Who is it?'}
       </Typography>
       <Typography variant="body2">{currentUser?.email}</Typography>
     </div>

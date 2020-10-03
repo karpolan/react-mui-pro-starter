@@ -12,7 +12,7 @@ export function localStorageGet(name, defaultValue = '') {
     }
   } catch (error) {}
 
-  return valueFromStore; // Return string value as is
+  return valueFromStore; // Return string value as it is
 }
 
 /**
@@ -23,6 +23,5 @@ export function localStorageSet(name, value) {
   if (typeof value === 'object') {
     valueAsString = JSON.stringify(value);
   }
-  console.log('valueAsString:', valueAsString, typeof valueAsString);
   localStorage.setItem(name, valueAsString);
 }

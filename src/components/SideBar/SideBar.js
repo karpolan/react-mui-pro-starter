@@ -49,9 +49,8 @@ const useStyles = makeStyles((theme) => ({
  */
 const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...props}) => {
   const [showIcons, setShowIcons] = useState(localStorageGet('sideBarIcons', true));
-
   const classes = useStyles();
-  const stylesOverride = {
+  const drawerClasses = {
     // See: https://material-ui.com/api/drawer/#css
     paper: classes.paperInDrawer,
   };
@@ -65,7 +64,7 @@ const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...p
   };
 
   return (
-    <Drawer anchor="left" classes={stylesOverride} onClose={onClose} open={open} variant={variant}>
+    <Drawer anchor="left" classes={drawerClasses} onClose={onClose} open={open} variant={variant}>
       <div {...props} className={clsx(classes.root, className)}>
         <SideProfile className={classes.profile} currentUser={currentUser} showAvatar />
         <Divider />

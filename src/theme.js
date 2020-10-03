@@ -9,15 +9,12 @@ const theme = createMuiTheme({
   palette: {
     type: 'light', // 'dark' for Dark mode palettes
     primary: {
-      // light: '#b2fab4',
-      main: '#81c784',
-      // dark: '#519657',
+      main: '#81c784', // Green 300
       contrastText: '#000000',
     },
     secondary: {
-      // light: '#ffe97d',
-      main: '#ffb74d',
-      // dark: '#c88719',
+      main: '#ffb74d', // Orange 300
+      // main: '#ba68c8', // Purple 300
       contrastText: '#000',
     },
     info: {
@@ -30,14 +27,15 @@ const theme = createMuiTheme({
     },
     warning: {
       main: '#f9a825', // Yellow 800
-      contrastText: '#000000',
+      // contrastText: '#000000',
+      contrastText: '#FFFFFF',
     },
     error: {
       main: '#c62828', // Red 800
       contrastText: '#FFFFFF',
     },
     background: {
-      paper: '##f5f5f5', // Gray 100 - Background of "Paper" based component
+      paper: '#f5f5f5', // Gray 100 - Background of "Paper" based component
       default: '#FFFFFF',
     },
   },

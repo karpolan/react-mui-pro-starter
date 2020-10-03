@@ -1,8 +1,8 @@
-// import LinearProgress from '@material-ui/core/LinearProgress';
 import React from 'react';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
-const DefaultFallback = <div>Loading....</div>;
-// const DefaultFallback = <LinearProgress />;
+// const DefaultFallback = <div>Loading....</div>;
+const DefaultFallback = <LinearProgress />;
 
 /**
  * Wraps the React Component with React.Suspense and FallbackComponent while loading.
