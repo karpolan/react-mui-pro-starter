@@ -2,6 +2,12 @@
 
 Mix of [Create React App](https://github.com/facebook/create-react-app) and [Material UI](https://material-ui.com/) with set of reusable components and utilities to build professional React Application faster.
 
+## How to use
+
+1. Clone or download the repo from: https://github.com/karpolan/react-mui-pro-starter
+2. Replace `_TITLE_` and `_DESCRIPTION_` in all files with own texts
+3. Create **Favorite Icon** images and put them into `/public/img/favicon`, the **favicon.ico** file should be paced into root of `/public` folder.
+
 ## Available Scripts
 
 In the project directory, you can run:
