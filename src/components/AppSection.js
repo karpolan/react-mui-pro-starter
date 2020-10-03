@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
  * Renders App styled "Section" using Material UI Paper and Title components
  * @param {string} title - text of heading title
  */
-const AppSection = ({title, children, ...props}) => {
+const AppSection = ({title, variant = 'subtitle2', children, ...props}) => {
   const classes = useStyles();
   return (
     <Paper className={classes.paper} {...props}>
-      <Typography variant="h6">{title}</Typography>
+      <Typography variant={variant}>{title}</Typography>
       {children || 'Under constriction...'}
     </Paper>
   );
@@ -25,6 +25,7 @@ const AppSection = ({title, children, ...props}) => {
 
 AppSection.propTypes = {
   title: PropTypes.string.isRequired,
+  variant: PropTypes.string,
   children: PropTypes.node,
 };
 

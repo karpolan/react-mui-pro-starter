@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Router rink with styling to use as Items in SideBar
+ * Router link with styling to use as Items in SideBar
  */
 const SideBarLink = forwardRef((props, ref) => {
   const classes = useStyles();

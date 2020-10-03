@@ -19,31 +19,43 @@ const useStyles = makeStyles((theme) => ({
  * @param {string} [className] - optional className for <a> tag or <RouterLink> component
  * @param {string} [wrapperClassName] - optional className for wrapping <span> tag
  */
-const AppLink = forwardRef(({children, href, openInNewTab, className, wrapperClassName, ...props}, ref) => {
-  const classes = useStyles();
-  return (
-    <span ref={ref} className={wrapperClassName}>
-      {href ? (
-        <a
-          href={href}
-          {...(openInNewTab ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
-          className={clsx(className, classes.link)}
-          {...props}
-        >
-          {children}
-        </a>
-      ) : (
-        <RouterLink
-          className={clsx(className, classes.link)}
-          {...(openInNewTab ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
-          {...props}
-        >
-          {children}
-        </RouterLink>
-      )}
-    </span>
-  );
-});
+const AppLink = forwardRef(
+  (
+    {
+      children,
+      href,
+      openInNewTab = Boolean(href), // Open external links in new Tab by default
+      className,
+      wrapperClassName,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = useStyles();
+    return (
+      <span ref={ref} className={wrapperClassName}>
+        {href ? (
+          <a
+            href={href}
+            {...(openInNewTab ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
+            className={clsx(className, classes.link)}
+            {...props}
+          >
+            {children}
+          </a>
+        ) : (
+          <RouterLink
+            className={clsx(className, classes.link)}
+            {...(openInNewTab ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
+            {...props}
+          >
+            {children}
+          </RouterLink>
+        )}
+      </span>
+    );
+  }
+);
 
 AppLink.propTypes = {
   children: PropTypes.node.isRequired,
