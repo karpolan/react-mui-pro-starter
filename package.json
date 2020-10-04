@@ -45,10 +45,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app",
-    "globals": {
-      "log": "readonly"
-    }
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [

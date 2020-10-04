@@ -1,6 +1,6 @@
 import React from 'react';
 import {Grid} from '@material-ui/core';
-import {AppButton, Tag, TagCloud, AppAlert, AppLink, AppSection, FinalMessage, AppIcon} from '../components';
+import {AppLink, FinalMessage, AppIcon} from '../components';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {Grid, Checkbox, Switch} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import {useSnackbar} from 'notistack';
-import {AppButton, Tag, TagCloud, AppAlert, AppLink, AppSection} from '../components';
+import {AppButton, AppAlert, AppLink, AppSection} from '../components';
 import AppSnackBar from '../components/AppSnackBar';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
