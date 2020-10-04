@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
 import clsx from 'clsx';
-import {Button, colors, List, ListItem} from '@material-ui/core';
+import {Button, List, ListItem} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
   },
   button: {
-    color: colors.blueGrey[800],
+    // color: theme.palette.button,
     padding: '10px 8px',
     justifyContent: 'flex-start',
     textTransform: 'none',
@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightMedium,
     flexGrow: 1,
   },
-  icon: {
-    color: theme.palette.icon,
+  iconOrMargin: {
+    // color: theme.palette.icon,
     width: 24,
     height: 24,
     display: 'flex',
@@ -33,9 +33,6 @@ const useStyles = makeStyles((theme) => ({
   active: {
     color: theme.palette.primary.main,
     fontWeight: theme.typography.fontWeightMedium,
-    '& $icon': {
-      color: theme.palette.primary.main,
-    },
   },
   link: {flexGrow: 1},
 }));
@@ -55,6 +52,7 @@ const SideBarLink = forwardRef((props, ref) => {
 /**
  * Renders list of navigation items in SideBar
  * @param {array} props.pages - list of objects to render as navigation links
+ * @param {boolean} [props.showIcons] - icons are visible when true
  */
 const SidebarNav = ({pages, showIcons = false, className, ...rest}) => {
   const classes = useStyles();
@@ -64,7 +62,7 @@ const SidebarNav = ({pages, showIcons = false, className, ...rest}) => {
       {pages.map((page) => (
         <ListItem key={`${page.title}-${page.href}`} className={classes.item} disableGutters>
           <Button activeClassName={classes.active} className={classes.button} component={SideBarLink} to={page.href}>
-            <div className={classes.icon}>{showIcons ? page.icon : null}</div>
+            <div className={classes.iconOrMargin}>{showIcons ? page.icon : null}</div>
             {page.title}
           </Button>
         </ListItem>
