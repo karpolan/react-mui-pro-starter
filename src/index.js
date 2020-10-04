@@ -4,6 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import log from './utils/log';
 
+/* global log */
 global.log = log; // Makes LogLevel globally accessible
 
 ReactDOM.render(

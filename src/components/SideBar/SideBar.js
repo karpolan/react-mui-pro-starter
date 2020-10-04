@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 // import {Link as RouterLink} from 'react-router-dom';
 import clsx from 'clsx';
-import {Divider, Drawer, IconButton} from '@material-ui/core';
+import {Divider, Drawer, IconButton, Switch} from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import {makeStyles} from '@material-ui/styles';
@@ -10,6 +10,7 @@ import {SideNav, SideProfile} from './components';
 import {AppLink, AppIconButton} from '../../components';
 import {PAGES} from '../../consts';
 import {localStorageGet, localStorageSet} from '../../utils/localStorage';
+import {useAppStore} from '../../store/AppStore';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    alignItems: 'center',
     marginTop: theme.spacing(2),
   },
 }));
@@ -48,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {string} [prop.className] - optional className for <div> tag
  */
 const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...props}) => {
+  const [state, dispatch] = useAppStore();
   const [showIcons, setShowIcons] = useState(localStorageGet('sideBarIcons', true));
   const classes = useStyles();
   const drawerClasses = {
@@ -63,6 +66,24 @@ const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...p
     });
   };
 
+  const handleSwitchDarkMode = useCallback(
+    () =>
+      dispatch({
+        type: 'SET_DARK_MODE',
+        payload: !state.darkMode,
+      }),
+    [state, dispatch]
+  );
+
+  const handleSwitchDarkMode2 = () =>
+    dispatch({
+      type: 'SET_DARK_MODE',
+      payload: !state.darkMode,
+    });
+
+  /* global log */
+  log.info('state.darkMode:', state.darkMode);
+
   return (
     <Drawer anchor="left" classes={drawerClasses} onClose={onClose} open={open} variant={variant}>
       <div {...props} className={clsx(classes.root, className)}>
@@ -71,6 +92,12 @@ const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...p
         <SideNav className={classes.nav} pages={PAGES.filter((page) => page.showInSidebar)} showIcons={showIcons} />
         <Divider />
         <div className={classes.buttons}>
+          <Switch
+            color="primary"
+            title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}
+            checked={state.darkMode}
+            onChange={handleSwitchDarkMode2}
+          />
           <AppIconButton icon="settings" component={AppLink} title="User Profile and Settings" to="/settings" />
           <IconButton title="Show/Hide icons" onClick={handleVisibilityClick}>
             {showIcons ? <VisibilityOffIcon /> : <VisibilityIcon />}

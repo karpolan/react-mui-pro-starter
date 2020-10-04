@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import {createMuiTheme, ThemeProvider, MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {useAppStore} from './store/AppStore';
 
@@ -57,10 +57,14 @@ const themeDark = createMuiTheme({
  */
 const AppThemeProvider = ({children}) => {
   const [state] = useAppStore();
-  const memoizedTheme = useMemo(() => (state.darkMode ? themeDark : themeLight), [state.darkMode]);
+  // const memoizedTheme = useMemo(() => (state.darkMode ? themeDark : themeLight), [state.darkMode]);
+  const theme = state.darkMode ? themeDark : themeLight;
+
+  /* global log */
+  log.info('theme:', theme);
 
   return (
-    <ThemeProvider theme={memoizedTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline /* Material UI Styles */ />
       {children}
     </ThemeProvider>
