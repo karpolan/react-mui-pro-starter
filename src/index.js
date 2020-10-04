@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import log from './utils/log';
+import logLevel from './utils/log';
 
 /* global log */
-global.log = log; // Makes LogLevel globally accessible
+global.log = logLevel; // Makes LogLevel globally accessible
+log.info('App started :)');
 
 ReactDOM.render(
   <React.StrictMode>
