@@ -67,10 +67,10 @@ const About = () => {
           <AppButton label="default" color="default" disabled={buttonsDisabled} />
           <AppButton label="primary" color="primary" disabled={buttonsDisabled} />
           <AppButton label="secondary" color="secondary" disabled={buttonsDisabled} />
+          <AppButton label="error" color="error" disabled={buttonsDisabled} />
+          <AppButton label="warning" color="warning" disabled={buttonsDisabled} />
           <AppButton label="info" color="info" disabled={buttonsDisabled} />
           <AppButton label="success" color="success" disabled={buttonsDisabled} />
-          <AppButton label="warning" color="warning" disabled={buttonsDisabled} />
-          <AppButton label="error" color="error" disabled={buttonsDisabled} />
           <AppButton label="small" color="default" size="small" disabled={buttonsDisabled} />
           <Checkbox checked={!buttonsDisabled} onChange={handleSwitchButtons} title="Enable/Disable buttons"></Checkbox>
           <Switch
@@ -87,10 +87,10 @@ const About = () => {
           <Tag label="default" color="default" />
           <Tag label="primary" color="primary" />
           <Tag label="secondary" color="secondary" />
+          <Tag label="error" color="error" />
+          <Tag label="warning" color="warning" />
           <Tag label="info" color="info" />
           <Tag label="success" color="success" />
-          <Tag label="warning" color="warning" />
-          <Tag label="error" color="error" />
         </AppSection>
       </Grid>
 
@@ -100,10 +100,10 @@ const About = () => {
             <Tag label="default" color="default" />
             <Tag label="primary" color="primary" />
             <Tag label="secondary" color="secondary" />
+            <Tag label="error" color="error" />
+            <Tag label="warning" color="warning" />
             <Tag label="info" color="info" />
             <Tag label="success" color="success" />
-            <Tag label="warning" color="warning" />
-            <Tag label="error" color="error" />
           </TagCloud>
         </AppSection>
       </Grid>

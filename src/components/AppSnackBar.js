@@ -66,7 +66,6 @@ export const AppSnackBar = ({
     }
   };
 
-  // log.info('AppSnackBar.render()', open, autoOpen);
   return (
     <Snackbar
       className={clsx(classes.root, className)}

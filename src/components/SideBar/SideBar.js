@@ -75,15 +75,6 @@ const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...p
     [state, dispatch]
   );
 
-  const handleSwitchDarkMode2 = () =>
-    dispatch({
-      type: 'SET_DARK_MODE',
-      payload: !state.darkMode,
-    });
-
-  /* global log */
-  log.info('state.darkMode:', state.darkMode);
-
   return (
     <Drawer anchor="left" classes={drawerClasses} onClose={onClose} open={open} variant={variant}>
       <div {...props} className={clsx(classes.root, className)}>
@@ -96,7 +87,7 @@ const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...p
             color="primary"
             title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}
             checked={state.darkMode}
-            onChange={handleSwitchDarkMode2}
+            onChange={handleSwitchDarkMode}
           />
           <AppIconButton icon="settings" component={AppLink} title="User Profile and Settings" to="/settings" />
           <IconButton title="Show/Hide icons" onClick={handleVisibilityClick}>
