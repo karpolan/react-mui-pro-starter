@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {AppButton, Tag, TagCloud, AppAlert, AppLink, AppSection} from '../components';
-import {Grid, Checkbox, Switch} from '@material-ui/core';
+import {Grid, Checkbox, Switch, Link} from '@material-ui/core';
 import AppSnackBar from '../components/AppSnackBar';
 import {useSnackbar} from 'notistack';
 
@@ -43,8 +43,14 @@ const About = () => {
       <Grid item xs={12}>
         <AppSection title="Application">
           <p>
-            This <AppLink href="https://reactjs.org/">React</AppLink> application is built using{' '}
-            <AppLink href="https://material-ui.com/">Material UI</AppLink> components.
+            This{' '}
+            <AppLink color="primary" href="https://reactjs.org/">
+              React
+            </AppLink>{' '}
+            <AppLink color="secondary" to="/welcome">
+              Welcome
+            </AppLink>{' '}
+            application is built using <AppLink href="https://material-ui.com/">Material UI</AppLink> components.
           </p>
           <p>
             The project is <AppLink href="https://github.com/karpolan/react-mui-pro-starter">Open Source</AppLink> and

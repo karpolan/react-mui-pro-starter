@@ -68,7 +68,7 @@ const DARK_THEME = {
 };
 
 /**
- * Material UI Provider with Light and Dark themes
+ * Material UI Provider with Light and Dark themes depending on global "state.darkMode"
  */
 const AppThemeProvider = ({children}) => {
   const [state] = useAppStore();
