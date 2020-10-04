@@ -2,13 +2,14 @@ import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {useMediaQuery} from '@material-ui/core';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {makeStyles, useTheme} from '@material-ui/styles';
 import log from '../utils/log';
 import {PAGES} from '../consts';
 import {ErrorBoundary} from '../components';
 import SideBar from '../components/SideBar';
 import TopBar from '../components/TopBar';
+import {AppSnackBarProvider} from '../components/AppSnackBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,12 +38,10 @@ const useStyles = makeStyles((theme) => ({
  */
 const Main = ({currentUser, onLogout = () => log.warn('Unhandled Main.onLogout()')}) => {
   const [openSideBar, setOpenSideBar] = useState(false);
-  const classes = useStyles();
   const theme = useTheme();
-
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  });
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {defaultMatches: true});
+  const shouldOpenSideBar = isDesktop ? true : openSideBar;
+  const classes = useStyles();
 
   const handleSideBarOpen = useCallback(() => {
     if (!openSideBar) setOpenSideBar(true);
@@ -52,38 +51,41 @@ const Main = ({currentUser, onLogout = () => log.warn('Unhandled Main.onLogout()
     if (openSideBar) setOpenSideBar(false);
   }, [openSideBar]);
 
-  const shouldOpenSideBar = isDesktop ? true : openSideBar;
-
   return (
-    <BrowserRouter>
-      <div
-        className={clsx({
-          [classes.root]: true,
-          [classes.shiftContent]: isDesktop,
-        })}
-      >
-        <TopBar onSideBarOpen={handleSideBarOpen} onLogout={onLogout} />
-        <ErrorBoundary>
-          <SideBar
-            currentUser={currentUser}
-            onClose={handleSideBarClose}
-            onLogout={onLogout}
-            open={shouldOpenSideBar}
-            variant={isDesktop ? 'persistent' : 'temporary'}
-          />
-        </ErrorBoundary>
-
-        <main className={classes.content}>
+    <AppSnackBarProvider>
+      <BrowserRouter>
+        <div
+          className={clsx({
+            [classes.root]: true,
+            [classes.shiftContent]: isDesktop,
+          })}
+        >
           <ErrorBoundary>
-            <Switch>
-              {PAGES.map((page) => (
-                <Route key={`${page.title}-${page.href}`} {...page} />
-              ))}
-            </Switch>
+            <TopBar onSideBarOpen={handleSideBarOpen} onLogout={onLogout} />
           </ErrorBoundary>
-        </main>
-      </div>
-    </BrowserRouter>
+
+          <ErrorBoundary>
+            <SideBar
+              open={shouldOpenSideBar}
+              variant={isDesktop ? 'persistent' : 'temporary'}
+              currentUser={currentUser}
+              onClose={handleSideBarClose}
+              onLogout={onLogout}
+            />
+          </ErrorBoundary>
+
+          <main className={classes.content}>
+            <ErrorBoundary>
+              <Switch>
+                {PAGES.map((page) => (
+                  <Route key={`${page.title}-${page.href}`} {...page} />
+                ))}
+              </Switch>
+            </ErrorBoundary>
+          </main>
+        </div>
+      </BrowserRouter>
+    </AppSnackBarProvider>
   );
 };
 

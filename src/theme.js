@@ -1,11 +1,14 @@
-import {createMuiTheme} from '@material-ui/core/styles';
+import React, {useMemo} from 'react';
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import {useAppStore} from './store/AppStore';
 
 /**
  * Material UI theme
  * See for details: https://material-ui.com/customization/default-theme/?expand-path=$.palette
  * Martial Color tool: https://material.io/resources/color
  */
-const theme = createMuiTheme({
+const themeLight = createMuiTheme({
   palette: {
     type: 'light', // 'dark' for Dark mode palettes
     primary: {
@@ -40,4 +43,28 @@ const theme = createMuiTheme({
   },
 });
 
-export default theme;
+/**
+ * Material UI theme for "Dark Mode"
+ */
+const themeDark = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
+
+/**
+ * Material UI Provider with Light and Dark themes
+ */
+const AppThemeProvider = ({children}) => {
+  const [state] = useAppStore();
+  const memoizedTheme = useMemo(() => (state.darkMode ? themeDark : themeLight), [state.darkMode]);
+
+  return (
+    <ThemeProvider theme={memoizedTheme}>
+      <CssBaseline /* Material UI Styles */ />
+      {children}
+    </ThemeProvider>
+  );
+};
+
+export {AppThemeProvider as default, AppThemeProvider, themeLight, themeDark};

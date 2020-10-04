@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import log from './utils/log';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import {ThemeProvider} from '@material-ui/styles';
 import AppIdleTimer from './components/AppIdleTimer';
-import {ErrorBoundary} from './components';
-import {AppSnackBarProvider} from './components/AppSnackBar';
 import {Login, Main} from './views';
 import {getMe, setGlobalApi} from './api';
-import theme from './theme';
+import AppStore from './store/AppStore';
+import AppThemeProvider from './theme';
 
 /**
  * Entry point of the Application
@@ -16,7 +13,7 @@ import theme from './theme';
  * Renders "Login" or "Main" view depending on presence of "token" value in local store
  * Contains "token" and "currentUser" stores
  * Provides onLogout() and onSetToken() callbacks
- * Adds IdleTimer, Material UI Theme and SnackBars providers, wraps entire app into ErrorBoundary
+ * Adds Material UI provider with Light/Dark themes
  */
 class App extends Component {
   constructor(props) {
@@ -25,6 +22,8 @@ class App extends Component {
       token: null,
       currentUser: {},
     };
+
+    // Create and configure API
     this.api = axios.create({
       // Use Local storage to override API base path
       baseURL: `${localStorage.getItem('REACT_APP_API_URL') || process.env.REACT_APP_API_URL}/`,
@@ -40,7 +39,6 @@ class App extends Component {
       }
     );
     setGlobalApi(this.api); // Set shared API instance
-    this.refIdleTimer = null;
   }
 
   componentDidMount() {
@@ -78,19 +76,16 @@ class App extends Component {
   render() {
     const {token, currentUser} = this.state;
     return (
-      <ErrorBoundary>
+      <AppStore>
         <AppIdleTimer onLogout={this.onLogout} />
         {token ? (
-          <ThemeProvider theme={theme}>
-            <CssBaseline /* Material UI Styles */ />
-            <AppSnackBarProvider>
-              <Main currentUser={currentUser} onLogout={this.onLogout} />
-            </AppSnackBarProvider>
-          </ThemeProvider>
+          <AppThemeProvider /* Material UI part of application */>
+            <Main currentUser={currentUser} onLogout={this.onLogout} />
+          </AppThemeProvider>
         ) : (
           <Login onSetToken={this.onSetToken} /* Non-Material UI part of application */ />
         )}
-      </ErrorBoundary>
+      </AppStore>
     );
   }
 }
