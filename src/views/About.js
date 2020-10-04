@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
-import {AppButton, Tag, TagCloud, AppAlert, AppLink, AppSection} from '../components';
-import {Grid, Checkbox, Switch, Link} from '@material-ui/core';
-import AppSnackBar from '../components/AppSnackBar';
+import {Grid, Checkbox, Switch} from '@material-ui/core';
 import {useSnackbar} from 'notistack';
+import {AppButton, Tag, TagCloud, AppAlert, AppLink, AppSection} from '../components';
+import AppSnackBar from '../components/AppSnackBar';
+import ButtonsSection from './Sections/Buttons';
+import TagsSection from './Sections/Tags';
 
 /**
  * Renders "About" page
  * uer: /about
  */
 const About = () => {
-  const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [snackbars, setSnackbars] = useState({
     info: false,
     success: false,
@@ -18,10 +19,6 @@ const About = () => {
   const [multiSnackbarCount, setMultiSnackbarCount] = useState(1);
 
   const {enqueueSnackbar /*, closeSnackbar*/} = useSnackbar();
-
-  const handleSwitchButtons = () => {
-    setButtonsDisabled(!buttonsDisabled);
-  };
 
   const handleSnackBarShow = (name) => {
     setSnackbars({...snackbars, [name]: true});
@@ -47,9 +44,6 @@ const About = () => {
             <AppLink color="primary" href="https://reactjs.org/">
               React
             </AppLink>{' '}
-            <AppLink color="secondary" to="/welcome">
-              Welcome
-            </AppLink>{' '}
             application is built using <AppLink href="https://material-ui.com/">Material UI</AppLink> components.
           </p>
           <p>
@@ -69,49 +63,15 @@ const About = () => {
       </Grid>
 
       <Grid item xs={12}>
-        <AppSection title="Buttons">
-          <AppButton label="default" color="default" disabled={buttonsDisabled} />
-          <AppButton label="primary" color="primary" disabled={buttonsDisabled} />
-          <AppButton label="secondary" color="secondary" disabled={buttonsDisabled} />
-          <AppButton label="error" color="error" disabled={buttonsDisabled} />
-          <AppButton label="warning" color="warning" disabled={buttonsDisabled} />
-          <AppButton label="info" color="info" disabled={buttonsDisabled} />
-          <AppButton label="success" color="success" disabled={buttonsDisabled} />
-          <AppButton label="small" color="default" size="small" disabled={buttonsDisabled} />
-          <Checkbox checked={!buttonsDisabled} onChange={handleSwitchButtons} title="Enable/Disable buttons"></Checkbox>
-          <Switch
-            color="primary"
-            title="Enable/Disable buttons"
-            checked={!buttonsDisabled}
-            onChange={handleSwitchButtons}
-          />
-        </AppSection>
+        <ButtonsSection />
       </Grid>
 
       <Grid item xs={12} sm={6}>
-        <AppSection title="Tags">
-          <Tag label="default" color="default" />
-          <Tag label="primary" color="primary" />
-          <Tag label="secondary" color="secondary" />
-          <Tag label="error" color="error" />
-          <Tag label="warning" color="warning" />
-          <Tag label="info" color="info" />
-          <Tag label="success" color="success" />
-        </AppSection>
+        <TagsSection />
       </Grid>
 
       <Grid item xs={12} sm={6}>
-        <AppSection title="TagCloud">
-          <TagCloud>
-            <Tag label="default" color="default" />
-            <Tag label="primary" color="primary" />
-            <Tag label="secondary" color="secondary" />
-            <Tag label="error" color="error" />
-            <Tag label="warning" color="warning" />
-            <Tag label="info" color="info" />
-            <Tag label="success" color="success" />
-          </TagCloud>
-        </AppSection>
+        <TagsSection useTagCloud />
       </Grid>
 
       <Grid item xs={12} sm={6}>

@@ -5,11 +5,11 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {makeStyles, useTheme} from '@material-ui/styles';
 import log from '../utils/log';
-import {PAGES} from '../consts';
 import {ErrorBoundary} from '../components';
+import {AppSnackBarProvider} from '../components/AppSnackBar';
 import SideBar from '../components/SideBar';
 import TopBar from '../components/TopBar';
-import {AppSnackBarProvider} from '../components/AppSnackBar';
+import {PAGES} from '../consts';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,19 +60,15 @@ const Main = ({currentUser, onLogout = () => log.warn('Unhandled Main.onLogout()
             [classes.shiftContent]: isDesktop,
           })}
         >
-          <ErrorBoundary>
-            <TopBar onSideBarOpen={handleSideBarOpen} onLogout={onLogout} />
-          </ErrorBoundary>
+          <TopBar onSideBarOpen={handleSideBarOpen} onLogout={onLogout} />
 
-          <ErrorBoundary>
-            <SideBar
-              open={shouldOpenSideBar}
-              variant={isDesktop ? 'persistent' : 'temporary'}
-              currentUser={currentUser}
-              onClose={handleSideBarClose}
-              onLogout={onLogout}
-            />
-          </ErrorBoundary>
+          <SideBar
+            open={shouldOpenSideBar}
+            variant={isDesktop ? 'persistent' : 'temporary'}
+            currentUser={currentUser}
+            onClose={handleSideBarClose}
+            onLogout={onLogout}
+          />
 
           <main className={classes.content}>
             <ErrorBoundary>

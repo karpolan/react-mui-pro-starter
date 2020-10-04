@@ -14,6 +14,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 
 const ICONS = {
   default: DefaultIcon,
@@ -28,6 +29,7 @@ const ICONS = {
   visibilityoff: VisibilityOffIcon,
   notifications: NotificationsIcon,
   filter: FilterListIcon,
+  smile: InsertEmoticonIcon,
 };
 
 /**

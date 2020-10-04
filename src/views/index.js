@@ -12,7 +12,7 @@ import NotImplementedView from './NotImplemented';
  */
 const Login = withSuspense(
   React.lazy(() => import('./Login')),
-  <div>Loading...</div>
+  <div>Loading...</div> // Non-Material UI "progress" :)
 );
 const Main = withSuspense(
   React.lazy(() => import('./Main')),

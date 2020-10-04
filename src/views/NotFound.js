@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
+import {AppLink} from '../components';
 
 /**
  * NotFound aka 404 page/view
@@ -12,7 +13,7 @@ const PageNotFound = () => {
         You've called the <b>{location.pathname}</b> url that doesn't exist
       </p>
       <p>
-        Go to <Link to="/">home page</Link>
+        Go to <AppLink to="/">home page</AppLink>
       </p>
     </div>
   );
