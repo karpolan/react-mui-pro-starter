@@ -1,5 +1,4 @@
 import API from './';
-import log from '../utils/log';
 
 /**
  * Loads informaton about currently logged user

@@ -1,5 +1,5 @@
 /**
- * Smartly reads value for localStorage
+ * Smartly reads value from localStorage
  */
 export function localStorageGet(name, defaultValue = '') {
   const valueFromStore = localStorage.getItem(name);

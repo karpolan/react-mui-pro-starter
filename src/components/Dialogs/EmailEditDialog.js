@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import {makeStyles} from '@material-ui/styles';
 import {AppButton} from '..';
-import {AppDialogTitle} from '.';
+import AppDialogTitle from './AppDialogTitle';
 import {dialogStyles} from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
  * @param {function} props.onConfirm - event for Save/Confirm button
  * @param {function} props.onClose - event for Close and Cancel buttons and the backdrop
  */
-const EmailEditDialog = ({email, open = false, onConfirm, onClose, ...props}) => {
+const EmailEditDialog = ({email, open = false, title, onConfirm, onClose, ...props}) => {
   const classes = useStyles();
   const [value, setValue] = useState(email);
 
-  const handleInputChange = useCallback((event) => setValue(event.target.value), [value]);
+  const handleInputChange = useCallback((event) => setValue(event.target.value), []);
 
   const handleOnConfirm = () => {
     if (onConfirm && typeof onConfirm === 'function') onConfirm(value);
@@ -42,7 +42,7 @@ const EmailEditDialog = ({email, open = false, onConfirm, onClose, ...props}) =>
       {...props}
     >
       <AppDialogTitle id="form-dialog-title" onClose={onClose}>
-        Change email
+        {title || 'Change email'}
       </AppDialogTitle>
       <DialogContent>
         <TextField
@@ -70,6 +70,7 @@ const EmailEditDialog = ({email, open = false, onConfirm, onClose, ...props}) =>
 
 EmailEditDialog.propTypes = {
   email: PropTypes.string.isRequired,
+  title: PropTypes.string,
   onConfirm: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
 };

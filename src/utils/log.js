@@ -1,5 +1,9 @@
+/**
+ * Improved LogLevel to use in the Application instead of console
+ */
 import log from 'loglevel';
 
+// Apply "level of logging" from the .env variable
 log.setLevel(process.env.LOG_LEVEL || process.env.REACT_APP_LOG_LEVEL || log.levels.ERROR);
 log.info('log.level:', Object.keys(log.levels)[log.getLevel()]);
 

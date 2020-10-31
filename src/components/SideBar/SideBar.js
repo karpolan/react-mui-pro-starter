@@ -1,14 +1,13 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
-// import {Link as RouterLink} from 'react-router-dom';
 import clsx from 'clsx';
-import {Divider, Drawer, IconButton, Switch} from '@material-ui/core';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Switch from '@material-ui/core/Switch';
 import {makeStyles} from '@material-ui/styles';
+import {PAGES} from '../../consts';
 import {SideNav, SideProfile} from './components';
 import {AppLink, AppIconButton} from '../../components';
-import {PAGES} from '../../consts';
 import {localStorageGet, localStorageSet} from '../../utils/localStorage';
 import {useAppStore} from '../../store/AppStore';
 
@@ -90,9 +89,11 @@ const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...p
             onChange={handleSwitchDarkMode}
           />
           <AppIconButton icon="settings" component={AppLink} title="User Profile and Settings" to="/settings" />
-          <IconButton title="Show/Hide icons" onClick={handleVisibilityClick}>
-            {showIcons ? <VisibilityOffIcon /> : <VisibilityIcon />}
-          </IconButton>
+          <AppIconButton
+            icon={showIcons ? 'VisibilityOff' : 'VisibilityOn'}
+            title={showIcons ? 'Hide Icons' : 'Show Icons'}
+            onClick={handleVisibilityClick}
+          />
           <AppIconButton icon="logout" title="Logout Current User" onClick={onLogout} />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 /**
- * Error boundary wrapper to save entire App from falling
+ * Error boundary wrapper to save entire Application from falling
  */
 class ErrorBoundary extends Component {
   constructor(props) {

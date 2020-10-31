@@ -2,7 +2,7 @@
   "name": "react-mui-pro-starter",
   "version": "0.5.13",
   "description": "React + Material UI all in once starter",
-  "author": "Anton Karpenko <i@karpoan.com> (https://karpolan.com)",
+  "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
   "keywords": [
     "react",
     "mui",
@@ -28,12 +28,12 @@
     "clsx": "^1.1.1",
     "date-fns": "^2.16.1",
     "loglevel": "^1.7.0",
-    "notistack": "^1.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-idle-timer": "^4.3.6",
+    "notistack": "^1.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-idle-timer": "^4.5.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^4.0.0"
   },
   "devDependencies": {
     "prettier": "2.1.2"
@@ -42,6 +42,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "node_modules/.bin/eslint --ext js src",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -10,10 +10,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Renders App styled "Section" using Material UI Paper and Title components
+ * Renders Application styled "Section" using Material UI Paper and Title components
  * @param {string} title - text of heading title
  */
-const AppSection = ({title, variant = 'subtitle2', children, ...props}) => {
+const AppSection = ({title = 'Missing title...', variant = 'subtitle2', children, ...props}) => {
   const classes = useStyles();
   return (
     <Paper className={classes.paper} {...props}>
@@ -24,7 +24,7 @@ const AppSection = ({title, variant = 'subtitle2', children, ...props}) => {
 };
 
 AppSection.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   variant: PropTypes.string,
   children: PropTypes.node,
 };

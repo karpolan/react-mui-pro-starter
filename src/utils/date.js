@@ -1,8 +1,8 @@
 import {format} from 'date-fns';
 
-export const FORMAT_DATE_TIME = 'yyyy-MM-dd hh:mm:ss';
+export const FORMAT_DATE_TIME = 'yyyy-MM-dd HH:mm:ss';
 export const FORMAT_DATE_ONLY = 'yyyy-MM-dd';
-export const FORMAT_TIME_ONLY = 'hh:mm:ss';
+export const FORMAT_TIME_ONLY = 'HH:mm:ss';
 
 /**
  * Main Data and Time conversion utility to keep formats the same across entire Application

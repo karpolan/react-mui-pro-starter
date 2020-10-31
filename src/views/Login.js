@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import log from '../utils/log';
 import {TITLE_PUBLIC} from '../consts';
 import logoGoogle from './Login/google.svg';
 
@@ -99,7 +98,7 @@ class Login extends Component {
         <br />
         <div>
           <button style={{padding: '0.5rem 0.75rem'}} onClick={() => this.setToken('_PUT_VALID_TOKEN_HERE_')}>
-            Emulate successful login to open main Application >>
+            Emulate successful login to open main Application &gt;&gt;
           </button>
         </div>
       </div>
