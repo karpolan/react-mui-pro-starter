@@ -4,10 +4,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import logLevel from './utils/log';
 
-/* global log */
-global.log = logLevel; // Makes LogLevel globally accessible
+// Make LogLevel globally accessible as log.info(), log.warn(), log.error(), etc.
+global.log = logLevel;
 log.info('App started :)');
 
+// Inject React App component into DOM element with id="root"
 ReactDOM.render(
   <React.StrictMode>
     <App />

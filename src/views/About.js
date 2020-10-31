@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {Grid} from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import {useSnackbar} from 'notistack';
 import {AppButton, AppAlert, AppLink, AppSection} from '../components';
 import AppSnackBar from '../components/AppSnackBar';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
+import DialogsSection from './Sections/Dialogs';
 
 /**
  * Renders "About" page
- * uer: /about
+ * url: /about
  */
 const About = () => {
   const [snackbars, setSnackbars] = useState({
@@ -72,6 +73,10 @@ const About = () => {
 
       <Grid item xs={12} sm={6}>
         <TagsSection useTagCloud />
+      </Grid>
+
+      <Grid item xs={12}>
+        <DialogsSection />
       </Grid>
 
       <Grid item xs={12} sm={6}>

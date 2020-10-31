@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import IdleTimer from 'react-idle-timer';
-import log from '../utils/log';
 
 /**
  * WatchDog timer to track inactivity and logout current user
@@ -22,7 +21,6 @@ class AppIdleTimer extends Component {
 
   onUserIdle = (event) => {
     log.warn('User is idle for long time...');
-    this.refIdleTimer.pause();
     this.doLogout();
   };
 
@@ -42,10 +40,12 @@ class AppIdleTimer extends Component {
           this.refIdleTimer = ref;
         }}
         timeout={1000 * 60 * 60 * 3} // Idle timeout in 3 hours
+        debounce={1000 * 30} // Check User activity every 30 seconds
+        // timeout={1000 * 10} // Idle timeout in 10 seconds (debug)
+        // debounce={1000 * 3} // Check User activity every 3 seconds (debug)
         onIdle={this.onUserIdle.bind(this)}
         onAction={this.onUserAction.bind(this)}
         onActive={this.onUserActiveAgain.bind(this)}
-        debounce={1000 * 30} // Check User activity every 30 seconds
       />
     );
   }

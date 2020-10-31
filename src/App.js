@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import log from './utils/log';
 import AppIdleTimer from './components/AppIdleTimer';
 import {Login, Main} from './views';
 import {getMe, setGlobalApi} from './api';
@@ -11,7 +10,7 @@ import AppThemeProvider from './theme';
  * Entry point of the Application
  * Configures Axios object to use as shared API across the app, see './api/index.js'
  * Renders "Login" or "Main" view depending on presence of "token" value in local store
- * Contains "token" and "currentUser" stores
+ * Contains "token" and "currentUser" states
  * Provides onLogout() and onSetToken() callbacks
  * Adds Material UI provider with Light/Dark themes
  */

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Render Application styled Material UI Button
+ * Application styled Material UI Button
  * @param {string} color - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
  */
 const AppButton = ({
@@ -45,7 +45,9 @@ AppButton.propTypes = {
   children: PropTypes.node,
   label: PropTypes.string,
   color: PropTypes.string,
+  size: PropTypes.oneOf(['large', 'medium', 'small']),
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default AppButton;

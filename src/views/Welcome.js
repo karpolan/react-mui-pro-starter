@@ -1,8 +1,9 @@
 import React from 'react';
-import {Grid} from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import {AppLink, FinalMessage, AppIcon} from '../components';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
+import DialogsSection from './Sections/Dialogs';
 
 /**
  * Renders Welcome page/view
@@ -46,6 +47,10 @@ const Welcome = () => {
 
       <Grid item xs={12} sm={6}>
         <TagsSection useTagCloud />
+      </Grid>
+
+      <Grid item xs={12}>
+        <DialogsSection />
       </Grid>
     </Grid>
   );

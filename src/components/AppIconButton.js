@@ -7,10 +7,10 @@ import AppIcon from './AppIcon';
  * Renders Material UI IconButton with SVG icon by given Name
  * @param {string} props.icon - name of Icon to render inside the IconButton
  */
-const AppIconButton = ({icon = 'default', children, ...props}) => {
+const AppIconButton = ({icon, children, ...props}) => {
   return (
     <IconButton {...props}>
-      <AppIcon name={icon} />
+      <AppIcon icon={icon} />
       {children}
     </IconButton>
   );

@@ -1,2 +1,4 @@
-export {default as SideNav} from './SideNav';
-export {default as SideProfile} from './SideProfile';
+import SideNav from './SideNav';
+import SideProfile from './SideProfile';
+
+export {SideNav, SideProfile};

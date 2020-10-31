@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * App styled Alert component
+ * Application styled Alert component
  */
 const AppAlert = ({severity = 'error', variant = 'filled', className, onClose, ...props}) => {
   const classes = useStyles();

@@ -1,6 +1,6 @@
 /**
  * Classic sleep(milliSeconds) for JavaScript
- * @param {number} delay - amount of milli-seconds to wait
+ * @param {number} delay - amount of milliseconds to wait
  */
 export function sleep(delay = 0) {
   return new Promise((resolve) => {

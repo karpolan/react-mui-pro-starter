@@ -18,13 +18,13 @@ export class NotImplementedView extends Component {
           This view is not implemented yet. Go to <AppLink to="/">home page</AppLink>
         </p>
         <p>
-          You've called the <b>{location.pathname}</b> url
-          {paramId ? (
+          You've called the <b>{location?.pathname}</b> url
+          {paramId && (
             <span>
               {' '}
               where <b>{paramId}</b> is a parameter
             </span>
-          ) : null}
+          )}
         </p>
       </div>
     );

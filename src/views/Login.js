@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import log from '../utils/log';
 import {TITLE_PUBLIC} from '../consts';
 import logoGoogle from './Login/google.svg';
 
@@ -26,12 +25,12 @@ class Login extends Component {
     script.id = 'google-login';
     script.src = 'https://apis.google.com/js/client:platform.js';
     script.async = 1;
-    script.onload = () =>
+    script.onload = () => {
       window.gapi.load('auth2', async () => {
         if (!window.gapi.auth2.getAuthInstance()) {
           try {
             await window.gapi.auth2.init({
-              client_id: '_YOUR_CLIENT_ID_HERE_.apps.googleusercontent.com',
+              client_id: `${process.env.REACT_APP_GOOGLE_API_CLIENT_ID}.apps.googleusercontent.com`,
               scope: 'email',
               ux_mode: 'popup',
               access_type: 'online',
@@ -42,6 +41,7 @@ class Login extends Component {
         }
         this.setState({loading: false}); // Loading of external scripts complete
       });
+    };
     const el = document.getElementsByTagName('script')[0];
     if (el?.parentNode) el.parentNode.insertBefore(script, el);
     else document.head.appendChild(script);
@@ -98,7 +98,7 @@ class Login extends Component {
         <br />
         <div>
           <button style={{padding: '0.5rem 0.75rem'}} onClick={() => this.setToken('_PUT_VALID_TOKEN_HERE_')}>
-            Emulate successful login to open main Application >>
+            Emulate successful login to open main Application &gt;&gt;
           </button>
         </div>
       </div>

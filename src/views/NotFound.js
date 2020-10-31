@@ -10,7 +10,7 @@ const PageNotFound = () => {
   return (
     <div>
       <p>
-        You've called the <b>{location.pathname}</b> url that doesn't exist
+        You've called the <b>{location?.pathname}</b> url that doesn't exist
       </p>
       <p>
         Go to <AppLink to="/">home page</AppLink>

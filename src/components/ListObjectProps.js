@@ -12,6 +12,7 @@ const sortNone = () => 0;
  * @param {object} props.object - object to print out
  * @param {boolean} props.sortAbc - properties sorted A-Z when true
  * @param {boolean} props.sortZxy - properties sorted Z-A when true
+ * @param {boolean} props.noChildren - nested object and arrays are ignored when true
  */
 export const ListObjectProps = ({
   object,
