@@ -1,13 +1,13 @@
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import {makeStyles} from '@material-ui/styles';
-import {AppButton} from '..';
+import { makeStyles } from '@material-ui/styles';
+import { AppButton } from '..';
 import AppDialogTitle from './AppDialogTitle';
-import {dialogStyles} from '../../utils/styles';
+import { dialogStyles } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   ...dialogStyles(theme),
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {function} props.onConfirm - event for Save/Confirm button
  * @param {function} props.onClose - event for Close and Cancel buttons and the backdrop
  */
-const EmailEditDialog = ({email, open = false, title, onConfirm, onClose, ...props}) => {
+const EmailEditDialog = ({ email, open = false, title, onConfirm, onClose, ...props }) => {
   const classes = useStyles();
   const [value, setValue] = useState(email);
 
@@ -35,7 +35,7 @@ const EmailEditDialog = ({email, open = false, title, onConfirm, onClose, ...pro
   return (
     <Dialog
       className={classes.root}
-      classes={{paper: classes.paper}}
+      classes={{ paper: classes.paper }}
       open={open}
       onClose={onClose}
       aria-labelledby="form-dialog-title"

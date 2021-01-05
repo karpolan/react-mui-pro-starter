@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
-import {textStylesByNames} from '../../utils/styles';
+import { makeStyles } from '@material-ui/styles';
+import { textStylesByNames } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {},

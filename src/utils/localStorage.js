@@ -7,7 +7,7 @@ export function localStorageGet(name, defaultValue = '') {
 
   try {
     const jsonParseValue = JSON.parse(valueFromStore);
-    if ({boolean: 1, number: 1, bigint: 1, string: 1, object: 1}[typeof jsonParseValue]) {
+    if ({ boolean: 1, number: 1, bigint: 1, string: 1, object: 1 }[typeof jsonParseValue]) {
       return jsonParseValue; // We have a simple value or JS object/array in the store
     }
   } catch (error) {}

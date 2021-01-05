@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import MuiAlert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Application styled Alert component
  */
-const AppAlert = ({severity = 'error', variant = 'filled', className, onClose, ...props}) => {
+const AppAlert = ({ severity = 'error', variant = 'filled', className, onClose, ...props }) => {
   const classes = useStyles();
 
   return (

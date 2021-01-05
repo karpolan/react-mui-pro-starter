@@ -100,4 +100,4 @@ function stableSortForObjectsByProperty(
   return stabileArray.map((item) => item[2]); // Return Item as it was
 }
 
-export {compareNumbers, compareTexts, compareObjects, stableSort, stableSortForObjectsByProperty, isNumeric};
+export { compareNumbers, compareTexts, compareObjects, stableSort, stableSortForObjectsByProperty, isNumeric };

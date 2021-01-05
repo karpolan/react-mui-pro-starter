@@ -1,14 +1,14 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {makeStyles, useTheme} from '@material-ui/styles';
-import {ErrorBoundary} from '../components';
-import {AppSnackBarProvider} from '../components/AppSnackBar';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { ErrorBoundary } from '../components';
+import { AppSnackBarProvider } from '../components/AppSnackBar';
 import SideBar from '../components/SideBar';
 import TopBar from '../components/TopBar';
-import {PAGES} from '../consts';
+import { PAGES } from '../consts';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
  * @param {object} currentUser - currently logged user data
  * @param {func} [onLogout] - callback to logout current user
  */
-const Main = ({currentUser, onLogout = () => log.warn('Unhandled Main.onLogout()')}) => {
+const Main = ({ currentUser, onLogout = () => log.warn('Unhandled Main.onLogout()') }) => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {defaultMatches: true});
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), { defaultMatches: true });
   const shouldOpenSideBar = isDesktop ? true : openSideBar;
   const classes = useStyles();
 

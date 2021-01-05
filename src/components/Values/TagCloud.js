@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Renders all <div> of the children property as "Tag Cloud"
  */
-const TagCloud = ({children, className, ...props}) => {
+const TagCloud = ({ children, className, ...props }) => {
   const classes = useStyles();
   return (
     <div className={clsx(classes.root, className)} {...props}>

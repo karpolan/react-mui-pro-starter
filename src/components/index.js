@@ -14,7 +14,7 @@ import AppSection from './AppSection';
 import ListObjectProps from './ListObjectProps';
 import FinalMessage from './FinalMessage';
 
-import {Value, Tag, TagCloud} from './Values';
+import { Value, Tag, TagCloud } from './Values';
 
 export {
   withSuspense,

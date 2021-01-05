@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {TITLE_PUBLIC} from '../consts';
+import { TITLE_PUBLIC } from '../consts';
 import logoGoogle from './Login/google.svg';
 
 const style = {
@@ -39,7 +39,7 @@ class Login extends Component {
             log.error(error);
           }
         }
-        this.setState({loading: false}); // Loading of external scripts complete
+        this.setState({ loading: false }); // Loading of external scripts complete
       });
     };
     const el = document.getElementsByTagName('script')[0];
@@ -48,26 +48,26 @@ class Login extends Component {
   }
 
   setToken(newToken) {
-    const {onSetToken} = this.props;
+    const { onSetToken } = this.props;
     if (onSetToken && typeof onSetToken === 'function') {
       onSetToken(newToken);
     }
   }
 
   async doLogin() {
-    this.setState({inProgress: true, error: ''});
+    this.setState({ inProgress: true, error: '' });
     try {
       const resGoogle = await window.gapi.auth2.getAuthInstance().signIn({});
       const res = await this.props.api.post(
         `${localStorage.getItem('REACT_APP_API_URL') || process.env.REACT_APP_API_URL}/login`, // Todo: Set correct "login" API endpoint
-        {google: resGoogle.getAuthResponse().access_token}
+        { google: resGoogle.getAuthResponse().access_token }
       );
       this.setToken(res.data.token);
     } catch (error) {
-      this.setState({error: error.message});
+      this.setState({ error: error.message });
       log.error(error);
     } finally {
-      this.setState({inProgress: false});
+      this.setState({ inProgress: false });
     }
   }
 
@@ -76,7 +76,7 @@ class Login extends Component {
   };
 
   render() {
-    const {loading, inProgress, error} = this.state;
+    const { loading, inProgress, error } = this.state;
     return (
       <div style={style}>
         <h1>_TITLE_</h1>
@@ -86,10 +86,10 @@ class Login extends Component {
           "Non-authenticated" users
         </p>
         <div>
-          <button style={{padding: '0.5rem 0.75rem'}} onClick={this.onLogin} disabled={loading || inProgress}>
-            <img src={logoGoogle} width="24" height="24" alt="Google Icon" style={{verticalAlign: 'middle'}} />
+          <button style={{ padding: '0.5rem 0.75rem' }} onClick={this.onLogin} disabled={loading || inProgress}>
+            <img src={logoGoogle} width="24" height="24" alt="Google Icon" style={{ verticalAlign: 'middle' }} />
             &nbsp;
-            <span style={{verticalAlign: 'middle'}}>
+            <span style={{ verticalAlign: 'middle' }}>
               {this.inProgress ? 'Login in progress...' : 'Sign in with Google'}
             </span>
           </button>
@@ -97,7 +97,7 @@ class Login extends Component {
         </div>
         <br />
         <div>
-          <button style={{padding: '0.5rem 0.75rem'}} onClick={() => this.setToken('_PUT_VALID_TOKEN_HERE_')}>
+          <button style={{ padding: '0.5rem 0.75rem' }} onClick={() => this.setToken('_PUT_VALID_TOKEN_HERE_')}>
             Emulate successful login to open main Application &gt;&gt;
           </button>
         </div>

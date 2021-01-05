@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /**
  * Error boundary wrapper to save entire Application from falling
@@ -6,8 +6,8 @@ import React, {Component} from 'react';
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = {error: null, errorInfo: null};
-    this.styleDetails = {whiteSpace: 'pre-wrap'};
+    this.state = { error: null, errorInfo: null };
+    this.styleDetails = { whiteSpace: 'pre-wrap' };
   }
 
   componentDidCatch(error, errorInfo) {
@@ -20,10 +20,10 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    const {errorInfo} = this.state;
+    const { errorInfo } = this.state;
     if (errorInfo) {
       // Error path
-      const {error} = this.state;
+      const { error } = this.state;
       return (
         <div>
           <h2>Error Boundary - Something went wrong</h2>

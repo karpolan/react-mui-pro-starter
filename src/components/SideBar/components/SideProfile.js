@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import AppLink from '../../AppLink';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {object} [showAvatar] - user's avatar picture is shown when true
  * @param {string} [className] - optional className for <div> tag
  */
-const SideProfile = ({currentUser, showAvatar = false, className, ...props}) => {
+const SideProfile = ({ currentUser, showAvatar = false, className, ...props }) => {
   const classes = useStyles();
   return (
     <div {...props} className={clsx(classes.root, className)}>

@@ -1,5 +1,5 @@
 import AppReducer from './AppReducer';
-import AppStore, {AppContext, useAppStore, withAppStore} from './AppStore';
+import AppStore, { AppContext, useAppStore, withAppStore } from './AppStore';
 
 export {
   AppReducer,

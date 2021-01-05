@@ -1,13 +1,13 @@
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 // import PropTypes from 'prop-types';
-import {PropTypesCommonDialog} from './consts';
+import { PropTypesCommonDialog } from './consts';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import {makeStyles} from '@material-ui/styles';
-import {AppButton} from '..';
+import { makeStyles } from '@material-ui/styles';
+import { AppButton } from '..';
 import AppDialogTitle from './AppDialogTitle';
-import {dialogStyles} from '../../utils/styles';
+import { dialogStyles } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   ...dialogStyles(theme),
@@ -42,7 +42,7 @@ const CommonDialog = ({
   return (
     <Dialog
       className={classes.root}
-      classes={{paper: classes.paper}}
+      classes={{ paper: classes.paper }}
       open={open}
       onClose={onClose}
       aria-labelledby="form-dialog-title"

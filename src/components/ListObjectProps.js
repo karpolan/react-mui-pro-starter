@@ -37,7 +37,7 @@ export const ListObjectProps = ({
               {noChildren ? (
                 ` [${Array.isArray(value) ? 'Array' : 'Object'}]`
               ) : (
-                <ListObjectProps object={value} {...{sortAbc, sortZxy}} />
+                <ListObjectProps object={value} {...{ sortAbc, sortZxy }} />
               )}
             </li>
           );

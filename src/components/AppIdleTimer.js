@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import IdleTimer from 'react-idle-timer';
 
@@ -13,7 +13,7 @@ class AppIdleTimer extends Component {
   }
 
   doLogout() {
-    const {onLogout} = this.props;
+    const { onLogout } = this.props;
     if (onLogout && typeof onLogout === 'function') {
       onLogout();
     }

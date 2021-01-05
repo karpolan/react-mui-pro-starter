@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import {buttonStylesByNames} from '../utils/styles';
+import { buttonStylesByNames } from '../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -33,7 +33,7 @@ const AppButton = ({
 }) => {
   const classes = useStyles();
   return (
-    <Box {...{m, mt, mb, ml, mr}} className={classes.box}>
+    <Box {...{ m, mt, mb, ml, mr }} className={classes.box}>
       <Button className={clsx(classes.root, classes[color], className)} variant="contained" {...props}>
         {children || label}
       </Button>

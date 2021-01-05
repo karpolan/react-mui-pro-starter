@@ -1,15 +1,15 @@
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Switch from '@material-ui/core/Switch';
-import {makeStyles} from '@material-ui/styles';
-import {PAGES} from '../../consts';
-import {SideNav, SideProfile} from './components';
-import {AppLink, AppIconButton} from '../../components';
-import {localStorageGet, localStorageSet} from '../../utils/localStorage';
-import {useAppStore} from '../../store/AppStore';
+import { makeStyles } from '@material-ui/styles';
+import { PAGES } from '../../consts';
+import { SideNav, SideProfile } from './components';
+import { AppLink, AppIconButton } from '../../components';
+import { localStorageGet, localStorageSet } from '../../utils/localStorage';
+import { useAppStore } from '../../store/AppStore';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {func} [props.onLogout] - callback to logout current user
  * @param {string} [prop.className] - optional className for <div> tag
  */
-const SideBar = ({open, variant, currentUser, onClose, onLogout, className, ...props}) => {
+const SideBar = ({ open, variant, currentUser, onClose, onLogout, className, ...props }) => {
   const [state, dispatch] = useAppStore();
   const [showIcons, setShowIcons] = useState(localStorageGet('sideBarIcons', true));
   const classes = useStyles();

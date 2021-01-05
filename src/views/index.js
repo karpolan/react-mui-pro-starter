@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import {withSuspense} from '../components';
+import { withSuspense } from '../components';
 import NotFound from './NotFound';
 import NotImplementedView from './NotImplemented';
 
@@ -23,4 +23,4 @@ const About = withSuspense(React.lazy(() => import('./About')));
 const Tools = () => <NotImplementedView name="Tools" />; // Sample of non-implemented View
 const Settings = () => <NotImplementedView name="Settings" />; // Sample of non-implemented View
 
-export {NotFound, Login, Main, About, Welcome, Settings, Tools};
+export { NotFound, Login, Main, About, Welcome, Settings, Tools };

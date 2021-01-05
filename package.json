@@ -43,6 +43,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "node_modules/.bin/eslint --ext js src",
+    "format": "node_modules/.bin/prettier src --write",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

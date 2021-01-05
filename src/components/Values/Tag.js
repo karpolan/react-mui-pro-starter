@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import Chip from '@material-ui/core/Chip';
-import {filledStylesByNames} from '../../utils/styles';
+import { filledStylesByNames } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {string} label - text to show in UpperCase, if label is empty nothing is rendered
  * @param {string} color - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
  */
-const Tag = ({label = '', color = 'default', className, onClick, ...props}) => {
+const Tag = ({ label = '', color = 'default', className, onClick, ...props }) => {
   const classes = useStyles();
 
   if (!label) return null; // Don't render anything for empty label

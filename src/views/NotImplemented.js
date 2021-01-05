@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
-import {AppLink} from '../components';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { AppLink } from '../components';
 
 /**
  * Boilerplate for non-implemented Views
  */
 export class NotImplementedView extends Component {
   render() {
-    const {name, location, match} = this.props;
+    const { name, location, match } = this.props;
     const componentName = name || this.displayName || this._reactInternalFiber.elementType.name || 'View';
     const paramId = match.params?.id;
 
