@@ -70,7 +70,7 @@ const Main = ({ currentUser, onLogout = () => log.warn('Unhandled Main.onLogout(
           />
 
           <main className={classes.content}>
-            <ErrorBoundary>
+            <ErrorBoundary name="Router">
               <Switch>
                 {PAGES.map((page) => (
                   <Route key={`${page.title}-${page.href}`} {...page} />

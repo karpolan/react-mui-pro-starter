@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import AppIdleTimer from './components/AppIdleTimer';
+import ErrorBoundary from './components/ErrorBoundary';
 import { Login, Main } from './views';
 import { getMe, setGlobalApi } from './api';
 import AppStore from './store/AppStore';
@@ -76,14 +77,16 @@ class App extends Component {
     const { token, currentUser } = this.state;
     return (
       <AppStore>
-        <AppIdleTimer onLogout={this.onLogout} />
-        {token ? (
-          <AppThemeProvider /* Material UI part of application */>
-            <Main currentUser={currentUser} onLogout={this.onLogout} />
-          </AppThemeProvider>
-        ) : (
-          <Login onSetToken={this.onSetToken} /* Non-Material UI part of application */ />
-        )}
+        <ErrorBoundary name="App">
+          <AppIdleTimer onLogout={this.onLogout} />
+          {token ? (
+            <AppThemeProvider /* Material UI part of application */>
+              <Main currentUser={currentUser} onLogout={this.onLogout} />
+            </AppThemeProvider>
+          ) : (
+            <Login onSetToken={this.onSetToken} /* Non-Material UI part of application */ />
+          )}
+        </ErrorBoundary>
       </AppStore>
     );
   }
