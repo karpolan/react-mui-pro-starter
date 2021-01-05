@@ -1,6 +1,6 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.5.17",
+  "version": "0.6.19",
   "description": "React + Material UI all in once starter",
   "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
   "keywords": [
@@ -40,6 +40,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "node_modules/.bin/eslint --ext js src",
