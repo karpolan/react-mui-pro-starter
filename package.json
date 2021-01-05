@@ -1,6 +1,6 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.5.15",
+  "version": "0.5.17",
   "description": "React + Material UI all in once starter",
   "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
   "keywords": [
@@ -18,25 +18,25 @@
     "url": "https://github.com/karpolan/react-mui-pro-starter"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "date-fns": "^2.16.1",
-    "loglevel": "^1.7.0",
-    "notistack": "^1.0.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "loglevel": "^1.7.1",
+    "notistack": "^1.0.3",
+    "react": "latest",
+    "react-dom": "latest",
     "react-idle-timer": "^4.5.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.0"
+    "react-scripts": "^4.0.1"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
+    "prettier": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
