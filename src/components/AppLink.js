@@ -1,8 +1,8 @@
-import React, {forwardRef} from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
-import {Link as RouterLink} from 'react-router-dom';
+import { makeStyles } from '@material-ui/styles';
+import { Link as RouterLink } from 'react-router-dom';
 import MuiLink from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +41,7 @@ const AppLink = forwardRef(
           <MuiLink
             href={href}
             className={clsx(className, classes.link)}
-            {...(openInNewTab ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
+            {...(openInNewTab ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
             {...props}
           >
             {children}
@@ -51,7 +51,7 @@ const AppLink = forwardRef(
             component={RouterLink}
             to={to}
             className={clsx(className, classes.link)}
-            {...(openInNewTab ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
+            {...(openInNewTab ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
             {...props}
           >
             {children}

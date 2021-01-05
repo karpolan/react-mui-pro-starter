@@ -1,4 +1,4 @@
-import {TITLE_PRIVATE} from '../consts';
+import { TITLE_PRIVATE } from '../consts';
 
 /**
  * Centralized place in the App to update document.title
@@ -11,4 +11,4 @@ function updateDocumentTitle(title = '') {
   document.title = TITLE_PRIVATE;
 }
 
-export {updateDocumentTitle};
+export { updateDocumentTitle };

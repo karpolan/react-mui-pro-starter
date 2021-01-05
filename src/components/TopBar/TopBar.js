@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Badge from '@material-ui/core/Badge';
 import Hidden from '@material-ui/core/Hidden';
@@ -10,8 +10,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
-import {PAGES} from '../../consts';
-import {updateDocumentTitle} from '../../utils/documentTitle';
+import { PAGES } from '../../consts';
+import { updateDocumentTitle } from '../../utils/documentTitle';
 import AppIconButton from '../AppIconButton';
 import logo from './logo.svg';
 
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
  * Renders TopBar
  * @param {func} props.onSideBarOpen - called by click on MenuIcon for small screens
  */
-const TopBar = ({title = '', className, onSideBarOpen, onLogout, ...props}) => {
+const TopBar = ({ title = '', className, onSideBarOpen, onLogout, ...props }) => {
   const classes = useStyles();
   const [notifications] = useState([]); // Todo: Add connect to store
   const location = useLocation();

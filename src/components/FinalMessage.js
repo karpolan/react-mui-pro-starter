@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
  * Renders "Big" Final Message
  * Used when the Entity/Object not found, serious error occurs, during maintenance and so on.
  */
-const FinalMessage = ({title, children, className, ...props}) => {
+const FinalMessage = ({ title, children, className, ...props }) => {
   return (
     <Box m={10} {...props}>
       <Typography variant="h4" align="center">

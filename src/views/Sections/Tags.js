@@ -1,10 +1,10 @@
 import React from 'react';
-import {AppSection, Tag, TagCloud} from '../../components';
+import { AppSection, Tag, TagCloud } from '../../components';
 
 /**
  * Renders demo section for Tags and TagCloud
  */
-const TagsSection = ({useTagCloud = false}) => {
+const TagsSection = ({ useTagCloud = false }) => {
   function renderTags() {
     return [
       <Tag key="1" label="default" color="default" />,

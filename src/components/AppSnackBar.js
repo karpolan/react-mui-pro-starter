@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {SnackbarProvider} from 'notistack';
-import {makeStyles} from '@material-ui/styles';
+import { SnackbarProvider } from 'notistack';
+import { makeStyles } from '@material-ui/styles';
 // import Slide from '@material-ui/core/Slide';
 import Snackbar from '@material-ui/core/Snackbar';
 import AppAlert from './AppAlert';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Provider for SnackBar stack and utils from "notistack" npm
  */
-export const AppSnackBarProvider = ({children}) => {
+export const AppSnackBarProvider = ({ children }) => {
   return (
     <SnackbarProvider
       maxSnack={SNACKBAR_MAX_COUNT}

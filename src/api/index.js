@@ -11,4 +11,4 @@ export function setGlobalApi(apiInstance) {
 export * from './me';
 // export * from './settings';
 // export * from './other';
-export {API, API as default};
+export { API, API as default };

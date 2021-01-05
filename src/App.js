@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import AppIdleTimer from './components/AppIdleTimer';
-import {Login, Main} from './views';
-import {getMe, setGlobalApi} from './api';
+import ErrorBoundary from './components/ErrorBoundary';
+import { Login, Main } from './views';
+import { getMe, setGlobalApi } from './api';
 import AppStore from './store/AppStore';
 import AppThemeProvider from './theme';
 
@@ -55,12 +56,12 @@ class App extends Component {
       if (this.api?.defaults?.token) delete this.api.defaults.token['x-auth-token'];
       localStorage.removeItem('token');
     }
-    this.setState({token});
+    this.setState({ token });
   }
 
   async loadCurrentUser() {
     const currentUser = await getMe();
-    this.setState({currentUser});
+    this.setState({ currentUser });
   }
 
   onSetToken = (newToken) => {
@@ -73,17 +74,19 @@ class App extends Component {
   };
 
   render() {
-    const {token, currentUser} = this.state;
+    const { token, currentUser } = this.state;
     return (
       <AppStore>
-        <AppIdleTimer onLogout={this.onLogout} />
-        {token ? (
-          <AppThemeProvider /* Material UI part of application */>
-            <Main currentUser={currentUser} onLogout={this.onLogout} />
-          </AppThemeProvider>
-        ) : (
-          <Login onSetToken={this.onSetToken} /* Non-Material UI part of application */ />
-        )}
+        <ErrorBoundary name="App">
+          <AppIdleTimer onLogout={this.onLogout} />
+          {token ? (
+            <AppThemeProvider /* Material UI part of application */>
+              <Main currentUser={currentUser} onLogout={this.onLogout} />
+            </AppThemeProvider>
+          ) : (
+            <Login onSetToken={this.onSetToken} /* Non-Material UI part of application */ />
+          )}
+        </ErrorBoundary>
       </AppStore>
     );
   }

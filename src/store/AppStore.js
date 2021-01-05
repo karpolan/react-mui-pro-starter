@@ -1,4 +1,4 @@
-import React, {createContext, useReducer, useContext} from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import AppReducer from './AppReducer';
 
@@ -32,9 +32,9 @@ const AppContext = createContext(initialAppState);
  *  <App/>
  * </AppStore>
  */
-const AppStore = ({children}) => {
+const AppStore = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [state, dispatch] = useReducer(AppReducer, {...initialAppState, darkMode: prefersDarkMode});
+  const [state, dispatch] = useReducer(AppReducer, { ...initialAppState, darkMode: prefersDarkMode });
   return <AppContext.Provider value={[state, dispatch]}>{children}</AppContext.Provider>;
 };
 
@@ -50,4 +50,4 @@ const withAppStore = (Component) => (props) => {
   return <Component {...props} store={useAppStore()} />;
 };
 
-export {AppStore as default, AppStore, AppContext, useAppStore, withAppStore};
+export { AppStore as default, AppStore, AppContext, useAppStore, withAppStore };

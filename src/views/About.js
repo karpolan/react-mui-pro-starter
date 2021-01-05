@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import {useSnackbar} from 'notistack';
-import {AppButton, AppAlert, AppLink, AppSection} from '../components';
+import { useSnackbar } from 'notistack';
+import { AppButton, AppAlert, AppLink, AppSection } from '../components';
 import AppSnackBar from '../components/AppSnackBar';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
@@ -19,14 +19,14 @@ const About = () => {
   });
   const [multiSnackbarCount, setMultiSnackbarCount] = useState(1);
 
-  const {enqueueSnackbar /*, closeSnackbar*/} = useSnackbar();
+  const { enqueueSnackbar /*, closeSnackbar*/ } = useSnackbar();
 
   const handleSnackBarShow = (name) => {
-    setSnackbars({...snackbars, [name]: true});
+    setSnackbars({ ...snackbars, [name]: true });
   };
 
   const handleSnackBarHide = (name) => {
-    setSnackbars({...snackbars, [name]: false});
+    setSnackbars({ ...snackbars, [name]: false });
   };
 
   const handleMultiSnackbarClick = () => {

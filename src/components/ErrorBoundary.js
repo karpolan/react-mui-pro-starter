@@ -1,13 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Error boundary wrapper to save entire Application from falling
+ * @param {string} props.name - name of the wrapped segment, "Error Boundary" by default
  */
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = {error: null, errorInfo: null};
-    this.styleDetails = {whiteSpace: 'pre-wrap'};
+    this.state = { error: null, errorInfo: null };
+    this.styleDetails = { whiteSpace: 'pre-wrap' };
   }
 
   componentDidCatch(error, errorInfo) {
@@ -20,13 +22,14 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    const {errorInfo} = this.state;
+    const { errorInfo } = this.state;
     if (errorInfo) {
       // Error path
-      const {error} = this.state;
+      const { error } = this.state;
+      const { name = 'Error Boundary' } = this.props;
       return (
         <div>
-          <h2>Error Boundary - Something went wrong</h2>
+          <h2>{name} - Something went wrong</h2>
           <details style={this.styleDetails}>
             {error ? error.toString() : null}
             <br />
@@ -39,5 +42,9 @@ class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
+
+ErrorBoundary.propTypes = {
+  name: PropTypes.string,
+};
 
 export default ErrorBoundary;

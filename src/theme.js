@@ -4,9 +4,9 @@
  * Martial Color tool: https://material.io/resources/color
  */
 import React from 'react';
-import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {useAppStore} from './store/AppStore';
+import { useAppStore } from './store/AppStore';
 
 /**
  * Material UI theme "front" colors, "back" colors are different for Light and Dark modes
@@ -70,7 +70,7 @@ const DARK_THEME = {
 /**
  * Material UI Provider with Light and Dark themes depending on global "state.darkMode"
  */
-const AppThemeProvider = ({children}) => {
+const AppThemeProvider = ({ children }) => {
   const [state] = useAppStore();
   // const theme = useMemo(() => (state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME)));
   const theme = state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME);
@@ -83,4 +83,4 @@ const AppThemeProvider = ({children}) => {
   );
 };
 
-export {AppThemeProvider as default, AppThemeProvider};
+export { AppThemeProvider as default, AppThemeProvider };

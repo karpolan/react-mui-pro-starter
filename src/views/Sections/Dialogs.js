@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {AppButton, AppSection} from '../../components';
-import {MessageDialog, ConfirmationDialog, EmailEditDialog} from '../../components/Dialogs';
+import React, { Component } from 'react';
+import { AppButton, AppSection } from '../../components';
+import { MessageDialog, ConfirmationDialog, EmailEditDialog } from '../../components/Dialogs';
 import TagsSection from './Tags';
 
 /**
@@ -15,7 +15,7 @@ class DialogsSection extends Component {
 
   onDialogClose = (event, reason) => {
     log.info('DialogsSection.onDialogClose() - reason:', reason || 'buttonClick');
-    this.setState({modal: null});
+    this.setState({ modal: null });
   };
 
   onMessageDialogOpen = () => {
@@ -38,7 +38,7 @@ class DialogsSection extends Component {
 
   onMessageDialogConfirm = (data) => {
     log.info('DialogsSection.onMessageDialogConfirm() - data:', data);
-    this.setState({modal: null});
+    this.setState({ modal: null });
   };
 
   onConfirmDialogOpen = () => {
@@ -74,7 +74,7 @@ class DialogsSection extends Component {
 
   onConfirmDialogConfirm = (data) => {
     log.info('DialogsSection.onConfirmDialogConfirm() - data:', data);
-    this.setState({modal: null});
+    this.setState({ modal: null });
   };
 
   onEditEmailDialogOpen = () => {
@@ -92,11 +92,11 @@ class DialogsSection extends Component {
 
   onEditEmailDialogConfirm = (data) => {
     log.info('DialogsSection.onEditEmailDialogConfirm() - data:', data);
-    this.setState({modal: null, email: data});
+    this.setState({ modal: null, email: data });
   };
 
   render() {
-    const {modal} = this.state;
+    const { modal } = this.state;
     return (
       <AppSection title="Dialogs" align="center">
         {modal}

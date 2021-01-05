@@ -1,11 +1,11 @@
 import React from 'react';
-import {PropTypesCommonDialog} from './consts';
+import { PropTypesCommonDialog } from './consts';
 import CommonDialog from './CommonDialog';
 
 /**
  * Shows generic "Message" dialog
  */
-const MessageDialog = ({title = 'Message', confirmButtonText = 'OK', hideCancelButton = true, ...props}) => {
+const MessageDialog = ({ title = 'Message', confirmButtonText = 'OK', hideCancelButton = true, ...props }) => {
   return (
     <CommonDialog title={title} confirmButtonText={confirmButtonText} hideCancelButton={hideCancelButton} {...props} />
   );

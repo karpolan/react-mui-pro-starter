@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {AppButton, AppSection} from '../../components';
+import React, { useState } from 'react';
+import { AppButton, AppSection } from '../../components';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import {useLocation} from 'react-router-dom';
-import {AppLink} from '../components';
+import { useLocation } from 'react-router-dom';
+import { AppLink } from '../components';
 
 /**
  * NotFound aka 404 page/view

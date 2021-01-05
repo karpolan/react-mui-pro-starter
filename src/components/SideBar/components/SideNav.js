@@ -1,11 +1,11 @@
-import React, {forwardRef} from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     fontWeight: theme.typography.fontWeightMedium,
   },
-  link: {flexGrow: 1},
+  link: { flexGrow: 1 },
 }));
 
 /**
@@ -56,7 +56,7 @@ const SideBarLink = forwardRef((props, ref) => {
  * @param {array} props.pages - list of objects to render as navigation links
  * @param {boolean} [props.showIcons] - icons are visible when true
  */
-const SidebarNav = ({pages, showIcons = false, className, ...rest}) => {
+const SidebarNav = ({ pages, showIcons = false, className, ...rest }) => {
   const classes = useStyles();
 
   return (
