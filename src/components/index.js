@@ -32,5 +32,5 @@ export {
   TagCloud,
   ListObjectProps,
   FinalMessage,
-  AppInput
+  AppInput,
 };
