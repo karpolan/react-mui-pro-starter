@@ -18,9 +18,11 @@ const Main = withSuspense(
   React.lazy(() => import('./Main')),
   <LinearProgress />
 );
+
 const Welcome = withSuspense(React.lazy(() => import('./Welcome')));
 const About = withSuspense(React.lazy(() => import('./About')));
 const Tools = () => <NotImplementedView name="Tools" />; // Sample of non-implemented View
-const Settings = () => <NotImplementedView name="Settings" />; // Sample of non-implemented View
+//const Settings = () => <NotImplementedView name="Settings" />; // Sample of non-implemented View
+const Settings = withSuspense(React.lazy(() => import('./Settings')));
 
 export { NotFound, Login, Main, About, Welcome, Settings, Tools };

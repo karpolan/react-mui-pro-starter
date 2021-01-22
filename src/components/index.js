@@ -10,6 +10,7 @@ import AppButton from './AppButton';
 import AppIconButton from './AppIconButton';
 import AppAlert from './AppAlert';
 import AppSection from './AppSection';
+import AppInput from './AppInput';
 
 import ListObjectProps from './ListObjectProps';
 import FinalMessage from './FinalMessage';
@@ -31,4 +32,5 @@ export {
   TagCloud,
   ListObjectProps,
   FinalMessage,
+  AppInput
 };
