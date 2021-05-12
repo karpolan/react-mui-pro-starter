@@ -1,6 +1,6 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.6.19",
+  "version": "0.7.21",
   "description": "React + Material UI all in once starter",
   "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
   "keywords": [
@@ -18,25 +18,26 @@
     "url": "https://github.com/karpolan/react-mui-pro-starter"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.21.1",
-    "clsx": "^1.1.1",
-    "date-fns": "^2.16.1",
-    "loglevel": "^1.7.1",
-    "notistack": "^1.0.3",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "@material-ui/lab": "latest",
+    "axios": "latest",
+    "clsx": "latest",
+    "date-fns": "latest",
+    "loglevel": "latest",
+    "notistack": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-idle-timer": "^4.5.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.1"
+    "react-idle-timer": "latest",
+    "react-router-dom": "latest",
+    "react-scripts": "latest",
+    "web-vitals": "latest"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
+    "prettier": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,9 +49,12 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app",
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
     "globals": {
-      "log": true
+      "log": "readonly"
     }
   },
   "browserslist": {

@@ -4,6 +4,9 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import MuiAlert from '@material-ui/lab/Alert';
 
+const APP_ALERT_SEVERITY = 'info'; // 'error' | 'info'| 'success' | 'warning'
+const APP_ALERT_VARIANT = 'standard'; // 'filled' | 'outlined' | 'standard'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(1),
@@ -13,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Application styled Alert component
  */
-const AppAlert = ({ severity = 'error', variant = 'filled', className, onClose, ...props }) => {
+const AppAlert = ({ severity = APP_ALERT_SEVERITY, variant = APP_ALERT_VARIANT, className, onClose, ...props }) => {
   const classes = useStyles();
 
   return (
