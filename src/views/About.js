@@ -1,11 +1,12 @@
 import  { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { useSnackbar } from 'notistack';
-import { AppButton, AppAlert, AppLink, AppSection } from '../components';
+import { AppButton, AppLink, AppSection } from '../components';
 import AppSnackBar from '../components/AppSnackBar';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
 import DialogsSection from './Sections/Dialogs';
+import AlertsSection from './Sections/Alerts'
 
 /**
  * Renders "About" page
@@ -80,12 +81,7 @@ const About = () => {
       </Grid>
 
       <Grid item xs={12} sm={6}>
-        <AppSection title="Alerts">
-          <AppAlert>severity="error" by default</AppAlert>
-          <AppAlert severity="warning">severity="warning"</AppAlert>
-          <AppAlert severity="info">severity="info"</AppAlert>
-          <AppAlert severity="success">severity="success"</AppAlert>
-        </AppSection>
+        <AlertsSection />
       </Grid>
 
       <Grid item xs={12} sm={6}>
