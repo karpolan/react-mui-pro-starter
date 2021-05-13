@@ -1,4 +1,4 @@
-import { PropTypesCommonDialog } from './consts';
+import { PropTypesCommonDialog } from './utils';
 import CommonDialog from './CommonDialog';
 
 /**
