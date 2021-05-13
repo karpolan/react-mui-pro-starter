@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders <span> element with styling and customization
- * @param {React.node|boolean} [children] - content to render
+ * @class AppSpan
+ * @param {React.node|boolean} children - content to render inside <span> tag
  * @param {string} [className] - optional className for <span> tag
  * @param {string} [color] - optional color of the content
  * @param {string} [bold] - when true the content is rendered as **bold** text
@@ -34,7 +35,7 @@ const AppSpan = ({
   capitalize = false,
   uppercase = false,
   className,
-  ...props
+  ...restOfProps
 }) => {
   const classes = useStyles();
 
@@ -50,7 +51,7 @@ const AppSpan = ({
         uppercase && classes.uppercase,
         className,
       )}
-      {...props}
+      {...restOfProps}
     >
       {children}
     </span>
