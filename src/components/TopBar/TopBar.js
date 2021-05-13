@@ -1,51 +1,51 @@
-import { useState } from 'react';
+//  import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { /*Link,*/ useLocation } from 'react-router-dom';
 import clsx from 'clsx';
-import { makeStyles, AppBar, Badge, Hidden, IconButton, Toolbar, Typography } from '@material-ui/core';
-
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'; // TODO: Use AppIcon
+import { makeStyles, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { PAGES } from '../../consts';
 import { updateDocumentTitle } from '../../utils/documentTitle';
 import AppIconButton from '../AppIconButton';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    boxShadow: 'none',
+    //boxShadow: 'none',
+    minWidth: '20rem',
+  },
+  toolbar: {
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
   },
   logo: {
     height: theme.spacing(4),
-    marginRight: theme.spacing(1),
   },
   title: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     flexGrow: 1,
     textAlign: 'center',
-  },
-  link: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    textAlign: 'right',
-    '& a': {
-      color: 'inherit',
-    },
+    whiteSpace: 'nowrap',
   },
   buttons: {},
-  signOutButton: {
-    marginLeft: theme.spacing(1),
-  },
 }));
 
 /**
  * Renders TopBar
- * @param {func} props.onSideBarOpen - called by click on MenuIcon for small screens
+ * @param {func} props.onMenu - called by click on MenuIcon for small screens
  */
-const TopBar = ({ title = '', className, onSideBarOpen, onLogout, ...props }) => {
+const TopBar = ({
+  className,
+  title = '',
+  isAuthenticated = false,
+  onMenu,
+  onNotifications,
+  ...restOfProps
+}) => {
   const classes = useStyles();
-  const [notifications] = useState([]); // Todo: Add connect to store
+  // const [notifications] = useState([]); // Todo: Add connect to store
   const location = useLocation();
+  // const iconMenu = isAuthenticated ? 'account' : 'menu';
 
   if (!title && location.pathname !== '/') {
     const matchingPages = PAGES.filter((page) => location.pathname.includes(page.href));
@@ -56,42 +56,27 @@ const TopBar = ({ title = '', className, onSideBarOpen, onLogout, ...props }) =>
     updateDocumentTitle(); // Reset to default App title
   }
 
-  const handleNotificationClick = (event) => {
-    alert('Feature is not implemented yet');
-  };
-
   return (
-    <AppBar {...props} className={clsx(classes.root, className)}>
+    <AppBar {...restOfProps} className={clsx(classes.root, className)}>
       <Toolbar>
-        <Link to="/">
+        <AppIconButton
+          icon="logo"
+          // color="primary"
+          onClick={onMenu}
+        />
+        {/* <Link to="/">
           <img className={classes.logo} alt="Logo" src={logo} />
-        </Link>
+        </Link> */}
+
         <Typography variant="h6" className={classes.title}>
           {title}
         </Typography>
+
         <div className={classes.buttons}>
-          <Hidden smDown>
-            <IconButton color="inherit" onClick={handleNotificationClick}>
-              <Badge
-                title="Notifications for Current User"
-                badgeContent={notifications.length}
-                color="primary"
-                variant="dot"
-              >
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <AppIconButton
-              icon="logout"
-              title="Logout Current User"
-              className={classes.signOutButton}
-              color="inherit"
-              onClick={onLogout}
-            />
-          </Hidden>
-          <Hidden mdUp>
-            <AppIconButton icon="menu" color="inherit" onClick={onSideBarOpen} />
-          </Hidden>
+          {isAuthenticated && (
+            <AppIconButton icon="notifications" color="inherit" title="User Notifications" onClick={onNotifications} />
+          )}
+          {/* <AppIconButton icon={iconMenu} color="inherit" title="Open Menu" onClick={onMenu} /> */}
         </div>
       </Toolbar>
     </AppBar>
@@ -99,9 +84,11 @@ const TopBar = ({ title = '', className, onSideBarOpen, onLogout, ...props }) =>
 };
 
 TopBar.propTypes = {
-  title: PropTypes.string,
   className: PropTypes.string,
-  onSideBarOpen: PropTypes.func,
+  title: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+  onMenu: PropTypes.func,
+  onNotifications: PropTypes.func,
   onLogout: PropTypes.func,
 };
 
