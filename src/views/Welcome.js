@@ -1,5 +1,4 @@
-
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
 import { AppLink, FinalMessage, AppIcon } from '../components';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
