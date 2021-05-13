@@ -1,8 +1,8 @@
 import { Grid } from '@material-ui/core';
-import { AppLink, FinalMessage, AppIcon } from '../components';
-import ButtonsSection from './Sections/Buttons';
-import TagsSection from './Sections/Tags';
-import DialogsSection from './Sections/Dialogs';
+import { AppLink, FinalMessage, AppIcon } from '../../components';
+import ButtonsSection from '../components/Buttons';
+import TagsSection from '../components/Tags';
+import DialogsSection from '../components/Dialogs';
 
 /**
  * Renders Welcome page/view

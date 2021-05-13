@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
-import { AppButton, AppLink, AppSection } from '../components';
-import {SnackBar} from '../components/SnackBar';
-import ButtonsSection from './Sections/Buttons';
-import TagsSection from './Sections/Tags';
-import DialogsSection from './Sections/Dialogs';
-import AlertsSection from './Sections/Alerts';
+import { AppButton, AppLink, AppSection } from '../../components';
+import { SnackBar } from '../../components/SnackBar';
+import ButtonsSection from '../components/Buttons';
+import TagsSection from '../components/Tags';
+import DialogsSection from '../components/Dialogs';
+import AlertsSection from '../components/Alerts';
 
 /**
  * Renders "About" page
@@ -95,12 +95,7 @@ const About = () => {
             </SnackBar>
 
             <AppButton label="Show Success SnackBar" onClick={() => handleSnackBarShow('success')} />
-            <SnackBar
-              key="2"
-              open={snackbars.success}
-              severity="success"
-              onClose={() => handleSnackBarHide('success')}
-            >
+            <SnackBar key="2" open={snackbars.success} severity="success" onClose={() => handleSnackBarHide('success')}>
               SnackBar with severity="success"
             </SnackBar>
 
