@@ -6,7 +6,7 @@ import { makeStyles, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { PAGES } from '../../consts';
 import { updateDocumentTitle } from '../../utils/documentTitle';
 import AppIconButton from '../AppIconButton';
-// import logo from './logo.svg';
+// import logo from '../AppIcon/logo.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
