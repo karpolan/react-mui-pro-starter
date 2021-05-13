@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { makeStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import { ErrorBoundary } from '../components';
-import { AppSnackBarProvider } from '../components/AppSnackBar';
+import { SnackBarProvider } from '../components/SnackBar';
 import SideBar from '../components/SideBar';
 import TopBar from '../components/TopBar';
 import { PAGES } from '../consts';
@@ -50,7 +50,7 @@ const Main = ({ currentUser, onLogout = () => log.warn('Unhandled Main.onLogout(
   }, [openSideBar]);
 
   return (
-    <AppSnackBarProvider>
+    <SnackBarProvider>
       <BrowserRouter>
         <div
           className={clsx({
@@ -79,7 +79,7 @@ const Main = ({ currentUser, onLogout = () => log.warn('Unhandled Main.onLogout(
           </main>
         </div>
       </BrowserRouter>
-    </AppSnackBarProvider>
+    </SnackBarProvider>
   );
 };
 

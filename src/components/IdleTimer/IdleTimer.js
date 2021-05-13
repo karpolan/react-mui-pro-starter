@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import IdleTimer from 'react-idle-timer';
+import ReactIdleTimer from 'react-idle-timer';
 import { api } from '../../api';
 
 /**
  * WatchDog timer to track inactivity and logout current user
- * @class AppIdleTimer
+ * @class IdleTimer
  * @param {func} [onLogout] - callback to logout current user
  */
-class AppIdleTimer extends Component {
+class IdleTimer extends Component {
   constructor(props) {
     super(props);
     this.refIdleTimer = null;
@@ -43,7 +43,7 @@ class AppIdleTimer extends Component {
 
   render() {
     return (
-      <IdleTimer
+      <ReactIdleTimer
         ref={(ref) => {
           this.refIdleTimer = ref;
         }}
@@ -59,8 +59,8 @@ class AppIdleTimer extends Component {
   }
 }
 
-AppIdleTimer.propTypes = {
+IdleTimer.propTypes = {
   onLogout: PropTypes.func,
 };
 
-export default AppIdleTimer;
+export default IdleTimer;

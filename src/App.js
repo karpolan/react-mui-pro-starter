@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
-import AppIdleTimer from './components/AppIdleTimer';
+import IdleTimer from './components/IdleTimer';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Login, Main } from './views';
 import { api } from './api';
@@ -79,7 +79,7 @@ class App extends Component {
     return (
       <AppStore>
         <ErrorBoundary name="App">
-          <AppIdleTimer onLogout={this.onLogout} />
+          <IdleTimer onLogout={this.onLogout} />
           {token ? (
             <AppThemeProvider /* Material UI part of application */>
               <Main currentUser={currentUser} onLogout={this.onLogout} />

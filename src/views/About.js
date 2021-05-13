@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
 import { AppButton, AppLink, AppSection } from '../components';
-import AppSnackBar from '../components/AppSnackBar';
+import {SnackBar} from '../components/SnackBar';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
 import DialogsSection from './Sections/Dialogs';
@@ -87,25 +87,25 @@ const About = () => {
       <Grid item xs={12} sm={6}>
         <AppSection title="SnackBars">
           <Grid container justify="center">
-            <AppSnackBar autoOpen message={'By default the SnackBar shown for 5 seconds only'} />
+            <SnackBar autoOpen message={'By default the SnackBar shown for 5 seconds only'} />
 
             <AppButton label="Show Info SnackBar" onClick={() => handleSnackBarShow('info')} />
-            <AppSnackBar key="1" open={snackbars.info} severity="info" onClose={() => handleSnackBarHide('info')}>
+            <SnackBar key="1" open={snackbars.info} severity="info" onClose={() => handleSnackBarHide('info')}>
               SnackBar with severity="info"
-            </AppSnackBar>
+            </SnackBar>
 
             <AppButton label="Show Success SnackBar" onClick={() => handleSnackBarShow('success')} />
-            <AppSnackBar
+            <SnackBar
               key="2"
               open={snackbars.success}
               severity="success"
               onClose={() => handleSnackBarHide('success')}
             >
               SnackBar with severity="success"
-            </AppSnackBar>
+            </SnackBar>
 
             <AppButton label="Show Error SnackBar" onClick={() => handleSnackBarShow('error')} />
-            <AppSnackBar
+            <SnackBar
               key="3"
               open={snackbars.error}
               severity="error"
@@ -113,7 +113,7 @@ const About = () => {
               onClose={() => handleSnackBarHide('error')}
             >
               SnackBar with severity="error" visible until user clicks on [X] button
-            </AppSnackBar>
+            </SnackBar>
 
             <AppButton label="Multi SnackBar (Click few times)" onClick={handleMultiSnackbarClick} />
           </Grid>
