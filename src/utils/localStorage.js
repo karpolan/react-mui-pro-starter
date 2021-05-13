@@ -1,7 +1,7 @@
 /**
  * Smartly reads value from localStorage
  */
-export function localStorageGet(name, defaultValue = '') {
+ export function localStorageGet(name, defaultValue = '') {
   const valueFromStore = localStorage.getItem(name);
   if (valueFromStore === null) return defaultValue; // No value in store, return default one
 
@@ -24,4 +24,15 @@ export function localStorageSet(name, value) {
     valueAsString = JSON.stringify(value);
   }
   localStorage.setItem(name, valueAsString);
+}
+
+/**
+ * Deletes value by name from localStorage, if specified name is empty the localStorage is cleared.
+ */
+export function localStorageDelete(name) {
+  if (name) {
+    localStorage.removeItem(name);
+  } else {
+    localStorage.clear();
+  }
 }

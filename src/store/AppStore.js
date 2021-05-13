@@ -1,10 +1,14 @@
-import { createContext, useReducer, useContext } from 'react';
-import { useMediaQuery } from '@material-ui/core';
+import React, { createContext, useReducer, useContext } from 'react';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { loadToken } from '../api/auth/utils';
+import { localStorageGet } from '../utils/localStorage';
 import AppReducer from './AppReducer';
 
 const initialAppState = {
   darkMode: false, // Overridden by useMediaQuery('(prefers-color-scheme: dark)') in AppStore
   error: '',
+  isAuthenticated: false,
+  currentUser: undefined,
 };
 
 /**
@@ -34,7 +38,16 @@ const AppContext = createContext(initialAppState);
  */
 const AppStore = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [state, dispatch] = useReducer(AppReducer, { ...initialAppState, darkMode: prefersDarkMode });
+  const previousDarkMode = Boolean(localStorageGet('darkMode'));
+  const tokenExists = Boolean(loadToken());
+
+  const initialState = {
+    ...initialAppState,
+    darkMode: previousDarkMode || prefersDarkMode,
+    isAuthenticated: tokenExists,
+  };
+
+  const [state, dispatch] = useReducer(AppReducer, initialState);
   return <AppContext.Provider value={[state, dispatch]}>{children}</AppContext.Provider>;
 };
 

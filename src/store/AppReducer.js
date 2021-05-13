@@ -1,3 +1,5 @@
+import { localStorageSet } from '../utils/localStorage';
+
 /**
  * Main reducer for global AppStore using "Redux styled" actions
  * @param {object} state - current/default state
@@ -6,11 +8,30 @@
  */
 const AppReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_DARK_MODE':
+    case 'SET_CURRENT_USER':
       return {
         ...state,
-        darkMode: action.payload,
+        currentUser: action?.currentUser || action?.payload,
       };
+    case 'LOG_IN':
+      return {
+        ...state,
+        isAuthenticated: true,
+      };
+    case 'LOG_OUT':
+      return {
+        ...state,
+        isAuthenticated: false,
+        currentUser: undefined, // Also reset previous user data
+      };
+    case 'SET_DARK_MODE': {
+      const darkMode = action?.darkMode ?? action?.payload;
+      localStorageSet('darkMode', darkMode);
+      return {
+        ...state,
+        darkMode,
+      };
+    }
     case 'SET_ERROR':
       return {
         ...state,
