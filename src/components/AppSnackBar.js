@@ -2,9 +2,7 @@ import  { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { SnackbarProvider } from 'notistack';
-import { makeStyles } from '@material-ui/styles';
-// import Slide from '@material-ui/core/Slide';
-import Snackbar from '@material-ui/core/Snackbar';
+import { makeStyles, Snackbar } from '@material-ui/core';
 import AppAlert from './AppAlert';
 
 const SNACKBAR_AUTO_HIDE_DURATION = 5000; // Set to null if want to disable AutoHide feature by default

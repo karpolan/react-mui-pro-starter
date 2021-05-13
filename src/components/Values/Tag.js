@@ -1,8 +1,7 @@
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
-import Chip from '@material-ui/core/Chip';
+import { makeStyles, Chip } from '@material-ui/core';
 import { filledStylesByNames } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({

@@ -1,10 +1,7 @@
 import  { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Switch from '@material-ui/core/Switch';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, Divider, Drawer, Switch } from '@material-ui/core';
 import { PAGES } from '../../consts';
 import { SideNav, SideProfile } from './components';
 import { AppLink, AppIconButton } from '../../components';

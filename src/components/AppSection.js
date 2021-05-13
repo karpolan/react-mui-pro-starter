@@ -1,9 +1,7 @@
 
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, Paper, Typography } from '@material-ui/core';
 import { paperStyle } from '../utils/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   paper: paperStyle(theme),

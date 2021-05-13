@@ -2,14 +2,9 @@ import  { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Badge from '@material-ui/core/Badge';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
+import { makeStyles, AppBar, Badge, Hidden, IconButton, Toolbar, Typography } from '@material-ui/core';
+
+import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'; // TODO: Use AppIcon
 import { PAGES } from '../../consts';
 import { updateDocumentTitle } from '../../utils/documentTitle';
 import AppIconButton from '../AppIconButton';

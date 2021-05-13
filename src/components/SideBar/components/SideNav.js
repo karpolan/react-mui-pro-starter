@@ -1,11 +1,8 @@
-import  { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, Button, List, ListItem } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {},

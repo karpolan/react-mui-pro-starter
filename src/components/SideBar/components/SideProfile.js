@@ -1,9 +1,7 @@
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, Avatar, Typography } from '@material-ui/core';
 import AppLink from '../../AppLink';
 
 const useStyles = makeStyles((theme) => ({

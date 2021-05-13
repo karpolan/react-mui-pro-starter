@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core';
 import { ErrorBoundary } from '../components';
 import { AppSnackBarProvider } from '../components/AppSnackBar';
 import SideBar from '../components/SideBar';
