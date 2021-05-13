@@ -3,7 +3,7 @@ import axios from 'axios';
 import AppIdleTimer from './components/AppIdleTimer';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Login, Main } from './views';
-import { getMe, setGlobalApi } from './api';
+import { api } from './api';
 import { AppStore } from './store/AppStore';
 import { AppThemeProvider } from './theme';
 
@@ -38,11 +38,12 @@ class App extends Component {
         return Promise.reject(err);
       }
     );
-    setGlobalApi(this.api); // Set shared API instance
+    // setGlobalApi(this.api); // Set shared API instance
   }
 
   componentDidMount() {
     this.setToken(localStorage.getItem('token') || null);
+    this.loadCurrentUser();
   }
 
   setToken(token) {
@@ -60,7 +61,7 @@ class App extends Component {
   }
 
   async loadCurrentUser() {
-    const currentUser = await getMe();
+    const currentUser = await api?.info?.me();
     this.setState({ currentUser });
   }
 
