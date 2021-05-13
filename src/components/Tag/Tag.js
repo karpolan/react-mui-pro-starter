@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, Chip } from '@material-ui/core';
-import { filledStylesByNames } from '../../utils/styles';
+import { COLOR_VALUES, filledStylesByNames } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders Tag (actually MUI Chip) with given text Label styling by MUI Color name
- * @param {string} label - text to show in UpperCase, if label is empty nothing is rendered
  * @param {string} color - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
+ * @param {string} label - text to show in UpperCase, if label is empty nothing is rendered
  */
 const Tag = ({ label = '', color = 'default', className, onClick, ...props }) => {
   const classes = useStyles();
@@ -34,9 +34,9 @@ const Tag = ({ label = '', color = 'default', className, onClick, ...props }) =>
 };
 
 Tag.propTypes = {
-  label: PropTypes.string,
-  color: PropTypes.string,
+  color: PropTypes.oneOf(COLOR_VALUES),
   className: PropTypes.string,
+  label: PropTypes.string,
   onClick: PropTypes.func,
 };
 

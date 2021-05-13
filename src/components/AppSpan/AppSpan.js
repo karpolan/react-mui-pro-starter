@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core';
-import { textStylesByNames } from '../../utils/styles';
+import { COLOR_VALUES, textStylesByNames } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -19,15 +19,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Renders Value element with styling and customization
- * @param {node|boolean} prop.children - string, boolean or component to render as Value
- * @param {string} [prop.color] - optional color of the value
- * @param {string} [prop.bold] - when true the value is rendered as **bold** text
- * @param {string} [prop.capitalize] - when true the value is rendered as Capitalized text
- * @param {string} [prop.uppercase] - when true the value is rendered as UPPERCASE text
- * @param {string} [prop.className] - optional className for <span> tag
+ * Renders <span> element with styling and customization
+ * @param {React.node|boolean} [children] - content to render
+ * @param {string} [className] - optional className for <span> tag
+ * @param {string} [color] - optional color of the content
+ * @param {string} [bold] - when true the content is rendered as **bold** text
+ * @param {string} [capitalize] - when true the content is rendered as Capitalized text
+ * @param {string} [uppercase] - when true the content is rendered as UPPERCASE text
  */
-const Value = ({
+const AppSpan = ({
   children,
   color = 'default',
   bold = false,
@@ -44,11 +44,11 @@ const Value = ({
     <span
       className={clsx(
         classes.root,
-        className,
         classes[color],
         bold && classes.bold,
         capitalize && classes.capitalize,
-        uppercase && classes.uppercase
+        uppercase && classes.uppercase,
+        className,
       )}
       {...props}
     >
@@ -57,13 +57,13 @@ const Value = ({
   );
 };
 
-Value.propTypes = {
+AppSpan.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]).isRequired,
-  color: PropTypes.string,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(COLOR_VALUES),
   bold: PropTypes.bool,
   capitalize: PropTypes.bool,
   uppercase: PropTypes.bool,
-  className: PropTypes.string,
 };
 
-export default Value;
+export default AppSpan;

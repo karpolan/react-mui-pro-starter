@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, Button, Box } from '@material-ui/core';
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Application styled Material UI Button with Box around to specify margins using props
  * @class AppButton
- * @param {string} [children] - content to render, overrides .label and .text
+ * @param {React.node} [children] - content to render, overrides .label and .text
  * @param {string} [color] - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
  * @param {string} [label] - text to render, alternate to .text
  * @param {string} [text] - text to render, alternate to .label
