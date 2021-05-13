@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { AppButton, AppSection } from '../../components';
-import { MessageDialog, ConfirmationDialog, EmailEditDialog } from '../../components/Dialogs';
+import { MessageDialog, ConfirmationDialog, EmailEditDialog } from '../../components/dialogs';
 import TagsSection from './Tags';
 
 /**

@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { PropTypesCommonDialog } from './utils';
 import { makeStyles, Dialog, DialogActions, DialogContent } from '@material-ui/core';
 import { AppButton } from '..';
-import AppDialogTitle from './components/AppDialogTitle';
+import { AppDialogTitle } from './components';
 import { dialogStyles } from '../../utils/styles';
 
 const useStyles = makeStyles((theme) => ({
