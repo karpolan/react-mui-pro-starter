@@ -15,23 +15,22 @@ export const COLOR_VALUES = [
 ];
 
 /*
-* Makes style to use for Material UI Paper components across the App
-*/
+ * Makes style to use for Material UI Paper components across the App
+ */
 export const paperStyle = (theme) => ({
- paddingTop: theme.spacing(1),
- paddingBottom: theme.spacing(1),
- paddingLeft: theme.spacing(2),
- paddingRight: theme.spacing(2),
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(1),
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
 });
 
 /**
-* Makes style for Forms across the App
-*/
+ * Makes style for Forms across the App
+ */
 export const formStyle = (theme) => ({
- width: '100%',
- maxWidth: '40rem', // 640px
+  width: '100%',
+  maxWidth: '40rem', // 640px
 });
-
 
 /**
  * Makes style for Title + Values blocks across the App

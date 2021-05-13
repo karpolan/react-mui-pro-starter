@@ -1,5 +1,5 @@
-import  { createContext, useReducer, useContext } from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { createContext, useReducer, useContext } from 'react';
+import { useMediaQuery } from '@material-ui/core';
 import AppReducer from './AppReducer';
 
 const initialAppState = {

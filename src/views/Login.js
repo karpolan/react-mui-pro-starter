@@ -1,4 +1,4 @@
-import  { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TITLE_PUBLIC } from '../consts';
 import logoGoogle from './Login/google.svg';

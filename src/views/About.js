@@ -1,12 +1,12 @@
-import  { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
+import { useState } from 'react';
+import { Grid } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
 import { AppButton, AppLink, AppSection } from '../components';
 import AppSnackBar from '../components/AppSnackBar';
 import ButtonsSection from './Sections/Buttons';
 import TagsSection from './Sections/Tags';
 import DialogsSection from './Sections/Dialogs';
-import AlertsSection from './Sections/Alerts'
+import AlertsSection from './Sections/Alerts';
 
 /**
  * Renders "About" page

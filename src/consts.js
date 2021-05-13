@@ -1,4 +1,3 @@
-
 import HomeIcon from '@material-ui/icons/Home';
 import BuildIcon from '@material-ui/icons/Build';
 import InfoIcon from '@material-ui/icons/Info';

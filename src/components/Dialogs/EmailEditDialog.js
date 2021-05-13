@@ -1,4 +1,4 @@
-import  { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, Dialog, DialogActions, DialogContent, TextField } from '@material-ui/core';
 import { AppButton } from '..';

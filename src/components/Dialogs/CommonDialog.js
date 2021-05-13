@@ -1,4 +1,4 @@
-import  { useCallback } from 'react';
+import { useCallback } from 'react';
 // import PropTypes from 'prop-types';
 import { PropTypesCommonDialog } from './consts';
 import { makeStyles, Dialog, DialogActions, DialogContent } from '@material-ui/core';

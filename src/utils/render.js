@@ -1,5 +1,4 @@
-
-import MenuItem from '@material-ui/core/MenuItem';
+import { MenuItem } from '@material-ui/core';
 
 /**
  * Renders a list of MenuItem components from properties of given Object

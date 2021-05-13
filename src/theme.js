@@ -4,8 +4,7 @@
  * Martial Color tool: https://material.io/resources/color
  */
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
 import { useAppStore } from './store/AppStore';
 
 /**

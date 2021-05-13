@@ -1,4 +1,4 @@
-import  { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, Divider, Drawer, Switch } from '@material-ui/core';

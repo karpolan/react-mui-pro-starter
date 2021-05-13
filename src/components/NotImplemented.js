@@ -1,5 +1,3 @@
-
-
 /**
  * Renders "Component is under construction" boilerplate
  */

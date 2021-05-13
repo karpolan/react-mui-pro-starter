@@ -16,7 +16,7 @@ function testButtonColor(colorName, expectedClassName = colorName, ignoreClassNa
 
     let button = await span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
-    
+
     // console.log('button.className:', button?.className)
     if (!ignoreClassName) {
       expect(button?.className?.includes(`makeStyles-${expectedClassName}`)).toBeTruthy(); // There is "makeStyles-[expectedClassName]-xxx" class
@@ -47,8 +47,8 @@ describe('AppButton component', () => {
   testButtonColor('true');
   testButtonColor('false');
 
-  testButtonColor('default'); // Variant 1:  buttonStylesByNames.default is defined 
-  // testButtonColor('default', 'default', true); // Variant 2: buttonStylesByNames.default is NOT defined 
+  testButtonColor('default'); // Variant 1:  buttonStylesByNames.default is defined
+  // testButtonColor('default', 'default', true); // Variant 2: buttonStylesByNames.default is NOT defined
 
   testButtonColor('inherit', 'default', true);
 
@@ -80,6 +80,4 @@ describe('AppButton component', () => {
     let button = await span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
   });
-
-
 });

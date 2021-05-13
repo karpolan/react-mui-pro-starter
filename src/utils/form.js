@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import validate from 'validate.js';
 
 /**
@@ -44,7 +44,7 @@ export const formGetError = (formState, fieldName) => {
  * @param {object} options.validationSchema - validation schema in 'validate.js' format
  * @param {object} [options.initialValues] - optional initialization data for formState.values
  */
-export function useAppForm({validationSchema, initialValues = {}}) {
+export function useAppForm({ validationSchema, initialValues = {} }) {
   // Validate params
   if (!validationSchema) {
     throw new Error('useAppForm() - the option `validationSchema` is required');
@@ -57,7 +57,7 @@ export function useAppForm({validationSchema, initialValues = {}}) {
   }
 
   // Create Form state and apply initialValues if set
-  const [formState, setFormState] = useState({...DEFAULT_FORM_STATE, values: initialValues});
+  const [formState, setFormState] = useState({ ...DEFAULT_FORM_STATE, values: initialValues });
 
   // Validation by 'validate.js' on every formState.values change
   useEffect(() => {

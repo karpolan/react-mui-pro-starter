@@ -2,7 +2,7 @@ import React from 'react';
 /**
  * Note: Don't import/export all Views directly, use lazy loading!
  */
-import LinearProgress from '@material-ui/core/LinearProgress';
+import { LinearProgress } from '@material-ui/core';
 import { withSuspense } from '../components';
 import NotFound from './NotFound';
 import NotImplementedView from './NotImplemented';

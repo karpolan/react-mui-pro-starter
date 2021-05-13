@@ -1,7 +1,7 @@
-import  { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Link as MuiLink} from '@material-ui/core';
+import { makeStyles, Link as MuiLink } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
