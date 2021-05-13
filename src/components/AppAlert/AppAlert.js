@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 
 /**
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Application styled Alert component
+ * @class AppAlert
  */
 const AppAlert = ({
   severity = APP_ALERT_SEVERITY,

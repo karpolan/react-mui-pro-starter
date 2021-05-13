@@ -1,11 +1,11 @@
-import  { Component } from 'react';
+import { Component } from 'react';
 import axios from 'axios';
 import AppIdleTimer from './components/AppIdleTimer';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Login, Main } from './views';
 import { getMe, setGlobalApi } from './api';
-import AppStore from './store/AppStore';
-import AppThemeProvider from './theme';
+import { AppStore } from './store/AppStore';
+import { AppThemeProvider } from './theme';
 
 /**
  * Entry point of the Application

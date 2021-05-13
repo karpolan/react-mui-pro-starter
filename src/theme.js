@@ -83,4 +83,4 @@ const AppThemeProvider = ({ children }) => {
   );
 };
 
-export { AppThemeProvider as default, AppThemeProvider };
+export { AppThemeProvider, LIGHT_THEME, DARK_THEME };
