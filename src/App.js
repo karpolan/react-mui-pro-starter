@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import  { Component } from 'react';
 import axios from 'axios';
 import AppIdleTimer from './components/AppIdleTimer';
 import ErrorBoundary from './components/ErrorBoundary';

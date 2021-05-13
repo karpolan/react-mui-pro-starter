@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Grid from '@material-ui/core/Grid';
 import { AppLink, FinalMessage, AppIcon } from '../components';
 import ButtonsSection from './Sections/Buttons';

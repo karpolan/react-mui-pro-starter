@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PropTypesCommonDialog } from './consts';
 import CommonDialog from './CommonDialog';
 

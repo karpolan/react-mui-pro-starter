@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import  { createContext, useReducer, useContext } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import AppReducer from './AppReducer';
 

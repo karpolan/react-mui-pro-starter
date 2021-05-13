@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 /**
  * Renders "Component is under construction" boilerplate
