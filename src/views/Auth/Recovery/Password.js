@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Grid, TextField, Card, CardHeader, CardContent } from '@material-ui/core';
-import { AppButton, AppAlert, AppForm } from '../../../components';
+import { AppButton } from '../../../components';
+import { AppForm, AppAlert } from '../../../components/forms';
 import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { api } from '../../../api';
 

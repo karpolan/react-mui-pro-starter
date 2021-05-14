@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Grid, TextField, Card, CardHeader, CardContent, InputAdornment } from '@material-ui/core';
 import { useAppStore } from '../../../store';
-import { AppButton, AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
+import { AppButton, AppIconButton, AppLink } from '../../../components';
+import { AppForm, AppAlert } from '../../../components/forms';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { api } from '../../../api';
 
@@ -53,7 +54,7 @@ const LoginEmailView = () => {
       dispatch({ type: 'LOG_IN' });
       history.replace('/');
     },
-    [dispatch, /*values,*/ history]
+    [dispatch, values, history]
   );
 
   const handleCloseError = useCallback(() => setError(undefined), []);

@@ -1,4 +1,4 @@
-import { AppSection, AppAlert } from '../../components';
+import { AppSection, AppAlert } from '../../components/forms';
 
 /**
  * Renders demo section for Alerts

@@ -1,4 +1,5 @@
-import { AppSection, Tag, TagCloud } from '../../components';
+import { AppSection } from '../../components/forms';
+import { Tag, TagCloud } from '../../components/Tag';
 
 /**
  * Renders demo section for Tags and TagCloud

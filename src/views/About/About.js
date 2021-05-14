@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
-import { AppButton, AppLink, AppSection } from '../../components';
+import { AppButton, AppLink } from '../../components';
+import { AppSection } from '../../components/forms';
 import { SnackBar } from '../../components/SnackBar';
 import ButtonsSection from '../components/Buttons';
 import TagsSection from '../components/Tags';

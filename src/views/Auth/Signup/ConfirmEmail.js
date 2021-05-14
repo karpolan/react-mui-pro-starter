@@ -1,8 +1,8 @@
 import { useCallback, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Card, CardHeader, CardContent, TextField } from '@material-ui/core';
+import { AppForm, AppAlert } from '../../../components/forms';
 import { SHARED_CONTROL_PROPS } from '../../../utils/form';
-import { AppAlert, AppForm } from '../../../components';
 
 const TOKEN_QUERY_PARAM = 'token';
 
@@ -26,7 +26,7 @@ const ConfirmEmailView = () => {
 
     async function fetchData() {
       //TODO: Call any Async API here
-      
+
       if (!componentMounted) return; // Component was unmounted during the API call
       //TODO: Verify API call here
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Checkbox, Switch } from '@material-ui/core';
-import { AppButton, AppSection } from '../../components';
+import { AppButton } from '../../components';
+import { AppSection } from '../../components/forms';
 
 /**
  * Renders demo section for Buttons

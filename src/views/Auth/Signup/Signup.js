@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Grid,
@@ -12,8 +12,11 @@ import {
   LinearProgress,
 } from '@material-ui/core';
 import { useAppStore } from '../../../store';
-import { AppButton, AppIconButton, AppAlert, AppForm } from '../../../components';
+import { AppButton, AppIconButton } from '../../../components';
+import { AppForm, AppAlert } from '../../../components/forms';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
+import { api } from '../../../api';
+
 
 const VALIDATE_FORM_SIGNUP = {
   email: {
@@ -139,7 +142,7 @@ const SignupView = () => {
       dispatch({ type: 'SIGN_UP' });
       return history.replace('/');
     },
-    [dispatch, /*values,*/ history]
+    [dispatch, values, history]
   );
 
   const handleCloseError = useCallback(() => setError(undefined), []);
