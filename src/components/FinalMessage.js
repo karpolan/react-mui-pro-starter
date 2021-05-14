@@ -1,15 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import { Box, Typography } from '@material-ui/core';
 
 /**
  * Renders "Big" Final Message
  * Used when the Entity/Object not found, serious error occurs, during maintenance and so on.
+ * @class FinalMessage
  */
-const FinalMessage = ({ title, children, className, ...props }) => {
+const FinalMessage = ({ children, className, title, ...restOfProps }) => {
   return (
-    <Box m={10} {...props}>
+    <Box m={10} {...restOfProps}>
       <Typography variant="h4" align="center">
         {title}
       </Typography>
@@ -22,9 +21,9 @@ const FinalMessage = ({ title, children, className, ...props }) => {
 };
 
 FinalMessage.propTypes = {
-  title: PropTypes.node,
   children: PropTypes.node,
   className: PropTypes.string,
+  title: PropTypes.node,
 };
 
 export default FinalMessage;

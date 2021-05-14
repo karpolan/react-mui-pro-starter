@@ -1,26 +1,25 @@
-import React, { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Switch from '@material-ui/core/Switch';
-import { makeStyles } from '@material-ui/styles';
-import { PAGES } from '../../consts';
-import { SideNav, SideProfile } from './components';
-import { AppLink, AppIconButton } from '../../components';
-import { localStorageGet, localStorageSet } from '../../utils/localStorage';
+import { makeStyles, Divider, Drawer, Switch, Tooltip, FormControlLabel } from '@material-ui/core';
 import { useAppStore } from '../../store/AppStore';
+import { AppIconButton } from '..';
+import UserInfo from '../UserInfo/UserInfo';
+import SideBarNavigation from './SideBarNavigation';
+import { SIDEBAR_WIDTH } from '../../routes/Layout/PrivateLayout';
+import { PropTypeSideBarItems } from './utils';
+import { api } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.white,
+    // backgroundColor: theme.palette.white,
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
     padding: theme.spacing(2),
   },
   paperInDrawer: {
-    width: 240,
+    width: SIDEBAR_WIDTH,
     [theme.breakpoints.up('md')]: {
       marginTop: 64,
       height: 'calc(100% - 64px)',
@@ -41,60 +40,71 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders SideBar with Menu and User details
+ * Actually for Authenticated users only, rendered in "Private Layout"
  * @class SideBar
+ * @param {string} [prop.anchor] - 'left' or 'right'
+ * @param {string} [prop.className] - optional className for <div> tag
+ * @param {array} props.items - list of objects to render as navigation links
  * @param {boolean} props.open - the Drawer is visible when true
  * @param {string} props.variant - variant of the Drawer, one of 'permanent', 'persistent', 'temporary'
  * @param {func} [props.onClose] - called when the Drawer is closing
- * @param {func} [props.onLogout] - callback to logout current user
- * @param {string} [prop.className] - optional className for <div> tag
  */
-const SideBar = ({ open, variant, currentUser, onClose, onLogout, className, ...props }) => {
+const SideBar = ({ anchor, className, open, items, variant, onClose, ...restOfProps }) => {
   const [state, dispatch] = useAppStore();
-  const [showIcons, setShowIcons] = useState(localStorageGet('sideBarIcons', true));
   const classes = useStyles();
+
+  const handleSwitchDarkMode = useCallback(() => {
+    dispatch({
+      type: 'SET_DARK_MODE',
+      darkMode: !state.darkMode,
+      payload: !state.darkMode,
+    });
+  }, [state, dispatch]);
+
+  const handleOnLogout = useCallback(async () => {
+    await api?.auth?.logout();
+    dispatch({ type: 'LOG_OUT' });
+  }, [dispatch]);
+
+  const handleAfterLinkClick = useCallback(
+    (event) => {
+      if (variant === 'temporary' && typeof onClose === 'function') {
+        onClose(event, 'backdropClick');
+      }
+    },
+    [variant, onClose]
+  );
+
   const drawerClasses = {
     // See: https://material-ui.com/api/drawer/#css
     paper: classes.paperInDrawer,
   };
-
-  const handleVisibilityClick = () => {
-    setShowIcons((value) => {
-      value = !value;
-      localStorageSet('sideBarIcons', value);
-      return value;
-    });
-  };
-
-  const handleSwitchDarkMode = useCallback(
-    () =>
-      dispatch({
-        type: 'SET_DARK_MODE',
-        payload: !state.darkMode,
-      }),
-    [state, dispatch]
-  );
+  const classRoot = clsx(classes.root, className);
 
   return (
-    <Drawer anchor="left" classes={drawerClasses} onClose={onClose} open={open} variant={variant}>
-      <div {...props} className={clsx(classes.root, className)}>
-        <SideProfile className={classes.profile} currentUser={currentUser} showAvatar />
+    <Drawer anchor={anchor} classes={drawerClasses} open={open} variant={variant} onClose={onClose}>
+      <div className={classRoot} {...restOfProps} onClick={handleAfterLinkClick}>
+        {state.isAuthenticated /*&& state?.currentUser*/ && (
+          <>
+            <UserInfo className={classes.profile} user={state.currentUser} showAvatar />
+            <Divider />
+          </>
+        )}
+
+        <SideBarNavigation className={classes.nav} items={items} showIcons />
         <Divider />
-        <SideNav className={classes.nav} pages={PAGES.filter((page) => page.showInSidebar)} showIcons={showIcons} />
-        <Divider />
+
         <div className={classes.buttons}>
-          <Switch
-            color="primary"
-            title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}
-            checked={state.darkMode}
-            onChange={handleSwitchDarkMode}
-          />
-          <AppIconButton icon="settings" component={AppLink} title="User Profile and Settings" to="/settings" />
-          <AppIconButton
-            icon={showIcons ? 'VisibilityOff' : 'VisibilityOn'}
-            title={showIcons ? 'Hide Icons' : 'Show Icons'}
-            onClick={handleVisibilityClick}
-          />
-          <AppIconButton icon="logout" title="Logout Current User" onClick={onLogout} />
+          <Tooltip title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}>
+            <FormControlLabel
+              label={!state.darkMode ? 'Light mode' : 'Dark mode'}
+              control={<Switch color="primary" checked={state.darkMode} onChange={handleSwitchDarkMode} />}
+            />
+          </Tooltip>
+
+          {state.isAuthenticated && (
+            <AppIconButton icon="logout" title="Logout Current User" onClick={handleOnLogout} />
+          )}
         </div>
       </div>
     </Drawer>
@@ -102,17 +112,13 @@ const SideBar = ({ open, variant, currentUser, onClose, onLogout, className, ...
 };
 
 SideBar.propTypes = {
+  anchor: PropTypes.string,
+  className: PropTypes.string,
+  items: PropTypeSideBarItems.isRequired,
   open: PropTypes.bool.isRequired,
   variant: PropTypes.string.isRequired,
-  currentUser: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    avatar: PropTypes.string,
-    picUrl: PropTypes.string,
-  }).isRequired,
   onClose: PropTypes.func,
   onLogout: PropTypes.func,
-  className: PropTypes.string,
 };
 
 export default SideBar;
