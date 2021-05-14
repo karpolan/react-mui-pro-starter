@@ -29,11 +29,11 @@ const AppSection = ({ children, title = 'Missing title...', variant = APP_SECTIO
 };
 
 AppSection.propTypes = {
-  align: PropTypes.oneOf('inherit', 'left', 'center', 'right', 'justify'),
+  align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   children: PropTypes.node,
-  color: PropTypes.oneOf('initial', 'inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'),
+  color: PropTypes.oneOf(['initial', 'inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error']),
   title: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(
+  variant: PropTypes.oneOf([
     'h1',
     'h2',
     'h3',
@@ -48,8 +48,8 @@ AppSection.propTypes = {
     'button',
     'overline',
     'srOnly',
-    'inherit'
-  ),
+    'inherit',
+  ]),
 };
 
 export default AppSection;

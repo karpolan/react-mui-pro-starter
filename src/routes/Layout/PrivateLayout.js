@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme, Grid, useMediaQuery } from '@material-ui/core';
@@ -6,6 +6,7 @@ import { useAppStore } from '../../store';
 import { TopBar } from '../../components/TopBar';
 import { ErrorBoundary } from '../../components';
 import { SideBar } from '../../components/SideBar';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const TITLE_PRIVATE = '_TITLE_';
 const MOBILE_SIDEBAR_ANCHOR = 'left'; // 'right';
@@ -47,22 +48,51 @@ function updateDocumentTitle(title = '') {
 }
 
 /**
+ * Url to Title mapping
+ */
+const KNOWN_PAGES = [
+  {
+    title: 'Page does not exist',
+  },
+  {
+    path: '/',
+    title: 'Home',
+  },
+  {
+    path: '/welcome',
+    title: 'Welcome',
+  },
+  {
+    path: '/tools',
+    title: 'Tools',
+  },
+  {
+    path: '/settings',
+    title: 'Settings',
+  },
+  {
+    path: '/about',
+    title: 'About',
+  },
+];
+
+/**
  * "Link to Page" items in Sidebar
  */
 const SIDE_BAR_PRIVATE_ITEMS = [
   {
     title: 'Welcome',
-    href: '/',
+    path: '/welcome',
     icon: 'home',
   },
   {
     title: 'Tools',
-    href: '/tools',
+    path: '/tools',
     icon: 'tools',
   },
   {
     title: 'About',
-    href: '/about',
+    path: '/about',
     icon: 'info',
   },
 ];
@@ -74,10 +104,31 @@ const SIDE_BAR_PRIVATE_ITEMS = [
 const PrivateLayout = ({ children }) => {
   const [state] = useAppStore();
   const [openSideBar, setOpenSideBar] = useState(false);
+  const [title, setTitle] = useState();
   const theme = useTheme();
   const classes = useStyles();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), { defaultMatches: true });
   const history = useHistory();
+  const location = useLocation();
+
+  useEffect(() => {
+    let newTitle = '';
+    if (location.pathname !== '/') {
+      const matchingPages = KNOWN_PAGES.filter(
+        (page) =>
+          page?.path && // Ignore empty
+          page?.path?.length > 1 && // Ignore '/'
+          location?.pathname.includes(page?.path)
+      );
+      matchingPages.push(KNOWN_PAGES[0]); // "NotFound" page as a fallback
+      newTitle = matchingPages[0]?.title;
+      updateDocumentTitle(newTitle); 
+    } else {
+      newTitle = '';
+      updateDocumentTitle(); // Reset to default App title
+    }
+    setTitle(newTitle);
+  }, [location.pathname]);
 
   const handleLogoClick = useCallback(() => {
     // Navigate to '/' when clicking on Logo/Menu icon when the SideBar is already visible
@@ -96,7 +147,6 @@ const PrivateLayout = ({ children }) => {
     [classes.root]: true,
     [classes.shiftContent]: isDesktop,
   });
-  const title = updateDocumentTitle();
   const shouldOpenSideBar = isDesktop ? true : openSideBar;
 
   return (

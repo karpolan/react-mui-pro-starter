@@ -1,12 +1,6 @@
-//  import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { /*Link,*/ useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, AppBar, Toolbar, Typography } from '@material-ui/core';
-import { PAGES } from '../../consts';
-import { updateDocumentTitle } from '../../utils/documentTitle';
 import AppIconButton from '../AppIconButton';
-// import logo from '../AppIcon/logo.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,42 +25,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Renders TopBar
- * @param {func} props.onMenu - called by click on MenuIcon for small screens
+ * Renders TopBar composition
+ * @class TopBar
  */
 const TopBar = ({
   className,
   title = '',
-  isAuthenticated = false,
+  isAuthenticated,
   onMenu,
   onNotifications,
   ...restOfProps
 }) => {
   const classes = useStyles();
-  // const [notifications] = useState([]); // Todo: Add connect to store
-  const location = useLocation();
   // const iconMenu = isAuthenticated ? 'account' : 'menu';
 
-  if (!title && location.pathname !== '/') {
-    const matchingPages = PAGES.filter((page) => location.pathname.includes(page.href));
-    matchingPages.push(PAGES.slice(-1)[0]); // NotFound page from the last position as a fallback
-    title = matchingPages[0]?.title;
-    updateDocumentTitle(title); // Set Page's title
-  } else {
-    updateDocumentTitle(); // Reset to default App title
-  }
-
   return (
-    <AppBar {...restOfProps} className={clsx(classes.root, className)}>
-      <Toolbar>
+    <AppBar {...restOfProps} className={clsx(classes.root, className)} component="div">
+      <Toolbar className={classes.toolbar} disableGutters>
         <AppIconButton
           icon="logo"
           // color="primary"
           onClick={onMenu}
         />
-        {/* <Link to="/">
-          <img className={classes.logo} alt="Logo" src={logo} />
-        </Link> */}
 
         <Typography variant="h6" className={classes.title}>
           {title}
@@ -81,15 +61,6 @@ const TopBar = ({
       </Toolbar>
     </AppBar>
   );
-};
-
-TopBar.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
-  isAuthenticated: PropTypes.bool,
-  onMenu: PropTypes.func,
-  onNotifications: PropTypes.func,
-  onLogout: PropTypes.func,
 };
 
 export default TopBar;

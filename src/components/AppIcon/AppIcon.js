@@ -20,6 +20,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import BuildIcon from '@material-ui/icons/Build';
 
 /**
  * How to use:
@@ -52,6 +53,7 @@ const ICONS = {
   login: PersonIcon,
   logout: ExitToAppIcon,
   smile: InsertEmoticonIcon,
+  tools: BuildIcon,
 };
 
 /**
