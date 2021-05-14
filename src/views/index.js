@@ -12,6 +12,6 @@ import NotImplementedView from './NotImplemented';
 const Welcome = withSuspense(React.lazy(() => import('./Welcome')));
 const About = withSuspense(React.lazy(() => import('./About')));
 const Tools = () => <NotImplementedView name="Tools" />; // Sample of non-implemented View
-const Settings = () => <NotImplementedView name="Settings" />; // Sample of non-implemented View
+const User = () => <NotImplementedView name="User" />; // Sample of non-implemented View
 
-export { NotFound, About, Welcome, Settings, Tools };
+export { NotFound, About, Welcome, User, Tools };

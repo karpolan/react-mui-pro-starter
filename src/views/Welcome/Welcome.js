@@ -1,9 +1,12 @@
 import { Grid } from '@material-ui/core';
 import { AppLink, AppIcon } from '../../components';
+import FinalMessage from '../../components/FinalMessage';
 import ButtonsSection from '../components/Buttons';
 import TagsSection from '../components/Tags';
 import DialogsSection from '../components/Dialogs';
-import FinalMessage from '../../components/FinalMessage';
+import TypographySection from '../components/Typography';
+import IconButtonsSection from '../components/IconButtons';
+import AlertsSection from '../components/Alerts';
 
 /**
  * Renders Welcome page/view
@@ -37,20 +40,19 @@ const Welcome = () => {
         </FinalMessage>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={6}>
+        <TypographySection />
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
         <ButtonsSection />
-      </Grid>
-
-      <Grid item xs={12} sm={6}>
+        <br />
+        <IconButtonsSection />
+        <br />
         <TagsSection />
-      </Grid>
+        <br />
+        <AlertsSection />
 
-      <Grid item xs={12} sm={6}>
-        <TagsSection useTagCloud />
-      </Grid>
-
-      <Grid item xs={12}>
-        <DialogsSection />
       </Grid>
     </Grid>
   );

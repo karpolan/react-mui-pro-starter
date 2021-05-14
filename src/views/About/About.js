@@ -8,6 +8,9 @@ import ButtonsSection from '../components/Buttons';
 import TagsSection from '../components/Tags';
 import DialogsSection from '../components/Dialogs';
 import AlertsSection from '../components/Alerts';
+import LinksSection from '../components/Links';
+import IconButtonSection from '../components/IconButtons';
+import TypographySection from '../components/Typography';
 
 /**
  * Renders "About" page
@@ -69,6 +72,14 @@ const About = () => {
         <ButtonsSection />
       </Grid>
 
+      <Grid item xs={12} sm={7}>
+        <LinksSection />
+      </Grid>
+
+      <Grid item xs={12} sm={5}>
+        <IconButtonSection />
+      </Grid>
+
       <Grid item xs={12} sm={6}>
         <TagsSection />
       </Grid>
@@ -115,6 +126,12 @@ const About = () => {
           </Grid>
         </AppSection>
       </Grid>
+
+
+      <Grid item xs={12}>
+        <TypographySection />
+      </Grid>
+
     </Grid>
   );
 };

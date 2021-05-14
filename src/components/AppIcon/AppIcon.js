@@ -21,6 +21,7 @@ import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import BuildIcon from '@material-ui/icons/Build';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 /**
  * How to use:
@@ -44,7 +45,7 @@ const ICONS = {
   visibilityoff: VisibilityOffIcon,
   notifications: NotificationsIcon,
   search: SearchIcon,
-  filter: FilterListIcon,   
+  filter: FilterListIcon,
   night: NightIcon,
   day: DayIcon,
   home: HomeIcon,
@@ -54,6 +55,7 @@ const ICONS = {
   logout: ExitToAppIcon,
   smile: InsertEmoticonIcon,
   tools: BuildIcon,
+  account: AccountCircle,
 };
 
 /**
@@ -69,8 +71,10 @@ const AppIcon = ({ name, icon, ...restOfProps }) => {
 };
 
 AppIcon.propTypes = {
-  name: PropTypes.string,
+  color: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'action', 'error', 'disabled']),
+  fontSize: PropTypes.oneOf(['inherit', 'default', 'small', 'large']),
   icon: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default AppIcon;

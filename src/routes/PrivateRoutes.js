@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import { Welcome, About, NotFound } from '../views';
+import { Welcome, About, Tools, User, NotFound } from '../views';
 import { PrivateLayout } from './Layout';
 
 /**
@@ -13,6 +13,8 @@ const PrivateRoutes = () => {
         <Route path="/" exact component={Welcome} />
         <Route path="/welcome" component={Welcome} />
         <Route path="/about" component={About} />,
+        <Route path="/tools" component={Tools} />,
+        <Route path="/user" component={User} />,
         <Route component={NotFound} />
       </Switch>
     </PrivateLayout>

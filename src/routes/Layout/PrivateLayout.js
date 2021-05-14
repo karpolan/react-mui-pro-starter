@@ -67,6 +67,10 @@ const KNOWN_PAGES = [
     title: 'Tools',
   },
   {
+    path: '/user',
+    title: 'User',
+  },
+  {
     path: '/settings',
     title: 'Settings',
   },
