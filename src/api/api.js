@@ -12,7 +12,7 @@ const api = {
   // fetch: fetch, // use custom fetch is needed
 
   // Properties
-  token: loadToken(),
+  token: () => loadToken(),
   get url() {
     return axiosInstance?.defaults?.baseURL;
   },

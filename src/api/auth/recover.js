@@ -4,13 +4,13 @@ const ENDPOINT = 'auth/recovery';
 const METHOD = 'recovery()';
 
 export async function recoverByAxios({ email }) {
-  if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
+  // if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
 
-  const data = {
+  const payload = {
     email,
   };
   try {
-    const res = await api.axios.post(ENDPOINT, data);
+    const res = await api.axios.post(ENDPOINT, payload);
     const { data } = res;
     log.warn(`${METHOD} -`, data);
     return true;

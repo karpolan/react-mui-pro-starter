@@ -3,7 +3,6 @@ import { AppLink, AppIcon } from '../../components';
 import FinalMessage from '../../components/FinalMessage';
 import ButtonsSection from '../components/Buttons';
 import TagsSection from '../components/Tags';
-import DialogsSection from '../components/Dialogs';
 import TypographySection from '../components/Typography';
 import IconButtonsSection from '../components/IconButtons';
 import AlertsSection from '../components/Alerts';

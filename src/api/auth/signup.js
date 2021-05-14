@@ -8,12 +8,12 @@ const METHOD = 'signup()';
  * Sign ups new user using email and password
  */
 export async function signupByAxios({ nameFirst, nameLast, phone, email, password }) {
-  if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
+  // if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
 
-  const data = { nameFirst, nameLast, phone, email, password };
+  const payload = { nameFirst, nameLast, phone, email, password };
   try {
     clearAuthData();
-    const res = await api?.axios?.post(ENDPOINT, data);
+    const res = await api?.axios?.post(ENDPOINT, payload);
     const { data } = res;
     log.warn(`${METHOD} -`, data);
 

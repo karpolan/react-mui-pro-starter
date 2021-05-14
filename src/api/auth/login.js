@@ -5,15 +5,15 @@ const ENDPOINT = 'auth/login';
 const METHOD = 'login()';
 
 export async function loginByAxios({ email, password }) {
-  if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
+  // if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
 
-  const data = {
+  const payload = {
     email,
     password,
   };
   try {
     clearAuthData();
-    const res = await api?.axios?.post(ENDPOINT, data);
+    const res = await api?.axios?.post(ENDPOINT, payload);
     const { data } = res;
     log.warn(`${METHOD} -`, data);
 

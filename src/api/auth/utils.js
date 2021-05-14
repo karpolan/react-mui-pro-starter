@@ -1,4 +1,4 @@
-import { api } from '../';
+import { api } from '..';
 import { localStorageSet, localStorageGet, localStorageDelete } from '../../utils/localStorage';
 
 const ACCESS_TOKEN_KEY = 'token';
@@ -81,7 +81,7 @@ export function setRefreshTimeout(interval = REFRESH_TIMEOUT) {
   );
   _timeout_refresh_token = setTimeout(() => {
     log.warn('Refreshing access token by timeout...');
-    api.auth.refresh();
+    api?.auth?.refresh();
   }, interval);
 }
 
@@ -89,7 +89,7 @@ export function setRefreshTimeout(interval = REFRESH_TIMEOUT) {
  * Verifies is the current user still logged in, updates the "token refresh timer" if needed
  */
 export function isUserStillLoggedIn() {
-  if (process.env.REACT_APP_MULTIPASS) return true;
+  // if (process.env.REACT_APP_MULTIPASS) return true;
 
   if (_timeout_refresh_token) return true; // Timeout already exists, we are logged in
 
