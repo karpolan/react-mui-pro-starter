@@ -1,8 +1,24 @@
-import {useState, useEffect, useCallback} from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import validate from 'validate.js';
 
+// Same props to style Input, TextField, and so on across the Application
+export const SHARED_CONTROL_PROPS = {
+  variant: 'outlined',
+  margin: 'normal', // 'dense', 'none'
+  fullWidth: true,
+};
+
+// Shared validation rule for Phone numbers
+export const VALIDATION_PHONE = {
+  type: 'string',
+  format: {
+    pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
+    message: 'should contain numbers',
+  },
+};
+
 /**
- * Basic "schema" object to use as formState state
+ * Basic object to use as initial value for formState
  * Usage: const [formState, setFormState] = useState(DEFAULT_FORM_STATE);
  */
 export const DEFAULT_FORM_STATE = {
@@ -13,7 +29,7 @@ export const DEFAULT_FORM_STATE = {
 };
 
 /**
- * Reusable event to cancel the default behaviour
+ * Reusable event to cancel the default behavior
  */
 export const eventPreventDefault = (event) => {
   event.preventDefault();
@@ -23,7 +39,7 @@ export const eventPreventDefault = (event) => {
  * Verifies does the From field with given Name has the Error
  */
 export const formHasError = (formState, fieldName) => {
-  return Boolean(formState?.touched?.[fieldName] && formState?.errors?.[fieldName]);
+  return Boolean(formState.touched[fieldName] && formState.errors[fieldName]);
 };
 
 /**
@@ -31,7 +47,7 @@ export const formHasError = (formState, fieldName) => {
  * Returns null if there is no Error.
  */
 export const formGetError = (formState, fieldName) => {
-  return formHasError(formState, fieldName) ? formState?.errors?.[fieldName]?.[0] : null;
+  return formHasError(formState, fieldName) ? formState.errors[fieldName]?.[0] : null;
 };
 
 /**
@@ -44,7 +60,7 @@ export const formGetError = (formState, fieldName) => {
  * @param {object} options.validationSchema - validation schema in 'validate.js' format
  * @param {object} [options.initialValues] - optional initialization data for formState.values
  */
-export function useAppForm({validationSchema, initialValues = {}}) {
+export function useAppForm({ validationSchema, initialValues = {} }) {
   // Validate params
   if (!validationSchema) {
     throw new Error('useAppForm() - the option `validationSchema` is required');
@@ -57,13 +73,13 @@ export function useAppForm({validationSchema, initialValues = {}}) {
   }
 
   // Create Form state and apply initialValues if set
-  const [formState, setFormState] = useState({...DEFAULT_FORM_STATE, values: initialValues});
+  const [formState, setFormState] = useState({ ...DEFAULT_FORM_STATE, values: initialValues });
 
   // Validation by 'validate.js' on every formState.values change
   useEffect(() => {
     const errors = validate(formState.values, validationSchema);
-    setFormState((formState) => ({
-      ...formState,
+    setFormState((currentFormState) => ({
+      ...currentFormState,
       isValid: errors ? false : true,
       errors: errors || {},
     }));
@@ -71,7 +87,7 @@ export function useAppForm({validationSchema, initialValues = {}}) {
 
   // Event to call on every Input change. Note: the "name" props of the Input control must be set!
   const onFieldChange = useCallback((event) => {
-    event.persist(); // Todo: Do we need this in React 17 ?
+    // event.persist(); // Todo: Do we need this in React 17 ?
 
     const name = event.target?.name;
     const value =

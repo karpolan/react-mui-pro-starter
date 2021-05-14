@@ -8,8 +8,10 @@ Mix of [Create React App](https://github.com/facebook/create-react-app) and [Mat
 ## How to use
 
 1. Clone or download the repo from: https://github.com/karpolan/react-mui-pro-starter
-2. Replace `_TITLE_` and `_DESCRIPTION_` in all files with own texts
-3. Create **Favorite Icon** images and put them into `/public/img/favicon`, the **favicon.ico** file should be paced into root of `/public` folder.
+2. Copy `env.sample` to `.env`, or at least set `env.REACT_APP_LOG_LEVEL` = `DEBUG` | `INFO` | `WARN` | `ERROR` variable
+3. Replace `_TITLE_` and `_DESCRIPTION_` in all files with own texts
+4. Create **Favorite Icon** images and put them into `/public/img/favicon`, the **favicon.ico** file should be paced into root of `/public` folder.
+5. Add your own code :)
 
 ## Available Scripts
 

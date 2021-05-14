@@ -1,13 +1,35 @@
 /**
+ * Supported values for .color properties
+ */
+export const COLOR_VALUES = [
+  'inherit', // Sometimes we need this
+  'default',
+  'primary',
+  'secondary',
+  'error',
+  'warning',
+  'info',
+  'success',
+  'false',
+  'true',
+];
+
+/*
  * Makes style to use for Material UI Paper components across the App
  */
-export const paperStyles = (theme) => ({
-  paper: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-  },
+export const paperStyle = (theme) => ({
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(1),
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
+});
+
+/**
+ * Makes style for Forms across the App
+ */
+export const formStyle = (theme) => ({
+  width: '100%',
+  maxWidth: '40rem', // 640px
 });
 
 /**
@@ -52,7 +74,7 @@ export const dialogStyles = (theme) => ({
  */
 export const filledStylesByNames = (theme) => ({
   // Standard MUI names
-  // default: {},
+  default: {},
   primary: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
@@ -94,7 +116,7 @@ export const filledStylesByNames = (theme) => ({
  */
 export const textStylesByNames = (theme) => ({
   // Standard MUI names
-  // default: {},
+  default: {},
   primary: {
     color: theme.palette.primary.main,
   },
@@ -124,10 +146,11 @@ export const textStylesByNames = (theme) => ({
 
 /**
  * Makes "filled" + "hover" (like in Buttons) styles for Material UI names 'primary', 'secondary', 'warning', and so on
+ * Note: Fully compatible with variant="contained" only
  */
 export const buttonStylesByNames = (theme) => ({
   // Standard MUI names
-  // default: {},
+  default: {},
   primary: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,

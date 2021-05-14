@@ -1,9 +1,8 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { AppLink } from '../components';
 
 /**
- * NotFound aka 404 page/view
+ * "Not Found" aka "Error 404" view
  */
 const PageNotFound = () => {
   const location = useLocation();

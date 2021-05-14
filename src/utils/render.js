@@ -1,8 +1,8 @@
-import React from 'react';
-import MenuItem from '@material-ui/core/MenuItem';
+import { MenuItem } from '@material-ui/core';
 
 /**
  * Renders a list of MenuItem components from properties of given Object
+ * @function renderObjectAsMenuItems
  * @param {object} objectToRender - data object to render
  * @param {boolean} [sortByAbc] - optional flag to sort object properties alphabetically
  */
@@ -21,6 +21,7 @@ export const renderObjectAsMenuItems = (objectToRender, sortByAbc = false) => {
 
 /**
  * Renders a list of MenuItem components from given Array of simple values
+ * @function renderArrayAsMenuItems
  * @param {array} arrayToRender - list of simple values to render
  * @param {boolean} [sortByAbc] - optional flag to sort object properties alphabetically
  */

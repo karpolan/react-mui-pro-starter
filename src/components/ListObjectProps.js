@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
@@ -9,18 +8,19 @@ const sortNone = () => 0;
 /**
  * Renders <ul> list with all properties of the given JavaScript object
  * Use .listObjectProps, .key/.title, .value/.property CSS classes for styling
- * @param {object} props.object - object to print out
- * @param {boolean} props.sortAbc - properties sorted A-Z when true
- * @param {boolean} props.sortZxy - properties sorted Z-A when true
- * @param {boolean} props.noChildren - nested object and arrays are ignored when true
+ * @class ListObjectProps
+ * @param {object} [object] - object to print out
+ * @param {boolean} [sortAbc] - properties sorted A-Z when true
+ * @param {boolean} [sortZxy] - properties sorted Z-A when true
+ * @param {boolean} [noChildren] - nested object and arrays are ignored when true
  */
 export const ListObjectProps = ({
+  className,
   object,
+  noChildren = false,
   sortAbc = false,
   sortZxy = false,
-  noChildren = false,
-  className,
-  ...props
+  ...restOfProps
 }) => {
   if (!object || typeof object !== 'object') return null;
 
@@ -53,18 +53,18 @@ export const ListObjectProps = ({
   }
 
   return (
-    <ul className={clsx('listObjectProps', className)} {...props}>
+    <ul className={clsx('listObjectProps', className)} {...restOfProps}>
       {renderObjectPropsWithSorting()}
     </ul>
   );
 };
 
 ListObjectProps.propTypes = {
+  className: PropTypes.string,
   object: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  noChildren: PropTypes.bool,
   sortAbc: PropTypes.bool,
   sortZxy: PropTypes.bool,
-  noChildren: PropTypes.bool,
-  className: PropTypes.string,
 };
 
 export default ListObjectProps;
