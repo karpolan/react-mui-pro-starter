@@ -1,17 +1,15 @@
 import { api } from '..';
-import { loadRefreshToken, saveRefreshToken, saveToken, setRefreshTimeout } from './utils';
+import { loadRefreshToken, fakeApiResponse, saveRefreshToken, saveToken, setRefreshTimeout } from './utils';
 
 const ENDPOINT = 'auth/refresh';
 const METHOD = 'refresh()';
 
 export async function refreshByAxios() {
-  // if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
-
   const payload = {
     refresh_token: loadRefreshToken(),
   };
   try {
-    const res = await api.axios.post(ENDPOINT, payload);
+    const res = process.env.REACT_APP_MULTIPASS ? fakeApiResponse() : await api.axios.post(ENDPOINT, payload);
     const { data } = res;
     log.warn(`${METHOD} -`, data);
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Error boundary wrapper to save entire Application from falling
+ * @class ErrorBoundary
  * @param {string} props.name - name of the wrapped segment, "Error Boundary" by default
  */
 class ErrorBoundary extends Component {

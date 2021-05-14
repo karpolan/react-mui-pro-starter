@@ -4,7 +4,6 @@ import { loadToken } from './auth/utils';
 import * as auth from './auth';
 import * as info from './info';
 
-
 const api = {
   // Pre-configured HTTP request instances
   axios: axiosInstance,

@@ -7,6 +7,7 @@ import LoginEmailView from '../views/Auth/Login/Email';
 /**
  * List of routes available only for anonymous users
  * Also renders the "Public Layout" composition
+ * @class PublicRoutes
  */
 const PublicRoutes = () => {
   return (

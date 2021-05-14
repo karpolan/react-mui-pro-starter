@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import AppButton from './AppButton';
+
 /**
  * Test specific color for AppButton
  * @param {string} colorName - name of the color, one of COLOR_VALUES
@@ -11,16 +12,14 @@ function testButtonColor(colorName, expectedClassName = colorName, ignoreClassNa
     let text = `${colorName} button`;
     await render(<AppButton color={colorName}>{text}</AppButton>);
 
-    let span = await screen.getByText(text); // <span> with specific text
+    let span = screen.getByText(text); // <span> with specific text
     expect(span).toBeDefined();
 
     let button = await span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
 
     // console.log('button.className:', button?.className)
-    if (!ignoreClassName) {
-      expect(button?.className?.includes(`makeStyles-${expectedClassName}`)).toBeTruthy(); // There is "makeStyles-[expectedClassName]-xxx" class
-    }
+    expect(ignoreClassName || button?.className?.includes(`makeStyles-${expectedClassName}`)).toBeTruthy(); // There is "makeStyles-[expectedClassName]-xxx" class
   });
 }
 
@@ -30,7 +29,7 @@ describe('AppButton component', () => {
   it('renders itself', async () => {
     let text = 'sample button';
     await render(<AppButton>{text}</AppButton>);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
     expect(span).toHaveTextContent(text);
     let button = await span.closest('button'); // parent <button> element
@@ -56,7 +55,7 @@ describe('AppButton component', () => {
     let text = 'button with specific class';
     let className = 'someClassName';
     await render(<AppButton className={className}>{text}</AppButton>);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
     let button = await span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
@@ -66,7 +65,7 @@ describe('AppButton component', () => {
   it('supports label property', async () => {
     let text = 'button with label';
     await render(<AppButton label={text} />);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
     let button = await span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
@@ -75,7 +74,7 @@ describe('AppButton component', () => {
   it('supports text property', async () => {
     let text = 'button with text';
     await render(<AppButton text={text} />);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
     let button = await span.closest('button'); // parent <button> element
     expect(button).toBeDefined();

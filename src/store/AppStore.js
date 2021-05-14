@@ -1,6 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { loadToken } from '../api/auth/utils';
 import { localStorageGet } from '../utils/localStorage';
 import AppReducer from './AppReducer';
 
@@ -39,12 +38,10 @@ const AppContext = createContext(initialAppState);
 const AppStore = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const previousDarkMode = Boolean(localStorageGet('darkMode'));
-  const tokenExists = Boolean(loadToken());
 
   const initialState = {
     ...initialAppState,
     darkMode: previousDarkMode || prefersDarkMode,
-    isAuthenticated: tokenExists,
   };
 
   const [state, dispatch] = useReducer(AppReducer, initialState);

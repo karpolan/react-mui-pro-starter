@@ -71,7 +71,7 @@ const DARK_THEME = {
  */
 const AppThemeProvider = ({ children }) => {
   const [state] = useAppStore();
-  // const theme = useMemo(() => (state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME)));
+  // const theme = useMemo(() => (state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME)), [state.darkMode]);
   const theme = state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME);
 
   return (

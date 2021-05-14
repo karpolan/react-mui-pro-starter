@@ -48,7 +48,7 @@ const LoginEmailView = () => {
       const result = await api?.auth?.login(values);
       if (!result) {
         setError('Please check email and password');
-        return;
+        return; // Unsuccessful login
       }
 
       dispatch({ type: 'LOG_IN' });

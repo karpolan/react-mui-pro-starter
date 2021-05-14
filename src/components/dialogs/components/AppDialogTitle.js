@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders Material UI Dialog Title with optional (x) button to close the dialog
- * @param {func} [props.onClose] - when set the (x) button aded to Dialog Title and event called on button click
+ * @class AppDialogTitle
+ * @param {func} [onClose] - when set the (x) button aded to Dialog Title and event called on button click
  */
 const AppDialogTitle = ({ children, onClose, ...props }) => {
   const classes = useStyles();

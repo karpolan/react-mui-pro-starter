@@ -28,14 +28,7 @@ const useStyles = makeStyles((theme) => ({
  * Renders TopBar composition
  * @class TopBar
  */
-const TopBar = ({
-  className,
-  title = '',
-  isAuthenticated,
-  onMenu,
-  onNotifications,
-  ...restOfProps
-}) => {
+const TopBar = ({ className, title = '', isAuthenticated, onMenu, onNotifications, ...restOfProps }) => {
   const classes = useStyles();
   // const iconMenu = isAuthenticated ? 'account' : 'menu';
 

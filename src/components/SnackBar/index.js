@@ -1,4 +1,4 @@
-import SnackBar from './SnackBar'
-import SnackBarProvider from './SnackBarProvider'
+import SnackBar from './SnackBar';
+import SnackBarProvider from './SnackBarProvider';
 
-export {SnackBar as default, SnackBar, SnackBarProvider}
+export { SnackBar as default, SnackBar, SnackBarProvider };

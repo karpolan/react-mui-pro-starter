@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
-import { Link as MuiLink} from '@material-ui/core';
+import { Link as MuiLink } from '@material-ui/core';
 
 /**
  * Note: You can change these const to control default appearance of the AppLink component

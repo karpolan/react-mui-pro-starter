@@ -1,19 +1,17 @@
 import { api } from '..';
-import { clearAuthData, saveRefreshToken, saveToken, setRefreshTimeout } from './utils';
+import { clearAuthData, fakeApiResponse, saveRefreshToken, saveToken, setRefreshTimeout } from './utils';
 
 const ENDPOINT = 'auth/login';
 const METHOD = 'login()';
 
 export async function loginByAxios({ email, password }) {
-  // if (process.env.REACT_APP_MULTIPASS) return true; // Login bypath, development only
-
   const payload = {
     email,
     password,
   };
   try {
     clearAuthData();
-    const res = await api?.axios?.post(ENDPOINT, payload);
+    const res = process.env.REACT_APP_MULTIPASS ? fakeApiResponse() : await api?.axios?.post(ENDPOINT, payload);
     const { data } = res;
     log.warn(`${METHOD} -`, data);
 

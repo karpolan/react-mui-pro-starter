@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 /**
  * Note: Don't import/export all Views directly, use lazy loading!
  */

@@ -6,9 +6,10 @@ import { api } from '../api';
 import { isUserStillLoggedIn } from '../api/auth/utils';
 
 /**
- * Renders routes depending Logged or Anonymous users
+ * Renders Application routes depending on Logged or Anonymous users
+ * @class Routes
  */
-const AllRoutes = () => {
+const Routes = () => {
   const [state, dispatch] = useAppStore();
 
   useEffect(() => {
@@ -17,9 +18,9 @@ const AllRoutes = () => {
 
     if (state.isAuthenticated && !isLogged) {
       // Token was expired, logout immediately!
-      console.warn('Token was expired, logout immediately!');
+      log.warn('Token was expired, logout immediately!');
       api?.auth?.logout();
-      dispatch({ type: 'LOG_OUT' }); // Maybe not need due to reloading App in api.auth.logout()
+      // dispatch({ type: 'LOG_OUT' }); // Not needed due to reloading App in api.auth.logout()
       return; // Thats all for now, the App will be completely re-rendered soon
     }
 
@@ -29,8 +30,8 @@ const AllRoutes = () => {
     }
   }, [state.isAuthenticated, dispatch]); // Effect for every state.isAuthenticated change actually
 
-  log.info('AllRoutes() - isAuthenticated:', state.isAuthenticated);
+  log.info('Routes() - isAuthenticated:', state.isAuthenticated);
   return state.isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />;
 };
 
-export default AllRoutes;
+export default Routes;

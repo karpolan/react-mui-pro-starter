@@ -89,8 +89,6 @@ export function setRefreshTimeout(interval = REFRESH_TIMEOUT) {
  * Verifies is the current user still logged in, updates the "token refresh timer" if needed
  */
 export function isUserStillLoggedIn() {
-  // if (process.env.REACT_APP_MULTIPASS) return true;
-
   if (_timeout_refresh_token) return true; // Timeout already exists, we are logged in
 
   const dateExpireAt = tokenExpireAt();
@@ -101,4 +99,17 @@ export function isUserStillLoggedIn() {
 
   setRefreshTimeout(timeExpireAt - Date.now()); // Create new timeout with interval taken form the local storage
   return true; // We are logged in
+}
+
+/**
+ * Generates API response alike object to emulate login when env.REACT_APP_MULTIPASS is set
+ * @returns {object} response alike object with tokens
+ */
+export function fakeApiResponse() {
+  if (!process.env.REACT_APP_MULTIPASS) return { data: {} };
+
+  const expires = REFRESH_TIMEOUT; // 15 * 60 * 1000; // 15 minutes
+  return {
+    data: { access_token: 'Leeloo Dallas Multipass', refresh_token: 'Korben Dallas Driver License', expires },
+  };
 }

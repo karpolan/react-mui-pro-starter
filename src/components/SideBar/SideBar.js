@@ -98,7 +98,7 @@ const SideBar = ({ anchor, className, open, items, variant, onClose, ...restOfPr
           <Tooltip title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}>
             <FormControlLabel
               label={!state.darkMode ? 'Light mode' : 'Dark mode'}
-              control={<Switch checked={state.darkMode} onChange={handleSwitchDarkMode} />}
+              control={<Switch color="primary" checked={state.darkMode} onChange={handleSwitchDarkMode} />}
             />
           </Tooltip>
 

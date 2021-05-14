@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders list of Navigation Items inside SideBar
+ * @class SideBarNavigation
  * @param {string} [prop.className] - optional className for styling
  * @param {array} props.items - list of objects to render as navigation links
  * @param {boolean} [props.showIcons] - icons in links are visible when true

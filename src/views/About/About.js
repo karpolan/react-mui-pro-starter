@@ -46,11 +46,8 @@ const About = () => {
       <Grid item xs={12}>
         <AppSection title="Application">
           <p>
-            This{' '}
-            <AppLink color="primary" href="https://reactjs.org/">
-              React
-            </AppLink>{' '}
-            application is built using <AppLink href="https://material-ui.com/">Material UI</AppLink> components.
+            This <AppLink href="https://reactjs.org/">React</AppLink> application is built using{' '}
+            <AppLink href="https://material-ui.com/">Material UI</AppLink> components.
           </p>
           <p>
             The project is <AppLink href="https://github.com/karpolan/react-mui-pro-starter">Open Source</AppLink> and
@@ -127,11 +124,9 @@ const About = () => {
         </AppSection>
       </Grid>
 
-
       <Grid item xs={12}>
         <TypographySection />
       </Grid>
-
     </Grid>
   );
 };

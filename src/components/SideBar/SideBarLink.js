@@ -8,15 +8,21 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1, // takes all width
   },
   link: {
-    color: theme.palette.text.secondary,
+    // Set default color of the SideBar link here
+    color: theme.palette.text.secondary, // Smooth text
+    // color: theme.palette.text.primary, // Contrast text
   },
   linkActive: {
-    color: theme.palette.text.primary,
+    // Applied to the SideBar link when "associated page" is selected
+    // color: theme.palette.text.primary, // Contrast text
+    color: theme.palette.primary.main, // Colorful as "primary"
+    // color: theme.palette.secondary.main, // Colorful as "secondary"
   },
 }));
 
 /**
- * Router link with styling to use in SideBar, highlights the current url.
+ * Router link with styling to use in SideBar, highlights the current url
+ * @class SideBarLink
  */
 const SideBarLink = forwardRef(({ className, ...restOfProps }, ref) => {
   const classes = useStyles();

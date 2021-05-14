@@ -9,7 +9,7 @@ export async function logoutByAxios() {
   //   refresh_token: loadRefreshToken(),
   // };
   try {
-    // const res = await api?.axios?.post(ENDPOINT, data);
+    // const res = process.env.REACT_APP_MULTIPASS ? fakeApiResponse() : await api?.axios?.post(ENDPOINT, data);
     // const { data } = res;
     // log.warn(`${METHOD} -`, data);
   } catch (error) {

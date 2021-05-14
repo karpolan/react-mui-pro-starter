@@ -12,7 +12,7 @@ describe('AppLink component', () => {
         <AppLink href={url}>{text}</AppLink>
       </AppRouter>
     );
-    const link = await screen.getByText(text);
+    const link = screen.getByText(text);
     expect(link).toBeDefined();
     expect(link).toHaveAttribute('href', url);
     expect(link).toHaveTextContent(text);
@@ -26,7 +26,7 @@ describe('AppLink component', () => {
         <AppLink href={url}>{text}</AppLink>
       </AppRouter>
     );
-    const link = await screen.getByText(text);
+    const link = screen.getByText(text);
     expect(link).toBeDefined();
     expect(link).toHaveAttribute('href', url);
     expect(link).toHaveTextContent(text);
@@ -45,7 +45,7 @@ describe('AppLink component', () => {
         <AppLink to={url}>{text}</AppLink>
       </AppRouter>
     );
-    const link = await screen.getByText(text);
+    const link = screen.getByText(text);
     expect(link).toBeDefined();
     expect(link).toHaveAttribute('href', url);
     expect(link).toHaveTextContent(text);
@@ -64,7 +64,7 @@ describe('AppLink component', () => {
         </AppLink>
       </AppRouter>
     );
-    let link = await screen.getByText(text);
+    let link = screen.getByText(text);
     expect(link).toBeDefined();
     expect(link).toHaveAttribute('href', url);
     expect(link).toHaveTextContent(text);
@@ -81,7 +81,7 @@ describe('AppLink component', () => {
         </AppLink>
       </AppRouter>
     );
-    link = await screen.getByText(text);
+    link = screen.getByText(text);
     expect(link).toBeDefined();
     expect(link).toHaveAttribute('href', url);
     expect(link).toHaveTextContent(text);
@@ -103,7 +103,7 @@ describe('AppLink component', () => {
         </AppLink>
       </AppRouter>
     );
-    let link = await screen.getByText(text);
+    let link = screen.getByText(text);
     expect(link).toBeDefined();
     expect(link).toHaveClass(className);
   });

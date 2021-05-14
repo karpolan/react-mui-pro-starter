@@ -2,6 +2,7 @@ import { localStorageSet } from '../utils/localStorage';
 
 /**
  * Main reducer for global AppStore using "Redux styled" actions
+ * @function AppReducer
  * @param {object} state - current/default state
  * @param {string} action.type - unique name of the action
  * @param {*} [action.payload] - optional data object or the function to get data object
@@ -13,6 +14,7 @@ const AppReducer = (state, action) => {
         ...state,
         currentUser: action?.currentUser || action?.payload,
       };
+    case 'SIGN_UP':
     case 'LOG_IN':
       return {
         ...state,

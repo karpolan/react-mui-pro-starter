@@ -17,7 +17,6 @@ import { AppForm, AppAlert } from '../../../components/forms';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { api } from '../../../api';
 
-
 const VALIDATE_FORM_SIGNUP = {
   email: {
     email: true,
@@ -140,7 +139,7 @@ const SignupView = () => {
       }
 
       dispatch({ type: 'SIGN_UP' });
-      return history.replace('/');
+      history.replace('/');
     },
     [dispatch, values, history]
   );

@@ -126,7 +126,7 @@ const PrivateLayout = ({ children }) => {
       );
       matchingPages.push(KNOWN_PAGES[0]); // "NotFound" page as a fallback
       newTitle = matchingPages[0]?.title;
-      updateDocumentTitle(newTitle); 
+      updateDocumentTitle(newTitle);
     } else {
       newTitle = '';
       updateDocumentTitle(); // Reset to default App title

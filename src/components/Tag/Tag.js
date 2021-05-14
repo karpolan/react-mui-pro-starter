@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders Tag (actually MUI Chip) with given text Label styling by MUI Color name
+ * @class Tag
  * @param {string} color - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
  * @param {string} label - text to show in UpperCase, if label is empty nothing is rendered
  */
