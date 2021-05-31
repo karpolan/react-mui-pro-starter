@@ -1,7 +1,8 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.7.27",
+  "version": "0.7.29",
   "description": "React + Material UI all in once starter",
+  "license": "MIT",
   "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
   "keywords": [
     "react",
@@ -31,7 +32,7 @@
     "react-idle-timer": "latest",
     "react-router-dom": "latest",
     "react-scripts": "latest",
-    "validate.js": "^0.13.1",
+    "validate.js": "latest",
     "web-vitals": "latest"
   },
   "devDependencies": {
