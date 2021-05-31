@@ -26,6 +26,7 @@ const Routes = () => {
 
     if (isLogged && !state.isAuthenticated) {
       // Valid token is present but we are not logged in somehow, lets fix it
+      log.warn('Token found, lets try to auto login');
       dispatch({ type: 'LOG_IN' });
     }
   }, [state.isAuthenticated, dispatch]); // Effect for every state.isAuthenticated change actually
