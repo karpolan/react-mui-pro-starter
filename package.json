@@ -2,7 +2,7 @@
   "name": "react-mui-pro-starter",
   "version": "0.7.29",
   "description": "React + Material UI all in once starter",
-  "license": "ICS",
+  "license": "MIT",
   "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
   "keywords": [
     "react",
