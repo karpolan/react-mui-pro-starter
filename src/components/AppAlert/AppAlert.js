@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Application styled Alert component
- * @class AppAlert
+ * @component AppAlert
  */
 const AppAlert = ({
   severity = APP_ALERT_SEVERITY,

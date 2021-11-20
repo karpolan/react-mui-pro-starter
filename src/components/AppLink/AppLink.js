@@ -11,7 +11,7 @@ const DEFAULT_APP_LINK_UNDERLINE = 'hover'; // 'always
 
 /**
  * Restyled Link for navigation in the App, support internal links by "to" prop and external links by "href" prop
- * @class AppLink
+ * @component AppLink
  * @param {node} children - content to wrap with <a> tag
  * @param {string} [to] - internal link URI
  * @param {string} [href] - external link URI

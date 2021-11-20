@@ -22,7 +22,7 @@ function getValidMuiColor(color) {
 }
 /**
  * Renders Material UI IconButton with SVG icon by given Name
- * @class AppIconButton
+ * @component AppIconButton
  * @param {node} [children] - content to render inside MUI IconButton component
  * @param {string} [color] - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
  * @param {string} [icon] - name of Icon to render inside the IconButton

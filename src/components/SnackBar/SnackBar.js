@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders App styled SnackBar
- * @class SnackBar
+ * @component SnackBar
  * @param {boolean} [autoOpen] - enables automatic opening of the SnackBar
  * @param {number} [autoHideDuration] - duration in milliseconds to hide the SnackBar
  * @param {node} [children] - content to render, overrides .message property

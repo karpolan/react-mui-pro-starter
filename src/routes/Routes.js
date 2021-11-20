@@ -7,7 +7,7 @@ import { isUserStillLoggedIn } from '../api/auth/utils';
 
 /**
  * Renders Application routes depending on Logged or Anonymous users
- * @class Routes
+ * @component Routes
  */
 const Routes = () => {
   const [state, dispatch] = useAppStore();

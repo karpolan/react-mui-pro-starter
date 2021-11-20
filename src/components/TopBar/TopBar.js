@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders TopBar composition
- * @class TopBar
+ * @component TopBar
  */
 const TopBar = ({ className, title = '', isAuthenticated, onMenu, onNotifications, ...restOfProps }) => {
   const classes = useStyles();

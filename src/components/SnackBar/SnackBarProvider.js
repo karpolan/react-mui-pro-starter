@@ -3,7 +3,7 @@ import { SNACKBAR_MAX_COUNT } from './utils';
 
 /**
  * Provider for SnackBar stack and utils from "notistack" npm
- * @class SnackBarProvider
+ * @component SnackBarProvider
  */
 const SnackBarProvider = ({ children }) => {
   return (

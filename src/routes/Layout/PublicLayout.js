@@ -65,7 +65,7 @@ const SIDE_BAR_PUBLIC_ITEMS = [
 
 /**
  * Renders "Public Layout" composition
- * @class PublicLayout
+ * @component PublicLayout
  */
 const PublicLayout = ({ children }) => {
   const classes = useStyles();

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders User info with Avatar
- * @class UserInfo
+ * @component UserInfo
  * @param {string} [className] - optional className for <div> tag
  * @param {boolean} [showAvatar] - user's avatar picture is shown when true
  * @param {object} [user] - logged user data {name, email, avatar...}

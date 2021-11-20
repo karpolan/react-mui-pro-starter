@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
 
 /**
  * Application styled Form container
- * @class AppForm
+ * @component AppForm
  */
 const AppForm = ({ children, ...resOfProps }) => {
   const classes = useStyles();

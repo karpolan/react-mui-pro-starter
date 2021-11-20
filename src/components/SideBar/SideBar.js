@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Renders SideBar with Menu and User details
  * Actually for Authenticated users only, rendered in "Private Layout"
- * @class SideBar
+ * @component SideBar
  * @param {string} [prop.anchor] - 'left' or 'right'
  * @param {string} [prop.className] - optional className for <div> tag
  * @param {array} props.items - list of objects to render as navigation links

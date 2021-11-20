@@ -103,7 +103,7 @@ const SIDE_BAR_PRIVATE_ITEMS = [
 
 /**
  * Renders "Private Layout" composition
- * @class PrivateLayout
+ * @component PrivateLayout
  */
 const PrivateLayout = ({ children }) => {
   const [state] = useAppStore();

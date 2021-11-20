@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Application styled Material UI Button with Box around to specify margins using props
- * @class AppButton
+ * @component AppButton
  * @param {node} [children] - content to render, overrides .label and .text
  * @param {string} [color] - name of color from Material UI palette 'primary', 'secondary', 'warning', and so on
  * @param {string} [label] - text to render, alternate to .text

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders all <div> of the children property as "Tag Cloud"
- * @class TagCloud
+ * @component TagCloud
  */
 const TagCloud = ({ children, className, ...props }) => {
   const classes = useStyles();

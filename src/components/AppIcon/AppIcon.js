@@ -60,7 +60,7 @@ const ICONS = {
 
 /**
  * Renders SVG icon by given Icon name
- * @class AppIcon
+ * @component AppIcon
  * @param {string} [props.name] - name of the Icon to render, overrides .icon property
  * @param {string} [props.icon] - name of the Icon to render
  */

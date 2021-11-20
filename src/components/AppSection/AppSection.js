@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders Application styled "Section" using Material UI Paper and Title components
- * @class AppSection
+ * @component AppSection
  * @param {node} [children] - content to render
  * @param {string} title - text of heading Title
  * @param {string} variant - variant of MUI Typography to render Title

@@ -7,7 +7,7 @@ import IdleTimer from './components/IdleTimer';
 
 /**
  * Root Application Component
- * @class App
+ * @component App
  */
 const App = () => {
   return (

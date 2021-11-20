@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Router link with styling to use in SideBar, highlights the current url
- * @class SideBarLink
+ * @component SideBarLink
  */
 const SideBarLink = forwardRef(({ className, ...restOfProps }, ref) => {
   const classes = useStyles();
