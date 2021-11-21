@@ -8,8 +8,12 @@ import RecoveryPasswordView from './Password';
 const RecoveryRoutes = () => {
   return (
     <Switch>
-      <Route path="/auth/recovery/password" component={RecoveryPasswordView} />
-      <Route component={RecoveryPasswordView} />
+      <Route path="/auth/recovery/password">
+        <RecoveryPasswordView />
+      </Route>
+      <Route>
+        <RecoveryPasswordView />
+      </Route>
     </Switch>
   );
 };

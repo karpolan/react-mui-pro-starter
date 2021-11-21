@@ -11,10 +11,18 @@ import RecoveryRoutes from './Recovery';
 const AuthRoutes = () => {
   return (
     <Switch>
-      <Route path="/auth/signup" component={SignupRoutes} />
-      <Route path="/auth/login" component={LoginRoutes} />
-      <Route path="/auth/recovery" component={RecoveryRoutes} />
-      <Route component={AuthView} />
+      <Route path="/auth/signup">
+        <SignupRoutes />
+      </Route>
+      <Route path="/auth/login">
+        <LoginRoutes />
+      </Route>
+      <Route path="/auth/recovery">
+        <RecoveryRoutes />
+      </Route>
+      <Route>
+        <AuthView />
+      </Route>
     </Switch>
   );
 };

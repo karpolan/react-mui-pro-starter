@@ -8,8 +8,12 @@ import LoginEmailView from './Email';
 const LoginRoutes = () => {
   return (
     <Switch>
-      <Route path="/auth/login/email" component={LoginEmailView} />
-      <Route component={LoginEmailView} />
+      <Route path="/auth/login/email">
+        <LoginEmailView />
+      </Route>
+      <Route>
+        <LoginEmailView />
+      </Route>
     </Switch>
   );
 };

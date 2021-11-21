@@ -8,7 +8,9 @@ import WelcomeView from './Welcome';
 const WelcomeRoutes = () => {
   return (
     <Switch>
-      <Route component={WelcomeView} />
+      <Route>
+        <WelcomeView />
+      </Route>
     </Switch>
   );
 };

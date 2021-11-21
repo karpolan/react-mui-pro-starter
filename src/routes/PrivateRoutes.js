@@ -11,12 +11,24 @@ const PrivateRoutes = () => {
   return (
     <PrivateLayout>
       <Switch>
-        <Route path="/" exact component={Welcome} />
-        <Route path="/welcome" component={Welcome} />
-        <Route path="/about" component={About} />,
-        <Route path="/tools" component={Tools} />,
-        <Route path="/user" component={User} />,
-        <Route component={NotFound} />
+        <Route path="/" exact>
+          <Welcome />
+        </Route>
+        <Route path="/welcome">
+          <Welcome />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/tools">
+          <Tools />
+        </Route>
+        <Route path="/user">
+          <User />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </PrivateLayout>
   );

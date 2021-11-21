@@ -13,10 +13,18 @@ const PublicRoutes = () => {
   return (
     <PublicLayout>
       <Switch>
-        <Route path="/" exact component={LoginEmailView} />
-        <Route path="/auth" component={AuthRoutes} />
-        <Route path="/about" component={About} />,
-        <Route component={NotFound} />
+        <Route path="/" exact>
+          <LoginEmailView />
+        </Route>
+        <Route path="/auth">
+          <AuthRoutes />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </PublicLayout>
   );

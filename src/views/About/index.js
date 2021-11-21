@@ -8,7 +8,9 @@ import AboutView from './About';
 const AboutRoutes = () => {
   return (
     <Switch>
-      <Route component={AboutView} />
+      <Route>
+        <AboutView />
+      </Route>
     </Switch>
   );
 };

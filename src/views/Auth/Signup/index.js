@@ -9,9 +9,15 @@ import ConfirmEmailView from './ConfirmEmail';
 const SignupRoutes = () => {
   return (
     <Switch>
-      <Route path="/auth/signup/confirm-email" component={ConfirmEmailView} />
-      <Route path="/auth/signup" component={SignupView} />
-      <Route component={SignupView} />
+      <Route path="/auth/signup/confirm-email">
+        <ConfirmEmailView />
+      </Route>
+      <Route path="/auth/signup">
+        <SignupView />
+      </Route>
+      <Route>
+        <SignupView />
+      </Route>
     </Switch>
   );
 };
