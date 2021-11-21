@@ -24,15 +24,13 @@ function testButtonColor(colorName, expectedClassName = colorName, ignoreClassNa
     let text = `${colorName} button`;
     await render(<WrappedAppButton color={colorName}>{text}</WrappedAppButton>);
 
-    let span = await screen.getByText(text); // <span> with specific text
+    let span = screen.getByText(text); // <span> with specific text
     expect(span).toBeDefined();
 
-    let button = await span.closest('button'); // parent <button> element
+    let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
     // console.log('button.className:', button?.className)
-    if (!ignoreClassName) {
-      expect(button?.className?.includes(`makeStyles-${expectedClassName}`)).toBeTruthy(); // There is "makeStyles-[expectedClassName]-xxx" class
-    }
+    expect(ignoreClassName || button?.className?.includes(`makeStyles-${expectedClassName}`)).toBeTruthy(); // There is "makeStyles-[expectedClassName]-xxx" class
   });
 }
 
@@ -42,10 +40,10 @@ describe('AppButton component', () => {
   it('renders itself', async () => {
     let text = 'sample button';
     await render(<WrappedAppButton>{text}</WrappedAppButton>);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
     expect(span).toHaveTextContent(text);
-    let button = await span.closest('button'); // parent <button> element
+    let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
     expect(button).toHaveAttribute('type', 'button'); // not "submit" or "input" by default
   });
@@ -66,9 +64,9 @@ describe('AppButton component', () => {
     let text = 'button with specific class';
     let className = 'someClassName';
     await render(<WrappedAppButton className={className}>{text}</WrappedAppButton>);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
-    let button = await span.closest('button'); // parent <button> element
+    let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
     expect(button).toHaveClass(className);
   });
@@ -76,18 +74,18 @@ describe('AppButton component', () => {
   it('supports label property', async () => {
     let text = 'button with label';
     await render(<WrappedAppButton label={text} />);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
-    let button = await span.closest('button'); // parent <button> element
+    let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
   });
 
   it('supports text property', async () => {
     let text = 'button with text';
     await render(<WrappedAppButton text={text} />);
-    let span = await screen.getByText(text);
+    let span = screen.getByText(text);
     expect(span).toBeDefined();
-    let button = await span.closest('button'); // parent <button> element
+    let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
   });
 });

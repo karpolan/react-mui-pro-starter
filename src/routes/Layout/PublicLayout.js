@@ -1,13 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  BottomNavigation,
-  BottomNavigationAction,
-  Grid,
-} from '@mui/material/';
+import { AppBar, Toolbar, Typography, BottomNavigation, BottomNavigationAction, Grid } from '@mui/material/';
 import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store/AppStore';
 import { ErrorBoundary, AppIconButton, AppIcon } from '../../components';
