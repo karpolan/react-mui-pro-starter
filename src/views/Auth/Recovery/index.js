@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import RecoveryPasswordView from './Password';
 
 /**
@@ -7,10 +7,10 @@ import RecoveryPasswordView from './Password';
  */
 const RecoveryRoutes = () => {
   return (
-    <Switch>
-      <Route path="/auth/recovery/password" component={RecoveryPasswordView} />
-      <Route component={RecoveryPasswordView} />
-    </Switch>
+    <Routes>
+      <Route path="/password" element={<RecoveryPasswordView />} />
+      <Route path="*" element={<RecoveryPasswordView />} />
+    </Routes>
   );
 };
 

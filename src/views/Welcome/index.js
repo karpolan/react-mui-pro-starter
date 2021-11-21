@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import WelcomeView from './Welcome';
 
 /**
@@ -7,9 +7,9 @@ import WelcomeView from './Welcome';
  */
 const WelcomeRoutes = () => {
   return (
-    <Switch>
-      <Route component={WelcomeView} />
-    </Switch>
+    <Routes>
+      <Route path="*" element={<WelcomeView />} />
+    </Routes>
   );
 };
 

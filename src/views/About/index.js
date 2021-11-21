@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AboutView from './About';
 
 /**
@@ -7,9 +7,9 @@ import AboutView from './About';
  */
 const AboutRoutes = () => {
   return (
-    <Switch>
-      <Route component={AboutView} />
-    </Switch>
+    <Routes>
+      <Route path="*" element={<AboutView />} />
+    </Routes>
   );
 };
 

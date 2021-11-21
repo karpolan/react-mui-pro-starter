@@ -1,5 +1,5 @@
 import { ErrorBoundary } from './components';
-import { AppRouter, Routes } from './routes';
+import { AppRoutes } from './routes';
 import { AppStore } from './store';
 import { AppThemeProvider } from './theme';
 import { AppSnackBarProvider } from './components/AppSnackBar';
@@ -16,9 +16,7 @@ const App = () => {
         <IdleTimer />
         <AppThemeProvider>
           <AppSnackBarProvider>
-            <AppRouter>
-              <Routes />
-            </AppRouter>
+            <AppRoutes />
           </AppSnackBarProvider>
         </AppThemeProvider>
       </AppStore>
