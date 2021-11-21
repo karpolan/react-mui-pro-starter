@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, BottomNavigation, BottomNavigationAction, Grid } from '@mui/material/';
 import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store/AppStore';
@@ -64,7 +64,7 @@ const PublicLayout = ({ children }) => {
   const classes = useStyles();
   const [openSideBar, setOpenSideBar] = useState(false);
   const [state, dispatch] = useAppStore();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const title = TITLE_PUBLIC;
   document.title = title; // Also Update Tab Title
@@ -86,7 +86,7 @@ const PublicLayout = ({ children }) => {
   }, [openSideBar]);
 
   const handleBottomNavigationChange = (event, value) => {
-    history.push(value);
+    navigate(value);
   };
 
   return (

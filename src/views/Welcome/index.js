@@ -8,9 +8,7 @@ import WelcomeView from './Welcome';
 const WelcomeRoutes = () => {
   return (
     <Routes>
-      <Route>
-        <WelcomeView />
-      </Route>
+      <Route path="*" element={<WelcomeView />} />
     </Routes>
   );
 };

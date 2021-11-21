@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, Card, CardHeader, CardContent, InputAdornment } from '@mui/material';
 import { useAppStore } from '../../../store';
 import { AppButton, AppIconButton, AppLink } from '../../../components';
@@ -27,7 +27,7 @@ const VALIDATE_FORM_LOGIN_EMAIL = {
  * url: /auth/login/email/*
  */
 const LoginEmailView = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [, dispatch] = useAppStore();
   const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
     validationSchema: VALIDATE_FORM_LOGIN_EMAIL,
@@ -52,9 +52,9 @@ const LoginEmailView = () => {
       }
 
       dispatch({ type: 'LOG_IN' });
-      history.replace('/');
+      navigate('/', { replace: true });
     },
-    [dispatch, values, history]
+    [dispatch, values, navigate]
   );
 
   const handleCloseError = useCallback(() => setError(undefined), []);

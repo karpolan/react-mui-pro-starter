@@ -8,9 +8,7 @@ import AboutView from './About';
 const AboutRoutes = () => {
   return (
     <Routes>
-      <Route>
-        <AboutView />
-      </Route>
+      <Route path="*" element={<AboutView />} />
     </Routes>
   );
 };

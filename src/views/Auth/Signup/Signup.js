@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Grid,
   TextField,
@@ -66,7 +66,7 @@ const VALIDATE_EXTENSION = {
  * url: /auth/signup
  */
 const SignupView = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [, dispatch] = useAppStore();
   const [validationSchema, setValidationSchema] = useState({
     ...VALIDATE_FORM_SIGNUP,
@@ -139,9 +139,9 @@ const SignupView = () => {
       }
 
       dispatch({ type: 'SIGN_UP' });
-      history.replace('/');
+      navigate('/', { replace: true });
     },
-    [dispatch, values, history]
+    [dispatch, values, navigate]
   );
 
   const handleCloseError = useCallback(() => setError(undefined), []);

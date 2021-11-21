@@ -1,4 +1,3 @@
-import Routes from './Routes';
-import AppRouter from './AppRouter';
+import AppRoutes from './AppRoutes';
 
-export { Routes as default, Routes, AppRouter };
+export { AppRoutes as default, AppRoutes };

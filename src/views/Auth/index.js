@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AuthView from './Auth';
 import SignupRoutes from './Signup';
 import LoginRoutes from './Login';
@@ -11,18 +11,10 @@ import RecoveryRoutes from './Recovery';
 const AuthRoutes = () => {
   return (
     <Routes>
-      <Route path="/auth/signup">
-        <SignupRoutes />
-      </Route>
-      <Route path="/auth/login">
-        <LoginRoutes />
-      </Route>
-      <Route path="/auth/recovery">
-        <RecoveryRoutes />
-      </Route>
-      <Route>
-        <AuthView />
-      </Route>
+      <Route path="/signup/*" element={<SignupRoutes />} />
+      <Route path="/login/*" element={<LoginRoutes />} />
+      <Route path="/recovery/*" element={<RecoveryRoutes />} />
+      <Route path="*" element={<AuthView />} />
     </Routes>
   );
 };

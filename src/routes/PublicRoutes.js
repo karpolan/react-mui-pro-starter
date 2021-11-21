@@ -13,18 +13,10 @@ const PublicRoutes = () => {
   return (
     <PublicLayout>
       <Routes>
-        <Route path="/" exact>
-          <LoginEmailView />
-        </Route>
-        <Route path="/auth">
-          <AuthRoutes />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
+        <Route path="/" element={<LoginEmailView />} />
+        <Route path="/auth/*" element={<AuthRoutes />} />
+        <Route path="/about/*" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </PublicLayout>
   );
