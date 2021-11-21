@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { IconButton, Tooltip } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import { AppIcon } from '..';
-import { COLOR_VALUES, buttonStylesByNames } from '../../utils/styles';
+import { COLOR_VALUES, buttonStylesByNames } from '../../utils/style';
 
 // TODO: Get rid of makeStyles()
 const useStyles = makeStyles((theme) => ({

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { Button, Box } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import { COLOR_VALUES, buttonStylesByNames } from '../../utils/styles';
+import { COLOR_VALUES, buttonStylesByNames } from '../../utils/style';
 import { APP_BUTTON_VARIANT, APP_BUTTON_MARGIN } from '../config';
 
 // TODO: Get rid of makeStyles()

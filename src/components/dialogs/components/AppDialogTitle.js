@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { DialogTitle } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import { AppIconButton } from '../..';
-import { dialogStyles } from '../../../utils/styles';
+import { dialogStyles } from '../../../utils/style';
 
 const useStyles = makeStyles((theme) => ({
   ...dialogStyles(theme),

@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import { formStyle } from '../../utils/styles';
+import { formStyle } from '../../utils/style';
 
 export const useStyles = makeStyles((theme) => ({
   formBody: {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import { paperStyle } from '../../utils/styles';
+import { paperStyle } from '../../utils/style';
 import { APP_SECTION_VARIANT } from '../config';
 
 // TODO: Get rid of makeStyles()
