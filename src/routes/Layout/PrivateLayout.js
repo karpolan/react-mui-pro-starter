@@ -1,7 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
-import { makeStyles, useTheme, Grid, useMediaQuery } from '@material-ui/core';
+import { useTheme, Grid, useMediaQuery } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store';
 import { TopBar } from '../../components/TopBar';
 import { ErrorBoundary } from '../../components';
@@ -103,7 +104,7 @@ const SIDE_BAR_PRIVATE_ITEMS = [
 
 /**
  * Renders "Private Layout" composition
- * @class PrivateLayout
+ * @component PrivateLayout
  */
 const PrivateLayout = ({ children }) => {
   const [state] = useAppStore();

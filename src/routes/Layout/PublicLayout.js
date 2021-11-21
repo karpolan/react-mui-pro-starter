@@ -1,14 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  makeStyles,
-  AppBar,
-  Toolbar,
-  Typography,
-  BottomNavigation,
-  BottomNavigationAction,
-  Grid,
-} from '@material-ui/core/';
+import { AppBar, Toolbar, Typography, BottomNavigation, BottomNavigationAction, Grid } from '@mui/material/';
+import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store/AppStore';
 import { ErrorBoundary, AppIconButton, AppIcon } from '../../components';
 import { SideBar } from '../../components/SideBar';
@@ -65,7 +58,7 @@ const SIDE_BAR_PUBLIC_ITEMS = [
 
 /**
  * Renders "Public Layout" composition
- * @class PublicLayout
+ * @component PublicLayout
  */
 const PublicLayout = ({ children }) => {
   const classes = useStyles();

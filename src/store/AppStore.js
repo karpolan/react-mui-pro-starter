@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { localStorageGet } from '../utils/localStorage';
 import AppReducer from './AppReducer';
 

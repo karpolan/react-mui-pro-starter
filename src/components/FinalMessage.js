@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 
 /**
  * Renders "Big" Final Message
  * Used when the Entity/Object not found, serious error occurs, during maintenance and so on.
- * @class FinalMessage
+ * @component FinalMessage
  */
 const FinalMessage = ({ children, className, title, ...restOfProps }) => {
   return (

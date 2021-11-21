@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Router link with styling to use in SideBar, highlights the current url
- * @class SideBarLink
+ * @component SideBarLink
  */
 const SideBarLink = forwardRef(({ className, ...restOfProps }, ref) => {
   const classes = useStyles();

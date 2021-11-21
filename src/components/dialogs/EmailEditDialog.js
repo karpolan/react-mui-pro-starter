@@ -1,9 +1,10 @@
 import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, Dialog, DialogActions, DialogContent, TextField } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppButton } from '..';
 import { AppDialogTitle } from './components';
-import { dialogStyles } from '../../utils/styles';
+import { dialogStyles } from '../../utils/style';
 
 const useStyles = makeStyles((theme) => ({
   ...dialogStyles(theme),

@@ -1,54 +1,28 @@
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
-
-/**
- * Note: You can change these const to control default appearance of the AppAlert component
- */
-const APP_ALERT_SEVERITY = 'error'; // 'error' | 'info'| 'success' | 'warning'
-const APP_ALERT_VARIANT = 'filled'; // 'filled' | 'outlined' | 'standard'
-const APP_ALERT_ELEVATION = 5;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(1),
-  },
-}));
+import { Alert } from '@mui/material';
+import { APP_ALERT_SEVERITY, APP_ALERT_VARIANT } from '../config';
 
 /**
  * Application styled Alert component
- * @class AppAlert
+ * Note: forwardRef is needed to use AppAlert inside SnackBar and other MUI components
+ * @component AppAlert
+ * @param {string} severity - severity of the alert, defines the color and icon used
+ * @param {string} variant - variant of the alert's styling
  */
-const AppAlert = ({
-  severity = APP_ALERT_SEVERITY,
-  variant = APP_ALERT_VARIANT,
-  elevation = APP_ALERT_ELEVATION,
-  className,
-  onClose,
-  ...props
-}) => {
-  const classes = useStyles();
-
-  return (
-    <MuiAlert
-      className={clsx(classes.root, className)}
-      elevation={elevation}
-      severity={severity}
-      variant={variant}
-      onClose={onClose}
-      {...props}
-    />
-  );
-};
+const AppAlert = forwardRef(
+  ({ children, severity = APP_ALERT_SEVERITY, variant = APP_ALERT_VARIANT, ...restOfProps }, ref) => {
+    return (
+      <Alert sx={{ mb: 1 }} severity={severity} variant={variant} {...restOfProps} ref={ref}>
+        {children}
+      </Alert>
+    );
+  }
+);
 
 AppAlert.propTypes = {
   severity: PropTypes.string,
   variant: PropTypes.string,
-  elevation: PropTypes.number,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  onClose: PropTypes.func,
 };
 
 export default AppAlert;

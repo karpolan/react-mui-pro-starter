@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
 import { AppIcon, AppIconButton } from '../../components';
 import { AppSection } from '../../components/forms';
 

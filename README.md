@@ -1,6 +1,6 @@
 # React + Material UI Professional starter
 
-Mix of [Create React App](https://github.com/facebook/create-react-app) and [Material UI](https://material-ui.com/) with set of reusable components and utilities to build professional React Application faster.
+Mix of [Create React App](https://github.com/facebook/create-react-app) and [Material UI](https://mui.com) with set of reusable components and utilities to build professional React Application faster.
 
 - [Source Code](https://github.com/karpolan/react-mui-pro-starter)
 - [Online Demo](https://react-mui-pro-starter.netlify.app/)

@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Divider, Drawer, Switch, Tooltip, FormControlLabel } from '@material-ui/core';
+import { Divider, Drawer, Switch, Tooltip, FormControlLabel } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store/AppStore';
 import { AppIconButton } from '..';
 import UserInfo from '../UserInfo/UserInfo';
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Renders SideBar with Menu and User details
  * Actually for Authenticated users only, rendered in "Private Layout"
- * @class SideBar
+ * @component SideBar
  * @param {string} [prop.anchor] - 'left' or 'right'
  * @param {string} [prop.className] - optional className for <div> tag
  * @param {array} props.items - list of objects to render as navigation links

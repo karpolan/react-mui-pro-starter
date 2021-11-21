@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { makeStyles, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import AppIconButton from '../AppIconButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders TopBar composition
- * @class TopBar
+ * @component TopBar
  */
 const TopBar = ({ className, title = '', isAuthenticated, onMenu, onNotifications, ...restOfProps }) => {
   const classes = useStyles();

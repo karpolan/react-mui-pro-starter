@@ -20,6 +20,10 @@ export function localStorageGet(name, defaultValue = '') {
  * Smartly writes value into localStorage
  */
 export function localStorageSet(name, value) {
+  if (typeof value === 'undefined') {
+    return; // Do not store undefined values
+  }
+
   let valueAsString;
   if (typeof value === 'object') {
     valueAsString = JSON.stringify(value);

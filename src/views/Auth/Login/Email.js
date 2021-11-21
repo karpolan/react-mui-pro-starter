@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Card, CardHeader, CardContent, InputAdornment } from '@material-ui/core';
+import { Grid, TextField, Card, CardHeader, CardContent, InputAdornment } from '@mui/material';
 import { useAppStore } from '../../../store';
 import { AppButton, AppIconButton, AppLink } from '../../../components';
 import { AppForm, AppAlert } from '../../../components/forms';
@@ -103,7 +103,7 @@ const LoginEmailView = () => {
               {error}
             </AppAlert>
           ) : null}
-          <Grid container justify="center" alignItems="center">
+          <Grid container justifyContent="center" alignItems="center">
             <AppButton type="submit" disabled={!formState.isValid}>
               Login with Email
             </AppButton>

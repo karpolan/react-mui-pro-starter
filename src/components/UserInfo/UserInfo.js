@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Avatar, Typography } from '@material-ui/core';
+import { Avatar, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppLink } from '..';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders User info with Avatar
- * @class UserInfo
+ * @component UserInfo
  * @param {string} [className] - optional className for <div> tag
  * @param {boolean} [showAvatar] - user's avatar picture is shown when true
  * @param {object} [user] - logged user data {name, email, avatar...}

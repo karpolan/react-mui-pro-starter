@@ -4,7 +4,7 @@
  * Martial Color tool: https://material.io/resources/color
  */
 
-import { createMuiTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
+import { createTheme, ThemeProvider, StyledEngineProvider, CssBaseline } from '@mui/material';
 import { useAppStore } from './store/AppStore';
 
 /**
@@ -43,7 +43,7 @@ const FRONT_COLORS = {
  */
 const LIGHT_THEME = {
   palette: {
-    type: 'light',
+    mode: 'light',
     background: {
       paper: '#f5f5f5', // Gray 100 - Background of "Paper" based component
       default: '#FFFFFF',
@@ -57,7 +57,7 @@ const LIGHT_THEME = {
  */
 const DARK_THEME = {
   palette: {
-    type: 'dark',
+    mode: 'dark',
     background: {
       paper: '#424242', // Gray 800 - Background of "Paper" based component
       default: '#303030',
@@ -71,14 +71,16 @@ const DARK_THEME = {
  */
 const AppThemeProvider = ({ children }) => {
   const [state] = useAppStore();
-  // const theme = useMemo(() => (state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME)), [state.darkMode]);
-  const theme = state.darkMode ? createMuiTheme(DARK_THEME) : createMuiTheme(LIGHT_THEME);
+  // const theme = useMemo(() => (state.darkMode ? createTheme(DARK_THEME) : createTheme(LIGHT_THEME)));
+  const theme = state.darkMode ? createTheme(DARK_THEME) : createTheme(LIGHT_THEME);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline /* Material UI Styles */ />
-      {children}
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline /* Material UI Styles */ />
+        {children}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 
