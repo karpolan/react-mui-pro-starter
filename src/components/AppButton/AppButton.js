@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Button, Box } from '@material-ui/core';
+import { Button, Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { COLOR_VALUES, buttonStylesByNames } from '../../utils/styles';
+import { APP_BUTTON_VARIANT, APP_BUTTON_MARGIN } from '../config';
 
-/**
- * Note: You can change these const to control default appearance of the AppButton component
- */
-const APP_BUTTON_VARIANT = 'contained'; // | 'text' | 'outlined'
-const APP_BUTTON_MARGIN = 1;
-
+// TODO: Get rid of makeStyles()
 const useStyles = makeStyles((theme) => ({
   root: {},
   box: {
@@ -58,9 +55,9 @@ AppButton.propTypes = {
   color: PropTypes.oneOf(COLOR_VALUES),
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  size: PropTypes.oneOf(['large', 'medium', 'small']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   text: PropTypes.string,
-  variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
+  variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
   onClick: PropTypes.func,
 };
 

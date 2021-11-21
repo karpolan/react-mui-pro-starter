@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Avatar, Typography } from '@material-ui/core';
+import { Avatar, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppLink } from '..';
 
 const useStyles = makeStyles((theme) => ({

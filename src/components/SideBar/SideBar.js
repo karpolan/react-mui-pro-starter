@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Divider, Drawer, Switch, Tooltip, FormControlLabel } from '@material-ui/core';
+import { Divider, Drawer, Switch, Tooltip, FormControlLabel } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store/AppStore';
 import { AppIconButton } from '..';
 import UserInfo from '../UserInfo/UserInfo';

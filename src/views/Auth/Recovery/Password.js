@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Grid, TextField, Card, CardHeader, CardContent } from '@material-ui/core';
+import { Grid, TextField, Card, CardHeader, CardContent } from '@mui/material';
 import { AppButton } from '../../../components';
 import { AppForm, AppAlert } from '../../../components/forms';
 import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
@@ -58,7 +58,7 @@ const RecoveryPasswordView = ({ email = '' }) => {
             </AppAlert>
           ) : null}
 
-          <Grid container justify="center" alignItems="center">
+          <Grid container justifyContent="center" alignItems="center">
             <AppButton type="submit" disabled={!formState.isValid}>
               Send Password Recovery Email
             </AppButton>

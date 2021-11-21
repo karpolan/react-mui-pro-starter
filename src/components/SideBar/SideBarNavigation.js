@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Button, List, ListItem } from '@material-ui/core';
+import { Button, List, ListItem } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppIcon } from '../';
 import SideBarLink from './SideBarLink';
 import { PropTypeSideBarItems } from './utils';

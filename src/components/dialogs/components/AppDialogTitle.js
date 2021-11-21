@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { makeStyles, DialogTitle } from '@material-ui/core';
+import { DialogTitle } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppIconButton } from '../..';
 import { dialogStyles } from '../../../utils/styles';
 

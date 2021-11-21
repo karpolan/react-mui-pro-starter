@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { Grid } from '@material-ui/core';
-import { useSnackbar } from 'notistack';
-import { AppButton, AppLink } from '../../components';
+import { Grid } from '@mui/material';
+import { AppLink } from '../../components';
 import { AppSection } from '../../components/forms';
-import { SnackBar } from '../../components/SnackBar';
 import ButtonsSection from '../components/Buttons';
 import TagsSection from '../components/Tags';
 import DialogsSection from '../components/Dialogs';
@@ -11,36 +8,13 @@ import AlertsSection from '../components/Alerts';
 import LinksSection from '../components/Links';
 import IconButtonSection from '../components/IconButtons';
 import TypographySection from '../components/Typography';
+import SnackBarsSection from '../components/SnackBars';
 
 /**
  * Renders "About" page
  * url: /about
  */
 const About = () => {
-  const [snackbars, setSnackbars] = useState({
-    info: false,
-    success: false,
-    error: false,
-  });
-  const [multiSnackbarCount, setMultiSnackbarCount] = useState(1);
-
-  const { enqueueSnackbar /*, closeSnackbar*/ } = useSnackbar();
-
-  const handleSnackBarShow = (name) => {
-    setSnackbars({ ...snackbars, [name]: true });
-  };
-
-  const handleSnackBarHide = (name) => {
-    setSnackbars({ ...snackbars, [name]: false });
-  };
-
-  const handleMultiSnackbarClick = () => {
-    enqueueSnackbar('Multi SnackBar #' + multiSnackbarCount, {
-      variant: ['info', 'success', 'warning', 'error'][Math.trunc(Math.random() * 4)],
-    });
-    setMultiSnackbarCount((value) => value + 1);
-  };
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -94,34 +68,7 @@ const About = () => {
       </Grid>
 
       <Grid item xs={12} sm={6}>
-        <AppSection title="SnackBars">
-          <Grid container justify="center">
-            <SnackBar autoOpen message={'By default the SnackBar shown for 5 seconds only'} />
-
-            <AppButton label="Show Info SnackBar" onClick={() => handleSnackBarShow('info')} />
-            <SnackBar key="1" open={snackbars.info} severity="info" onClose={() => handleSnackBarHide('info')}>
-              SnackBar with severity="info"
-            </SnackBar>
-
-            <AppButton label="Show Success SnackBar" onClick={() => handleSnackBarShow('success')} />
-            <SnackBar key="2" open={snackbars.success} severity="success" onClose={() => handleSnackBarHide('success')}>
-              SnackBar with severity="success"
-            </SnackBar>
-
-            <AppButton label="Show Error SnackBar" onClick={() => handleSnackBarShow('error')} />
-            <SnackBar
-              key="3"
-              open={snackbars.error}
-              severity="error"
-              autoHideDuration={null}
-              onClose={() => handleSnackBarHide('error')}
-            >
-              SnackBar with severity="error" visible until user clicks on [X] button
-            </SnackBar>
-
-            <AppButton label="Multi SnackBar (Click few times)" onClick={handleMultiSnackbarClick} />
-          </Grid>
-        </AppSection>
+        <SnackBarsSection />
       </Grid>
 
       <Grid item xs={12}>

@@ -55,7 +55,7 @@ export const dialogStyles = (theme) => ({
     [theme.breakpoints.up('md')]: {
       minWidth: theme.breakpoints.values.md / 2,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       minWidth: theme.breakpoints.values.sm / 2,
     },
   },

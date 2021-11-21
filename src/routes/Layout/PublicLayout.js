@@ -1,14 +1,14 @@
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  makeStyles,
   AppBar,
   Toolbar,
   Typography,
   BottomNavigation,
   BottomNavigationAction,
   Grid,
-} from '@material-ui/core/';
+} from '@mui/material/';
+import makeStyles from '@mui/styles/makeStyles';
 import { useAppStore } from '../../store/AppStore';
 import { ErrorBoundary, AppIconButton, AppIcon } from '../../components';
 import { SideBar } from '../../components/SideBar';

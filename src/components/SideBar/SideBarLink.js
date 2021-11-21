@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinearProgress } from '@material-ui/core';
+import { LinearProgress } from '@mui/material';
 
 // const DefaultFallback = <div>Loading....</div>;
 const DefaultFallback = <LinearProgress />;

@@ -19,12 +19,11 @@
     "url": "https://github.com/karpolan/react-mui-pro-starter"
   },
   "dependencies": {
-    "@material-ui/core": "latest",
-    "@material-ui/icons": "latest",
-    "@material-ui/lab": "latest",
-    "@mui/icons-material": "^5.1.1",
-    "@mui/material": "^5.1.1",
-    "@mui/styles": "^5.1.1",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/styles": "latest",
     "axios": "latest",
     "clsx": "latest",
     "date-fns": "latest",
@@ -33,7 +32,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-idle-timer": "latest",
-    "react-router-dom": "latest",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "latest",
     "validate.js": "latest",
     "web-vitals": "latest"

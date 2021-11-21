@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 
 /**
  * Renders "Big" Final Message

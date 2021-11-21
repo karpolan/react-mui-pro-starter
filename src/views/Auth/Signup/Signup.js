@@ -10,7 +10,7 @@ import {
   FormControlLabel,
   InputAdornment,
   LinearProgress,
-} from '@material-ui/core';
+} from '@mui/material';
 import { useAppStore } from '../../../store';
 import { AppButton, AppIconButton } from '../../../components';
 import { AppForm, AppAlert } from '../../../components/forms';
@@ -241,7 +241,7 @@ const SignupView = () => {
             </AppAlert>
           ) : null}
 
-          <Grid container justify="center" alignItems="center">
+          <Grid container justifyContent="center" alignItems="center">
             <AppButton type="submit" disabled={!(formState.isValid && agree)}>
               Confirm and Sign Up
             </AppButton>

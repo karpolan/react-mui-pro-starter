@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Grid } from '@mui/material';
 import { AppButton } from '../../components';
 import { AppSection } from '../../components/forms';
 import { MessageDialog, ConfirmationDialog, EmailEditDialog } from '../../components/dialogs';
@@ -101,9 +102,11 @@ class DialogsSection extends Component {
     return (
       <AppSection title="Dialogs" align="center">
         {modal}
-        <AppButton ml={0} size="small" label="Message" color="default" onClick={this.onMessageDialogOpen} />
-        <AppButton size="small" label="Confirm" color="primary" onClick={this.onConfirmDialogOpen} />
-        <AppButton mr={0} size="small" label="Edit Email" color="secondary" onClick={this.onEditEmailDialogOpen} />
+        <Grid container justifyContent="center">
+          <AppButton ml={0} size="small" label="Message" color="default" onClick={this.onMessageDialogOpen} />
+          <AppButton size="small" label="Confirm" color="primary" onClick={this.onConfirmDialogOpen} />
+          <AppButton mr={0} size="small" label="Edit Email" color="secondary" onClick={this.onEditEmailDialogOpen} />
+        </Grid>
       </AppSection>
     );
   }
