@@ -32,7 +32,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-idle-timer": "latest",
-    "react-router-dom": "^5.3.0",
+    "react-router-dom": "latest",
     "react-scripts": "latest",
     "validate.js": "latest",
     "web-vitals": "latest"

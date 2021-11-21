@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Welcome, About, Tools, User, NotFound } from '../views';
 import { PrivateLayout } from './Layout';
 
@@ -10,7 +10,7 @@ import { PrivateLayout } from './Layout';
 const PrivateRoutes = () => {
   return (
     <PrivateLayout>
-      <Switch>
+      <Routes>
         <Route path="/" exact>
           <Welcome />
         </Route>
@@ -29,7 +29,7 @@ const PrivateRoutes = () => {
         <Route>
           <NotFound />
         </Route>
-      </Switch>
+      </Routes>
     </PrivateLayout>
   );
 };

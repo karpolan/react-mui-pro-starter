@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import WelcomeView from './Welcome';
 
 /**
@@ -7,11 +7,11 @@ import WelcomeView from './Welcome';
  */
 const WelcomeRoutes = () => {
   return (
-    <Switch>
+    <Routes>
       <Route>
         <WelcomeView />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 

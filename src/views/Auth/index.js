@@ -10,7 +10,7 @@ import RecoveryRoutes from './Recovery';
  */
 const AuthRoutes = () => {
   return (
-    <Switch>
+    <Routes>
       <Route path="/auth/signup">
         <SignupRoutes />
       </Route>
@@ -23,7 +23,7 @@ const AuthRoutes = () => {
       <Route>
         <AuthView />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 

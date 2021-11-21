@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AuthRoutes from '../views/Auth';
 import { About, NotFound } from '../views';
 import { PublicLayout } from './Layout';
@@ -12,7 +12,7 @@ import LoginEmailView from '../views/Auth/Login/Email';
 const PublicRoutes = () => {
   return (
     <PublicLayout>
-      <Switch>
+      <Routes>
         <Route path="/" exact>
           <LoginEmailView />
         </Route>
@@ -25,7 +25,7 @@ const PublicRoutes = () => {
         <Route>
           <NotFound />
         </Route>
-      </Switch>
+      </Routes>
     </PublicLayout>
   );
 };

@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LoginEmailView from './Email';
 
 /**
@@ -7,14 +7,14 @@ import LoginEmailView from './Email';
  */
 const LoginRoutes = () => {
   return (
-    <Switch>
+    <Routes>
       <Route path="/auth/login/email">
         <LoginEmailView />
       </Route>
       <Route>
         <LoginEmailView />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 

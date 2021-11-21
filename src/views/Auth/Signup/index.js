@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import SignupView from './Signup';
 import ConfirmEmailView from './ConfirmEmail';
 
@@ -8,7 +8,7 @@ import ConfirmEmailView from './ConfirmEmail';
  */
 const SignupRoutes = () => {
   return (
-    <Switch>
+    <Routes>
       <Route path="/auth/signup/confirm-email">
         <ConfirmEmailView />
       </Route>
@@ -18,7 +18,7 @@ const SignupRoutes = () => {
       <Route>
         <SignupView />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import RecoveryPasswordView from './Password';
 
 /**
@@ -7,14 +7,14 @@ import RecoveryPasswordView from './Password';
  */
 const RecoveryRoutes = () => {
   return (
-    <Switch>
+    <Routes>
       <Route path="/auth/recovery/password">
         <RecoveryPasswordView />
       </Route>
       <Route>
         <RecoveryPasswordView />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 
