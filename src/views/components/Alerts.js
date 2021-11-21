@@ -11,10 +11,10 @@ const AlertsSection = () => {
 
   return (
     <AppSection title="Alerts">
-      <AppAlert severity="error">severity="error" variant=APP_ALERT_VARIANT</AppAlert>
-      <AppAlert severity="warning">severity="warning" variant=APP_ALERT_VARIANT</AppAlert>
-      <AppAlert severity="info">severity="info" variant=APP_ALERT_VARIANT</AppAlert>
-      <AppAlert severity="success">severity="success" variant=APP_ALERT_VARIANT</AppAlert>
+      <AppAlert severity="error">severity="error"</AppAlert>
+      <AppAlert severity="warning">severity="warning"</AppAlert>
+      <AppAlert severity="info">severity="info"</AppAlert>
+      <AppAlert severity="success">severity="success"</AppAlert>
       <AppAlert severity="error" variant="standard" onClose={handleAlertClose}>
         severity="error" variant="standard"
       </AppAlert>

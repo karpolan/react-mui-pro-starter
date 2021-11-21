@@ -8,7 +8,7 @@ const sortNone = () => 0;
 /**
  * Renders <ul> list with all properties of the given JavaScript object
  * Use .listObjectProps, .key/.title, .value/.property CSS classes for styling
- * @class ListObjectProps
+ * @component ListObjectProps
  * @param {object} [object] - object to print out
  * @param {boolean} [sortAbc] - properties sorted A-Z when true
  * @param {boolean} [sortZxy] - properties sorted Z-A when true

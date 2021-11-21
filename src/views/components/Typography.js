@@ -1,4 +1,4 @@
-import { Typography, Divider } from '@material-ui/core';
+import { Typography, Divider } from '@mui/material';
 import { AppSection } from '../../components/forms';
 
 /**

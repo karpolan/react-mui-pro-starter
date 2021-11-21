@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core';
-import { COLOR_VALUES, textStylesByNames } from '../../utils/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { COLOR_VALUES, textStylesByNames } from '../../utils/style';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders <span> element with styling and customization
- * @class AppSpan
+ * @component AppSpan
  * @param {node|boolean} children - content to render inside <span> tag
  * @param {string} [className] - optional className for <span> tag
  * @param {string} [color] - optional color of the content

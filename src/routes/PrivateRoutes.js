@@ -5,7 +5,7 @@ import { PrivateLayout } from './Layout';
 /**
  * List of routes available only for authenticated users
  * Also renders the "Private Layout" composition
- * @class PrivateRoutes
+ * @component PrivateRoutes
  */
 const PrivateRoutes = () => {
   return (

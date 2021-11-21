@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, Button, List, ListItem } from '@material-ui/core';
+import { Button, List, ListItem } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppIcon } from '../';
 import SideBarLink from './SideBarLink';
 import { PropTypeSideBarItems } from './utils';
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders list of Navigation Items inside SideBar
- * @class SideBarNavigation
+ * @component SideBarNavigation
  * @param {string} [prop.className] - optional className for styling
  * @param {array} props.items - list of objects to render as navigation links
  * @param {boolean} [props.showIcons] - icons in links are visible when true

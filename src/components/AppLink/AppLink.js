@@ -1,31 +1,28 @@
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
-import { Link as MuiLink } from '@material-ui/core';
-
-/**
- * Note: You can change these const to control default appearance of the AppLink component
- */
-const DEFAULT_APP_LINK_COLOR = 'textSecondary'; // 'primary' // 'secondary'
-const DEFAULT_APP_LINK_UNDERLINE = 'hover'; // 'always
+import { Link as MuiLink } from '@mui/material';
+import { APP_LINK_COLOR, APP_LINK_UNDERLINE } from '../config';
 
 /**
  * Restyled Link for navigation in the App, support internal links by "to" prop and external links by "href" prop
- * @class AppLink
+ * @component AppLink
+ * @param {string} [color] - color of the link, DEFAULT_APP_LINK_COLOR value is used if not provided
  * @param {node} children - content to wrap with <a> tag
- * @param {string} [to] - internal link URI
  * @param {string} [href] - external link URI
- * @param {boolean} [openInNewTab] - link will be opened in new tab when true
+ * @param {boolean} [openInNewTab] - link will be opened in new tab when true, it is default behavior for external links
+ * @param {string} [to] - internal link URI
+ * @param {string} [underline] - underline styling of the link, DEFAULT_APP_LINK_UNDERLINE value is used if not provided
  */
 const AppLink = forwardRef(
   (
     {
-      color = DEFAULT_APP_LINK_COLOR,
+      color = APP_LINK_COLOR,
       children,
       href,
       openInNewTab = Boolean(href), // Open external links in new Tab by default
       to,
-      underline = DEFAULT_APP_LINK_UNDERLINE,
+      underline = APP_LINK_UNDERLINE,
       ...restOfProps
     },
     ref
@@ -37,11 +34,11 @@ const AppLink = forwardRef(
       ...restOfProps,
     };
     return href ? (
-      <MuiLink ref={ref} href={href} {...propsToRender}>
+      <MuiLink href={href} {...propsToRender} ref={ref}>
         {children}
       </MuiLink>
     ) : (
-      <MuiLink ref={ref} component={RouterLink} to={to} {...propsToRender}>
+      <MuiLink component={RouterLink} to={to} {...propsToRender} ref={ref}>
         {children}
       </MuiLink>
     );
@@ -49,8 +46,8 @@ const AppLink = forwardRef(
 );
 
 AppLink.propTypes = {
-  children: PropTypes.node.isRequired,
   color: PropTypes.string,
+  children: PropTypes.node.isRequired,
   href: PropTypes.string,
   openInNewTab: PropTypes.bool,
   to: PropTypes.string,

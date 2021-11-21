@@ -5,7 +5,7 @@ import { api } from '../../api';
 
 /**
  * WatchDog timer to track inactivity and logout current user
- * @class IdleTimer
+ * @component IdleTimer
  * @param {func} [onLogout] - callback to logout current user
  */
 class IdleTimer extends Component {

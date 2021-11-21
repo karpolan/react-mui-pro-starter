@@ -1,9 +1,10 @@
 import { useCallback } from 'react';
 import { PropTypesCommonDialog } from './utils';
-import { makeStyles, Dialog, DialogActions, DialogContent } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppButton } from '..';
 import { AppDialogTitle } from './components';
-import { dialogStyles } from '../../utils/styles';
+import { dialogStyles } from '../../utils/style';
 
 const useStyles = makeStyles((theme) => ({
   ...dialogStyles(theme),

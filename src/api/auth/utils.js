@@ -89,7 +89,7 @@ export function setRefreshTimeout(interval = REFRESH_TIMEOUT) {
  * Verifies is the current user still logged in, updates the "token refresh timer" if needed
  */
 export function isUserStillLoggedIn() {
-  if (process.env.REACT_APP_MULTIPASS) return true; // Bypass for "MultiPass" login emulation mode 
+  if (process.env.REACT_APP_MULTIPASS) return true; // Bypass for "MultiPass" login emulation mode
 
   if (_timeout_refresh_token) return true; // Timeout already exists, we are logged in
 
@@ -108,7 +108,7 @@ export function isUserStillLoggedIn() {
  * @returns {object} response alike object with tokens
  */
 export function fakeApiResponse() {
-  if (!process.env.REACT_APP_MULTIPASS) return { data: {} }; // The "MultiPass" mode not found 
+  if (!process.env.REACT_APP_MULTIPASS) return { data: {} }; // The "MultiPass" mode not found
 
   const expires = REFRESH_TIMEOUT; // 15 * 60 * 1000; // 15 minutes
   return {

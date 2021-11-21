@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders all <div> of the children property as "Tag Cloud"
- * @class TagCloud
+ * @component TagCloud
  */
 const TagCloud = ({ children, className, ...props }) => {
   const classes = useStyles();

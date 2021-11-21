@@ -1,6 +1,6 @@
 /**
  * Renders "Component is under construction" boilerplate
- * @class ComponentIsNotImplemented
+ * @component ComponentIsNotImplemented
  */
 const ComponentIsNotImplemented = () => <div>Component is under construction</div>;
 

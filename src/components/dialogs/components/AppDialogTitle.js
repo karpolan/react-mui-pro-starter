@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import { makeStyles, DialogTitle } from '@material-ui/core';
+import { DialogTitle } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AppIconButton } from '../..';
-import { dialogStyles } from '../../../utils/styles';
+import { dialogStyles } from '../../../utils/style';
 
 const useStyles = makeStyles((theme) => ({
   ...dialogStyles(theme),
@@ -9,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Renders Material UI Dialog Title with optional (x) button to close the dialog
- * @class AppDialogTitle
+ * @component AppDialogTitle
  * @param {func} [onClose] - when set the (x) button aded to Dialog Title and event called on button click
  */
 const AppDialogTitle = ({ children, onClose, ...props }) => {

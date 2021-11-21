@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { AppLink, AppIcon } from '../../components';
 import FinalMessage from '../../components/FinalMessage';
 import ButtonsSection from '../components/Buttons';

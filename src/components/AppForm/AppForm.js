@@ -1,5 +1,6 @@
-import { makeStyles, Grid } from '@material-ui/core';
-import { formStyle } from '../../utils/styles';
+import { Grid } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { formStyle } from '../../utils/style';
 
 export const useStyles = makeStyles((theme) => ({
   formBody: {
@@ -9,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
 
 /**
  * Application styled Form container
- * @class AppForm
+ * @component AppForm
  */
 const AppForm = ({ children, ...resOfProps }) => {
   const classes = useStyles();
