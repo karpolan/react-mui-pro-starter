@@ -31,7 +31,7 @@
     "notistack": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-idle-timer": "latest",
+    "react-idle-timer": "^4.6.4",
     "react-router-dom": "latest",
     "react-scripts": "latest",
     "validate.js": "latest",
