@@ -39,7 +39,7 @@ const AppSpan = ({
 }) => {
   const classes = useStyles();
 
-  if (typeof children === 'boolean') children = Boolean(children) ? 'TRUE' : 'FALSE';
+  if (typeof children === 'boolean') children = children ? 'TRUE' : 'FALSE';
 
   return (
     <span

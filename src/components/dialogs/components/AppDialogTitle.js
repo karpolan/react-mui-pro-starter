@@ -18,7 +18,7 @@ const AppDialogTitle = ({ children, onClose, ...props }) => {
   return (
     <DialogTitle {...props}>
       {children}
-      {Boolean(onClose) ? (
+      {onClose ? (
         <AppIconButton className={classes.xButton} icon="close" aria-label="Close" title="Close" onClick={onClose} />
       ) : null}
     </DialogTitle>
