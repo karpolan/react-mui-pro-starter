@@ -3,7 +3,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { localStorageGet } from '../utils/localStorage';
 import AppReducer from './AppReducer';
 
-const initialAppState = {
+const INITIAL_APP_STATE = {
   darkMode: false, // Overridden by useMediaQuery('(prefers-color-scheme: dark)') in AppStore
   error: '',
   isAuthenticated: false,
@@ -12,52 +12,41 @@ const initialAppState = {
 
 /**
  * Instance of React Context for global AppStore
- *
- * import {AppContext} from './store'
- * ...
- * const [state, dispatch] = useContext(AppContext);
- *
- * OR
- *
- * import {useAppStore} from './store'
- * ...
- * const [state, dispatch] = useAppStore();
- *
  */
-const AppContext = createContext(initialAppState);
+const AppStoreContext = createContext([INITIAL_APP_STATE, () => null]);
 
 /**
  * Main global Store as HOC with React Context API
  *
- * import AppStore from './store'
+ * import AppStoreProvider from './store'
  * ...
- * <AppStore>
+ * <AppStoreProvider>
  *  <App/>
- * </AppStore>
+ * </AppStoreProvider>
  */
-const AppStore = ({ children }) => {
+export const AppStoreProvider = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const previousDarkMode = Boolean(localStorageGet('darkMode'));
+  // const tokenExists = Boolean(loadToken());
 
   const initialState = {
-    ...initialAppState,
+    ...INITIAL_APP_STATE,
     darkMode: previousDarkMode || prefersDarkMode,
+    // isAuthenticated: tokenExists,
   };
 
-  const [state, dispatch] = useReducer(AppReducer, initialState);
-  return <AppContext.Provider value={[state, dispatch]}>{children}</AppContext.Provider>;
+  const value = useReducer(AppReducer, initialState);
+  return <AppStoreContext.Provider value={value}>{children}</AppStoreContext.Provider>;
 };
 
 /**
  * Hook to use the AppStore in functional components
  */
-const useAppStore = () => useContext(AppContext);
+export const useAppStore = () => useContext(AppStoreContext);
 
 /**
- * HOC to inject the ApStore to functional or class component
+ * HOC to inject the ApStore to class component
  */
-const withAppStore = (Component) => (props) => {
+export const withAppStore = (Component) => (props) => {
   return <Component {...props} store={useAppStore()} />;
 };
-
-export { AppStore as default, AppStore, AppContext, useAppStore, withAppStore };

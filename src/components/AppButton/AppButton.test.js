@@ -1,17 +1,25 @@
-import { render, screen } from '@testing-library/react';
-import AppButton from './AppButton';
+import { render, screen, within } from '@testing-library/react';
+import createCache from '@emotion/cache';
 import { AppThemeProvider } from '../../theme';
-import AppStore from '../../store';
+import AppButton from './AppButton';
+import DefaultIcon from '@mui/icons-material/MoreHoriz';
 
-const WrappedAppButton = (props) => {
-  return (
-    <AppStore>
-      <AppThemeProvider>
-        <AppButton {...props} />
-      </AppThemeProvider>
-    </AppStore>
-  );
-};
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function createEmotionCache() {
+  return createCache({ key: 'css', prepend: true });
+}
+
+/**
+ * AppButton wrapped with Theme Provider
+ */
+const ComponentToTest = (props) => (
+  <AppThemeProvider emotionCache={createEmotionCache()}>
+    <AppButton {...props} />
+  </AppThemeProvider>
+);
 
 /**
  * Test specific color for AppButton
@@ -19,27 +27,38 @@ const WrappedAppButton = (props) => {
  * @param {string} [expectedClassName] - optional value to be found in className (color "true" may use "success" class name)
  * @param {boolean} [ignoreClassName] - optional flag to ignore className (color "inherit" doesn't use any class name)
  */
-function testButtonColor(colorName, expectedClassName = colorName, ignoreClassName = false) {
-  it(`supports "${colorName}" color`, async () => {
+function testButtonColor(colorName, ignoreClassName, expectedClassName = colorName) {
+  it(`supports "${colorName}" color`, () => {
     let text = `${colorName} button`;
-    await render(<WrappedAppButton color={colorName}>{text}</WrappedAppButton>);
+    render(
+      <ComponentToTest
+        color={colorName}
+        variant="contained" // Required to get correct CSS class name
+      >
+        {text}
+      </ComponentToTest>
+    );
 
     let span = screen.getByText(text); // <span> with specific text
     expect(span).toBeDefined();
 
     let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
-    // console.log('button.className:', button?.className)
-    expect(ignoreClassName || button?.className?.includes(`makeStyles-${expectedClassName}`)).toBeTruthy(); // There is "makeStyles-[expectedClassName]-xxx" class
+    // console.log('button.className:', button?.className);
+    if (!ignoreClassName) {
+      expect(button?.className?.includes('MuiButton-root')).toBeTruthy();
+      expect(button?.className?.includes('MuiButton-contained')).toBeTruthy();
+      expect(button?.className?.includes(`MuiButton-contained${capitalize(expectedClassName)}`)).toBeTruthy(); // Check for "MuiButton-contained[Primary| Secondary |...]" class
+    }
   });
 }
 
 describe('AppButton component', () => {
   //   beforeEach(() => {});
 
-  it('renders itself', async () => {
+  it('renders itself', () => {
     let text = 'sample button';
-    await render(<WrappedAppButton>{text}</WrappedAppButton>);
+    render(<ComponentToTest>{text}</ComponentToTest>);
     let span = screen.getByText(text);
     expect(span).toBeDefined();
     expect(span).toHaveTextContent(text);
@@ -48,22 +67,10 @@ describe('AppButton component', () => {
     expect(button).toHaveAttribute('type', 'button'); // not "submit" or "input" by default
   });
 
-  testButtonColor('primary');
-  testButtonColor('secondary');
-  testButtonColor('error');
-  testButtonColor('warning');
-  testButtonColor('info');
-  testButtonColor('success');
-  testButtonColor('true');
-  testButtonColor('false');
-
-  testButtonColor('default');
-  testButtonColor('inherit', 'default', true);
-
-  it('supports className property', async () => {
+  it('supports .className property', () => {
     let text = 'button with specific class';
     let className = 'someClassName';
-    await render(<WrappedAppButton className={className}>{text}</WrappedAppButton>);
+    render(<ComponentToTest className={className}>{text}</ComponentToTest>);
     let span = screen.getByText(text);
     expect(span).toBeDefined();
     let button = span.closest('button'); // parent <button> element
@@ -71,21 +78,75 @@ describe('AppButton component', () => {
     expect(button).toHaveClass(className);
   });
 
-  it('supports label property', async () => {
+  it('supports .label property', () => {
     let text = 'button with label';
-    await render(<WrappedAppButton label={text} />);
+    render(<ComponentToTest label={text} />);
     let span = screen.getByText(text);
     expect(span).toBeDefined();
     let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
   });
 
-  it('supports text property', async () => {
+  it('supports .text property', () => {
     let text = 'button with text';
-    await render(<WrappedAppButton text={text} />);
+    render(<ComponentToTest text={text} />);
     let span = screen.getByText(text);
     expect(span).toBeDefined();
     let button = span.closest('button'); // parent <button> element
     expect(button).toBeDefined();
   });
+
+  it('supports .startIcon property as <svg/>', () => {
+    let text = 'button with start icon';
+    render(<ComponentToTest text={text} startIcon={<DefaultIcon data-testid="startIcon" />} />);
+    let button = screen.getByText(text);
+    let icon = within(button).getByTestId('startIcon');
+    expect(icon).toBeDefined();
+    let span = icon.closest('span');
+    expect(span).toHaveClass('MuiButton-startIcon');
+  });
+
+  it('supports .endIcon property', () => {
+    let text = 'button with end icon as <svg/>';
+    render(<ComponentToTest text={text} endIcon={<DefaultIcon data-testid="endIcon" />} />);
+    let button = screen.getByText(text);
+    let icon = within(button).getByTestId('endIcon');
+    expect(icon).toBeDefined();
+    let span = icon.closest('span');
+    expect(span).toHaveClass('MuiButton-endIcon');
+  });
+
+  it('supports .startIcon property as string', () => {
+    let text = 'button with start icon';
+    render(<ComponentToTest text={text} startIcon="default" />);
+    let button = screen.getByText(text);
+    let icon = within(button).getByTestId('MoreHorizIcon'); //Note: this is valid only when "default" icon is <MoreHorizIcon />
+    expect(icon).toBeDefined();
+    let span = icon.closest('span');
+    expect(span).toHaveClass('MuiButton-startIcon');
+  });
+
+  it('supports .endIcon property', () => {
+    let text = 'button with end icon as string';
+    render(<ComponentToTest text={text} endIcon="default" />);
+    let button = screen.getByText(text);
+    let icon = within(button).getByTestId('MoreHorizIcon'); //Note: this is valid only when "default" icon is <MoreHorizIcon />
+    expect(icon).toBeDefined();
+    let span = icon.closest('span');
+    expect(span).toHaveClass('MuiButton-endIcon');
+  });
+
+  // MUI colors
+  testButtonColor('inherit');
+  testButtonColor('primary');
+  testButtonColor('secondary');
+  testButtonColor('error');
+  testButtonColor('warning');
+  testButtonColor('info');
+  testButtonColor('success');
+
+  // Non-MUI colors
+  testButtonColor('green', true);
+  testButtonColor('#FF00FF', true);
+  testButtonColor('rgba(255, 0, 0, 0.5)', true);
 });

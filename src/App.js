@@ -1,8 +1,10 @@
-import { ErrorBoundary } from './components';
-import { AppRoutes } from './routes';
+import { BrowserRouter } from 'react-router-dom';
 import { AppStore } from './store';
 import { AppThemeProvider } from './theme';
 import { AppSnackBarProvider } from './components/AppSnackBar';
+import Routes from './routes';
+import Layout from './layout';
+import { ErrorBoundary } from './components';
 import IdleTimer from './components/IdleTimer';
 
 /**
@@ -16,7 +18,11 @@ const App = () => {
         <IdleTimer />
         <AppThemeProvider>
           <AppSnackBarProvider>
-            <AppRoutes />
+            <BrowserRouter>
+              <Layout>
+                <Routes />
+              </Layout>
+            </BrowserRouter>
           </AppSnackBarProvider>
         </AppThemeProvider>
       </AppStore>
