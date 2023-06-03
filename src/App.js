@@ -1,8 +1,10 @@
-import { ErrorBoundary } from './components';
-import { AppRoutes } from './routes';
-import { AppStore } from './store';
+import { BrowserRouter } from 'react-router-dom';
+import { AppStoreProvider } from './store';
 import { AppThemeProvider } from './theme';
 import { AppSnackBarProvider } from './components/AppSnackBar';
+import Routes from './routes';
+import Layout from './layout';
+import { ErrorBoundary } from './components';
 import IdleTimer from './components/IdleTimer';
 
 /**
@@ -12,14 +14,18 @@ import IdleTimer from './components/IdleTimer';
 const App = () => {
   return (
     <ErrorBoundary name="App">
-      <AppStore>
+      <AppStoreProvider>
         <IdleTimer />
         <AppThemeProvider>
           <AppSnackBarProvider>
-            <AppRoutes />
+            <BrowserRouter>
+              <Layout>
+                <Routes />
+              </Layout>
+            </BrowserRouter>
           </AppSnackBarProvider>
         </AppThemeProvider>
-      </AppStore>
+      </AppStoreProvider>
     </ErrorBoundary>
   );
 };

@@ -1,13 +1,12 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AppLink from './AppLink';
 import { AppRouter } from '../../routes';
 
 describe('AppLink component', () => {
-  it('renders itself', async () => {
+  it('renders itself', () => {
     const text = 'sample text';
     const url = 'https://example.com/';
-    await render(
+    render(
       <AppRouter>
         <AppLink href={url}>{text}</AppLink>
       </AppRouter>
@@ -18,10 +17,10 @@ describe('AppLink component', () => {
     expect(link).toHaveTextContent(text);
   });
 
-  it('supports external link', async () => {
+  it('supports external link', () => {
     const text = 'external link';
     const url = 'https://example.com/';
-    await render(
+    render(
       <AppRouter>
         <AppLink href={url}>{text}</AppLink>
       </AppRouter>
@@ -37,10 +36,10 @@ describe('AppLink component', () => {
     expect(rel.includes('noopener')).toBeTruthy(); // rel="noreferrer check
   });
 
-  it('supports internal link', async () => {
+  it('supports internal link', () => {
     const text = 'internal link';
     const url = '/internal-link';
-    await render(
+    render(
       <AppRouter>
         <AppLink to={url}>{text}</AppLink>
       </AppRouter>
@@ -53,11 +52,11 @@ describe('AppLink component', () => {
     expect(link).not.toHaveAttribute('rel');
   });
 
-  it('supports openInNewTab property', async () => {
+  it('supports openInNewTab property', () => {
     // External link with openInNewTab={false}
     let text = 'external link in same tab';
     let url = 'https://example.com/';
-    await render(
+    render(
       <AppRouter>
         <AppLink href={url} openInNewTab={false}>
           {text}
@@ -74,7 +73,7 @@ describe('AppLink component', () => {
     // Internal link with openInNewTab={true}
     text = 'internal link in new tab';
     url = '/internal-link-in-new-tab';
-    await render(
+    render(
       <AppRouter>
         <AppLink to={url} openInNewTab>
           {text}
@@ -92,11 +91,11 @@ describe('AppLink component', () => {
     expect(rel.includes('noopener')).toBeTruthy(); // rel="noreferrer check
   });
 
-  it('supports className property', async () => {
+  it('supports className property', () => {
     let text = 'internal link with specific class';
     let url = '/internal-link-with-class';
     let className = 'someClassName';
-    await render(
+    render(
       <AppRouter>
         <AppLink to={url} className={className}>
           {text}

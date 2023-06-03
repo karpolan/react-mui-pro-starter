@@ -14,14 +14,14 @@ import SnackBarsSection from '../components/SnackBars';
  * Renders "About" page
  * url: /about
  */
-const About = () => {
+const AboutView = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <AppSection title="Application">
           <p>
-            This <AppLink href="https://reactjs.org/">React</AppLink> application is built using{' '}
-            <AppLink href="https://material-ui.com/">Material UI</AppLink> components.
+            This <AppLink href="https://react.dev/">React</AppLink> application is built using{' '}
+            <AppLink href="https://mui.com/">Material UI</AppLink> components.
           </p>
           <p>
             The project is <AppLink href="https://github.com/karpolan/react-mui-pro-starter">Open Source</AppLink> and
@@ -78,4 +78,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutView;
