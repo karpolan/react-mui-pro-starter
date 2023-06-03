@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import createCache from '@emotion/cache';
-import { CacheProvider, EmotionCache } from '@emotion/react';
+import { CacheProvider } from '@emotion/react';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useAppStore } from '../store';
 import DARK_THEME from './dark';

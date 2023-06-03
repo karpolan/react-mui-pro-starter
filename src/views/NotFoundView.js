@@ -4,7 +4,7 @@ import { AppLink } from '../components';
 /**
  * "Not Found" aka "Error 404" view
  */
-const PageNotFound = () => {
+const NotFoundView = () => {
   const location = useLocation();
   return (
     <div>
@@ -18,4 +18,4 @@ const PageNotFound = () => {
   );
 };
 
-export default PageNotFound;
+export default NotFoundView;

@@ -1,16 +1,3 @@
-import { Route, Routes } from 'react-router-dom';
-import AboutView from './About';
+import AboutView from './AboutView';
 
-/**
- * Routes for "About" view
- * url: /about/*
- */
-const AboutRoutes = () => {
-  return (
-    <Routes>
-      <Route path="*" element={<AboutView />} />
-    </Routes>
-  );
-};
-
-export default AboutRoutes;
+export { AboutView as default, AboutView };

@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { AppStore } from './store';
+import { AppStoreProvider } from './store';
 import { AppThemeProvider } from './theme';
 import { AppSnackBarProvider } from './components/AppSnackBar';
 import Routes from './routes';
@@ -14,7 +14,7 @@ import IdleTimer from './components/IdleTimer';
 const App = () => {
   return (
     <ErrorBoundary name="App">
-      <AppStore>
+      <AppStoreProvider>
         <IdleTimer />
         <AppThemeProvider>
           <AppSnackBarProvider>
@@ -25,7 +25,7 @@ const App = () => {
             </BrowserRouter>
           </AppSnackBarProvider>
         </AppThemeProvider>
-      </AppStore>
+      </AppStoreProvider>
     </ErrorBoundary>
   );
 };
