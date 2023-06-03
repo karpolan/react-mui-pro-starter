@@ -61,18 +61,16 @@ const ICONS = {
 /**
  * Renders SVG icon by given Icon name
  * @component AppIcon
- * @param {string} [props.name] - name of the Icon to render, overrides .icon property
- * @param {string} [props.icon] - name of the Icon to render
+ * @param {string} [icon] - name of the Icon to render
+ * @param {string} [name] - name of the Icon to render, overrides .icon property
  */
-const AppIcon = ({ name, icon, ...restOfProps }) => {
+const AppIcon = ({ icon, name, ...restOfProps }) => {
   const iconName = (name || icon || 'default').trim().toLowerCase();
   const ComponentToRender = ICONS[iconName] || DefaultIcon;
   return <ComponentToRender {...restOfProps} />;
 };
 
 AppIcon.propTypes = {
-  color: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'action', 'error', 'disabled']),
-  fontSize: PropTypes.oneOf(['inherit', 'default', 'small', 'large']),
   icon: PropTypes.string,
   name: PropTypes.string,
 };

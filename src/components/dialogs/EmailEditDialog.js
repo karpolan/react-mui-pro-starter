@@ -1,17 +1,9 @@
 import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
 import { AppButton } from '..';
 import { AppDialogTitle } from './components';
-import { dialogStyles } from '../../utils/style';
-
-const useStyles = makeStyles((theme) => ({
-  ...dialogStyles(theme),
-  edit: {
-    margin: 0,
-  },
-}));
+import { useDialogMinWidth } from './utils';
 
 /**
  * Shows modal "Change email" dialog
@@ -20,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
  * @param {function} props.onClose - event for Close and Cancel buttons and the backdrop
  */
 const EmailEditDialog = ({ email, open = false, title, onConfirm, onClose, ...props }) => {
-  const classes = useStyles();
   const [value, setValue] = useState(email);
+  const paperMinWidth = useDialogMinWidth();
 
   const handleInputChange = useCallback((event) => setValue(event.target.value), []);
 
@@ -31,9 +23,12 @@ const EmailEditDialog = ({ email, open = false, title, onConfirm, onClose, ...pr
 
   return (
     <Dialog
-      className={classes.root}
-      classes={{ paper: classes.paper }}
       open={open}
+      PaperProps={{
+        sx: {
+          minWidth: paperMinWidth,
+        },
+      }}
       onClose={onClose}
       aria-labelledby="form-dialog-title"
       {...props}
@@ -41,9 +36,9 @@ const EmailEditDialog = ({ email, open = false, title, onConfirm, onClose, ...pr
       <AppDialogTitle id="form-dialog-title" onClose={onClose}>
         {title || 'Change email'}
       </AppDialogTitle>
-      <DialogContent>
+      <DialogContent sx={{ py: 1 }}>
         <TextField
-          className={classes.edit}
+          sx={{ m: 0 }}
           variant="outlined"
           autoFocus
           margin="dense"
@@ -55,9 +50,9 @@ const EmailEditDialog = ({ email, open = false, title, onConfirm, onClose, ...pr
           onChange={handleInputChange}
         />
       </DialogContent>
-      <DialogActions className={classes.actions}>
+      <DialogActions sx={{ px: 3 }}>
         <AppButton onClick={onClose}>Cancel</AppButton>
-        <AppButton onClick={handleOnConfirm} color="primary" mr={0}>
+        <AppButton onClick={handleOnConfirm} color="primary" sx={{ mr: 0 }}>
           Confirm and Save
         </AppButton>
       </DialogActions>

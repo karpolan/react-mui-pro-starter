@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { api } from '.';
+import api from '.';
 import { localStorageGet } from '../utils/localStorage';
 
 /**

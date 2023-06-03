@@ -15,8 +15,12 @@ const IconButtonSection = () => {
       <AppIconButton icon="search" color="warning" title="Search icon with Warning color" />
       <AppIconButton icon="info" color="info" title="Info icon with Info color" />
       <AppIconButton icon="home" color="success" title="Home icon with Success color" />
-      <AppIconButton icon="visibilityoff" color="false" title="VisibilityOff icon with False color" />
-      <AppIconButton icon="visibilityon" color="true" title="VisibilityOn icon with True color" />
+      <AppIconButton icon="visibilityoff" color="#FF8C00" title="VisibilityOff icon with DarkOrange (#FF8C00) color" />
+      <AppIconButton
+        icon="visibilityon"
+        color="rgb(50, 205, 50)"
+        title="VisibilityOn icon with LimeGreen (rgb(50, 205, 50)) color"
+      />
       <AppIconButton icon="account" color="inherit" title="Account icon with Inherit color" />
       <br /> <br />
       <Divider />

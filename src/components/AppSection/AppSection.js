@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
-import { paperStyle } from '../../utils/style';
 import { APP_SECTION_VARIANT } from '../config';
-
-// TODO: Get rid of makeStyles()
-const useStyles = makeStyles((theme) => ({
-  paper: paperStyle(theme),
-}));
 
 /**
  * Renders Application styled "Section" using Material UI Paper and Title components
@@ -24,9 +17,8 @@ const AppSection = ({
   variant = APP_SECTION_VARIANT,
   ...restOfProps
 }) => {
-  const classes = useStyles();
   return (
-    <Paper className={classes.paper} {...restOfProps}>
+    <Paper sx={{ py: 1, px: 2 }} {...restOfProps}>
       <Typography align={align} variant={variant}>
         {title}
       </Typography>
@@ -38,7 +30,6 @@ const AppSection = ({
 AppSection.propTypes = {
   align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   children: PropTypes.node,
-  // color: PropTypes.oneOf(['initial', 'inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error']),
   title: PropTypes.string.isRequired,
   variant: PropTypes.string,
 };

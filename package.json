@@ -1,6 +1,6 @@
 {
   "name": "react-mui-pro-starter",
-  "version": "0.8.35",
+  "version": "1.0.41",
   "description": "React + Material UI all in one starter",
   "license": "MIT",
   "author": "Anton Karpenko <i@karpolan.com> (https://karpolan.com)",
@@ -23,7 +23,6 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
-    "@mui/styles": "latest",
     "axios": "latest",
     "clsx": "latest",
     "date-fns": "latest",
@@ -48,18 +47,10 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "node_modules/.bin/eslint --ext js src",
-    "format": "node_modules/.bin/prettier src --write",
+    "lint": "eslint --ext js src",
+    "lint:fix": "eslint --fix --ext js src",
+    "format": "prettier src --write",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "globals": {
-      "log": "readonly"
-    }
   },
   "browserslist": {
     "production": [

@@ -10,8 +10,8 @@ export const COLOR_VALUES = [
   'warning', // Missing in MUI 4.x
   'info', // Missing in MUI 4.x
   'success', // Missing in MUI 4.x
-  'false', // Missing in MUI 5.x
-  'true', // Missing in MUI 5.x
+  //   'false', // Missing in MUI 5.x
+  //   'true', // Missing in MUI 5.x
 ];
 
 /*

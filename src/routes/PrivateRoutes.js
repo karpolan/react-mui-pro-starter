@@ -1,24 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
-import { Welcome, About, Tools, User, NotFound } from '../views';
-import { PrivateLayout } from './Layout';
+import { WelcomeView, AboutView, ToolsView, UserView, NotFoundView } from '../views';
 
 /**
  * List of routes available only for authenticated users
- * Also renders the "Private Layout" composition
  * @component PrivateRoutes
  */
 const PrivateRoutes = () => {
   return (
-    <PrivateLayout>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/welcome/*" element={<Welcome />} />
-        <Route path="/about/*" element={<About />} />
-        <Route path="/tools/*" element={<Tools />} />
-        <Route path="/user/*" element={<User />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </PrivateLayout>
+    <Routes>
+      <Route path="/" element={<WelcomeView />} />
+      <Route path="/welcome/*" element={<WelcomeView />} />
+      <Route path="/about/*" element={<AboutView />} />
+      <Route path="/tools/*" element={<ToolsView />} />
+      <Route path="/user/*" element={<UserView />} />
+      <Route path="*" element={<NotFoundView />} />
+    </Routes>
   );
 };
 
