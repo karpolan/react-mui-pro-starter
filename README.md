@@ -2,8 +2,8 @@
 Better use [Vite + React + MUI starter](https://github.com/karpolan/react-mui-vite-ts) instead of this one.
 
 Reasons:
-- [Create React App](https://create-react-app.dev/) is **not popular** anymore.
-- **TypeScript** is more predictable than JavaScript for React Application development and maintenance.
+- [Create React App](https://create-react-app.dev/) is **not popular** anymore
+- **TypeScript** is more predictable than JavaScript for React Application development and maintenance
 - Development and debugging using **[Vite](https://vitejs.dev/)** is 10x fastesr than with Webpack
 
 
