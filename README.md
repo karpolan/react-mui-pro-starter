@@ -1,5 +1,5 @@
 # IMPORTANT UPDATE 2024-05-01
-Better use [Vite + React + MUI starter[(https://github.com/karpolan/react-mui-vite-ts) instead of this one.
+Better use [Vite + React + MUI starter](https://github.com/karpolan/react-mui-vite-ts) instead of this one.
 
 Reasons:
 - [Create React App](https://create-react-app.dev/) is **not popular** anymore.
